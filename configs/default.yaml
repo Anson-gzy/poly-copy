@@ -1,0 +1,65 @@
+# Polymarket wallet copy framework — guide defaults (paper only)
+
+case_wallet: "0x25e28169faea17421fcd4cc361f6436d1e449a09"
+
+data:
+  cache_dir: "cache"
+  trade_page_size: 100
+  max_trades: 500
+  max_positions: 200
+  max_closed: 200
+  max_activity: 300
+
+hard_screen:
+  pnl_min: 15000
+  pnl_max: 400000
+  position_value_min: 5000
+  active_markets_min: 2
+  trades_min: 20
+  win_rate_min: 0.70
+
+blacklist:
+  # monthly trade frequency above this → HFT reject
+  monthly_freq_max: 400
+  # single closed position share of |realized pnl| above this → one-event reject
+  single_event_pnl_share_max: 0.80
+  # average position current_value below this → low liquidity heuristic
+  avg_position_value_min: 50
+  # monthly freq preferred band (outside band loses score; above max rejects)
+  monthly_freq_pref_min: 30
+  monthly_freq_pref_max: 200
+
+score_weights:
+  stability: 0.25
+  drawdown_control: 0.25
+  focus: 0.20
+  profit_factor: 0.20
+  win_rate: 0.10
+
+portfolio:
+  n_wallets: 10
+  method: "score_weighted"  # equal | score_weighted
+  rebalance_days: 7
+  correlation_penalty: 0.15  # down-weight overlapping event_slug share
+
+copy:
+  mode: "fixed"  # fixed | portfolio
+  fixed_notional: 25.0
+  portfolio_capital: 1000.0
+  slippage_bps: 500  # 5%
+  follow_buys: true
+  follow_sells: true
+
+risk:
+  per_trade_stop_loss: 0.70  # lose 70% of entry → stop
+  wallet_max_drawdown: 0.18  # 15–20% band midpoint
+  portfolio_max_drawdown: 0.25
+  drift:
+    # flag if recent monthly freq / focus diverges from baseline
+    freq_ratio_max: 3.0
+    focus_drop_min: 0.35
+
+backtest:
+  initial_capital: 1000.0
+  fixed_notionals: [10, 25, 50]
+  stop_losses: [0.5, 0.7, 0.9]

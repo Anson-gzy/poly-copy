@@ -1,0 +1,62 @@
+name: poly-copy paper
+
+on:
+  schedule:
+    # every hour UTC ≈ 每小时
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      wallet:
+        description: "Wallet to paper-copy (empty = config case_wallet)"
+        required: false
+        default: ""
+      mode:
+        description: "fixed | portfolio"
+        required: false
+        default: "fixed"
+
+permissions:
+  contents: read
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          # Polymarket SDK is pre-release on PyPI
+          pip install "polymarket-client" --pre
+          pip install -e ".[dev]"
+
+      - name: Fetch + paper + report
+        env:
+          POLY_WALLET: ${{ inputs.wallet || vars.POLY_WALLET || '0x25e28169faea17421fcd4cc361f6436d1e449a09' }}
+          POLY_MODE: ${{ inputs.mode || 'fixed' }}
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          poly-copy fetch --wallet "$POLY_WALLET" | tee out/fetch.txt
+          poly-copy screen --wallet "$POLY_WALLET" | tee out/screen.json
+          poly-copy paper --wallet "$POLY_WALLET" --mode "$POLY_MODE" --limit 30 | tee out/paper.json
+          poly-copy report --wallet "$POLY_WALLET" | tee out/report.json
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: poly-copy-out
+          path: out/
+          retention-days: 14
+
+      - name: Test
+        run: pytest -q
