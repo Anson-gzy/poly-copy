@@ -19,12 +19,23 @@ data:
   max_activity: 300
 
 hard_screen:
+  # 入选（发现）条件 — 教程筛参，偏严
   pnl_min: 15000
   pnl_max: 400000
   position_value_min: 5000
   active_markets_min: 2
   trades_min: 20
   win_rate_min: 0.70
+
+# 剔除（已在组合内）条件 — 更难触发，避免擦线就换钱包
+exit_screen:
+  pnl_min: 5000
+  # 不设 pnl_max：赚过线不因此踢出
+  position_value_min: 500
+  active_markets_min: 1
+  trades_min: 5
+  win_rate_min: 0.50
+  strikes_required: 2  # 连续 N 次不达标才剔除
 
 blacklist:
   # monthly trade frequency above this → HFT reject

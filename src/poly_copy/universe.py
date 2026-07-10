@@ -9,7 +9,12 @@ from pathlib import Path
 from typing import Any
 
 from poly_copy.config import PACKAGE_ROOT
-from poly_copy.discover import DiscoverCandidate, _hard_reject, _probe, discover_wallets
+from poly_copy.discover import (
+    DiscoverCandidate,
+    _exit_reject,
+    _probe,
+    discover_wallets,
+)
 from poly_copy.portfolio import allocate
 from poly_copy.types import Allocation, WalletFeatures, WalletScore
 
@@ -25,6 +30,7 @@ class UniverseMember:
     weight: float = 0.0
     tags: list[str] = field(default_factory=list)
     checked_at: str = ""
+    exit_strikes: int = 0  # consecutive exit-screen failures
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -155,52 +161,77 @@ def sync_universe(
     path: Path | None = None,
 ) -> dict[str, Any]:
     """
-    Re-check members with guide hard filters; drop failures;
-    if < target_n, rediscover and pick best by guide score; allocate weights.
+    Re-check members with exit_screen (hysteresis); drop only after strikes_required fails.
+    If < target_n, rediscover with hard_screen entry filters and pick best; allocate weights.
     """
     _ = refresh  # probes always hit live APIs
     pc = cfg.get("portfolio", {})
     target_n = int(pc.get("n_wallets", 10))
+    exit_cfg = cfg.get("exit_screen") or {}
+    strikes_required = int(exit_cfg.get("strikes_required", 2))
     prev = load_universe(path)
     now = datetime.now(timezone.utc).isoformat()
 
     kept: list[UniverseMember] = []
     dropped: list[dict[str, Any]] = []
     scored_pairs: list[tuple[WalletFeatures, WalletScore]] = []
+    warned: list[dict[str, Any]] = []
 
     for m in prev.get("members") or []:
         addr = str(m.get("address") or "").lower()
         if not addr:
             continue
+        prev_strikes = int(m.get("exit_strikes") or 0)
         cand = _probe_candidate(
             addr,
             pnl=float(m.get("pnl") or 0),
             user_name=m.get("user_name"),
         )
-        # refresh pnl from previous if probe has no pnl field
-        reason = _hard_reject(cand, cfg)
-        # if pnl was 0 from stale member, don't fail solely on pnl_below when we lack leaderboard pnl
+        reason = _exit_reject(cand, cfg)
         if reason and reason.startswith("pnl_below") and float(m.get("pnl") or 0) >= float(
-            cfg.get("hard_screen", {}).get("pnl_min", 15000)
+            exit_cfg.get("pnl_min", cfg.get("hard_screen", {}).get("pnl_min", 5000))
         ):
             cand.pnl = float(m["pnl"])
-            reason = _hard_reject(cand, cfg)
+            reason = _exit_reject(cand, cfg)
+
         score = _guide_score(cand)
-        member = UniverseMember(
-            address=addr,
-            score=score,
-            suitable=reason is None,
-            reject_reason=reason,
-            user_name=cand.user_name or m.get("user_name"),
-            pnl=cand.pnl or m.get("pnl"),
-            tags=["guide_pass"] if reason is None else ["guide_reject"],
-            checked_at=now,
-        )
         if reason is None:
+            strikes = 0
+            member = UniverseMember(
+                address=addr,
+                score=score,
+                suitable=True,
+                reject_reason=None,
+                user_name=cand.user_name or m.get("user_name"),
+                pnl=cand.pnl or m.get("pnl"),
+                tags=["active"],
+                checked_at=now,
+                exit_strikes=0,
+            )
             kept.append(member)
             scored_pairs.append(_as_scored_pair(cand))
         else:
-            dropped.append(member.to_dict())
+            strikes = prev_strikes + 1
+            member = UniverseMember(
+                address=addr,
+                score=score,
+                suitable=False,
+                reject_reason=reason,
+                user_name=cand.user_name or m.get("user_name"),
+                pnl=cand.pnl or m.get("pnl"),
+                tags=["exit_warn"] if strikes < strikes_required else ["exited"],
+                checked_at=now,
+                exit_strikes=strikes,
+            )
+            if strikes >= strikes_required:
+                dropped.append(member.to_dict())
+            else:
+                # keep with warning — do not churn yet
+                member.suitable = True
+                member.tags = ["exit_warn", f"strikes:{strikes}/{strikes_required}"]
+                kept.append(member)
+                scored_pairs.append(_as_scored_pair(cand))
+                warned.append(member.to_dict())
 
     added: list[UniverseMember] = []
     if len(kept) < target_n:
@@ -246,7 +277,13 @@ def sync_universe(
         "members": [m.to_dict() for m in kept],
         "allocation": alloc,
         "dropped": dropped[-20:],
+        "warned": warned[-20:],
         "added": [m.to_dict() for m in added],
+        "exit_policy": {
+            "strikes_required": strikes_required,
+            "screen": "exit_screen",
+            "entry_screen": "hard_screen",
+        },
         "status": "ok" if len(kept) >= target_n else "short",
     }
     save_universe(state, path)

@@ -149,25 +149,43 @@ def _probe(address: str) -> dict[str, Any]:
     return out
 
 
-def _hard_reject(c: DiscoverCandidate, cfg: dict[str, Any]) -> str | None:
-    hs = cfg.get("hard_screen", {})
+def _screen_reject(
+    c: DiscoverCandidate,
+    cfg: dict[str, Any],
+    *,
+    screen_key: str = "hard_screen",
+) -> str | None:
+    """Apply entry (`hard_screen`) or exit (`exit_screen`) thresholds."""
+    hs = cfg.get(screen_key) or cfg.get("hard_screen", {})
     if c.pnl < float(hs.get("pnl_min", 15000)):
         return f"pnl_below_min:{c.pnl:.0f}"
-    if c.pnl > float(hs.get("pnl_max", 400000)):
+    pnl_max = hs.get("pnl_max", None)
+    if pnl_max is not None and c.pnl > float(pnl_max):
         return f"pnl_above_max:{c.pnl:.0f}"
     if c.position_value < float(hs.get("position_value_min", 5000)):
         return f"position_value_low:{c.position_value:.0f}"
     if c.active_markets < int(hs.get("active_markets_min", 2)):
         return f"active_markets_low:{c.active_markets}"
-    # trade_count from sample: if we got a full page of 25, treat as >= 25
     trades_min = int(hs.get("trades_min", 20))
     if c.trade_count < trades_min and c.traded_markets < trades_min:
         return f"trades_low:{c.trade_count}"
-    if c.closed_sample >= 5 and c.win_rate < float(hs.get("win_rate_min", 0.70)):
+    # exit screen: only judge win rate when sample is decent
+    sample_min = 3 if screen_key == "exit_screen" else 5
+    if c.closed_sample >= sample_min and c.win_rate < float(hs.get("win_rate_min", 0.70)):
         return f"win_rate_low:{c.win_rate:.2f}"
-    if c.closed_sample < 5:
+    if screen_key != "exit_screen" and c.closed_sample < 5:
         return "win_rate_sample_low"
     return None
+
+
+def _hard_reject(c: DiscoverCandidate, cfg: dict[str, Any]) -> str | None:
+    """Entry / discover reject (guide hard screen)."""
+    return _screen_reject(c, cfg, screen_key="hard_screen")
+
+
+def _exit_reject(c: DiscoverCandidate, cfg: dict[str, Any]) -> str | None:
+    """Exit reject for existing members — harder to trigger (hysteresis)."""
+    return _screen_reject(c, cfg, screen_key="exit_screen")
 
 
 def discover_wallets(cfg: dict[str, Any], *, exclude: set[str] | None = None) -> dict[str, Any]:

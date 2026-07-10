@@ -127,5 +127,6 @@ poly-copy watch --universe --mode portfolio --once
 
 组合规则：
 - 目标 **10** 个合格钱包，分数加权分配仓位
-- 每次 sync 检测是否仍符合硬筛/黑名单；不合格剔除
-- 活跃数 < 10 时自动 discover，按深度评分选最好的补齐
+- **入选**用 `hard_screen`（教程筛参，偏严）
+- **剔除**用 `exit_screen`（更难触发 + 连续 2 次不达标才踢），避免擦线就换钱包
+- 活跃数 < 10 时自动 discover，按评分选最好的补齐

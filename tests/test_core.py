@@ -142,7 +142,7 @@ def test_blacklist_thin_markets():
 
 
 def test_discover_hard_reject_pnl_band():
-    from poly_copy.discover import DiscoverCandidate, _hard_reject
+    from poly_copy.discover import DiscoverCandidate, _exit_reject, _hard_reject
 
     cfg = load_config()
     c = DiscoverCandidate(
@@ -162,6 +162,29 @@ def test_discover_hard_reject_pnl_band():
     assert _hard_reject(c, cfg) is not None
     c.pnl = 50000
     assert _hard_reject(c, cfg) is None
+
+
+def test_exit_screen_hysteresis_looser_than_entry():
+    from poly_copy.discover import DiscoverCandidate, _exit_reject, _hard_reject
+
+    cfg = load_config()
+    # barely below entry position floor, still above exit floor
+    c = DiscoverCandidate(
+        address="0xabc",
+        user_name=None,
+        pnl=50000,
+        vol=1,
+        rank="1",
+        source_period="MONTH",
+        position_value=2000,
+        active_markets=3,
+        trade_count=25,
+        traded_markets=30,
+        win_rate=0.72,
+        closed_sample=20,
+    )
+    assert _hard_reject(c, cfg) is not None  # cannot enter
+    assert _exit_reject(c, cfg) is None  # can stay
 
 
 def test_universe_save_load(tmp_path):
