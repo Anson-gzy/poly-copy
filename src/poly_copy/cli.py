@@ -202,6 +202,63 @@ def cmd_backtest(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_dashboard(args: argparse.Namespace) -> int:
+    """Write dashboard/data.json for the HTML status page."""
+    from datetime import datetime, timezone
+
+    from poly_copy.backtest import run_backtest
+    from poly_copy.portfolio import allocate, domain_dispersion
+
+    cfg = load_config(args.config)
+    store = default_store(cfg)
+    wallets = _wallets_from_args(args, cfg)
+    snaps = _load_snaps(wallets, store, cfg, args.refresh)
+    features = [compute_features(s) for s in snaps]
+    ranked = rank_universe(features, cfg)
+    alloc = allocate(ranked, cfg) or {s.address: 1.0 / len(snaps) for s in snaps}
+    events = []
+    for snap in snaps:
+        events.extend(snap.events())
+    events.sort(key=lambda e: e.timestamp or 0)
+    bt = run_backtest(events, alloc, cfg)
+    primary = snaps[0]
+    feat = features[0]
+    sc = ranked[0][1]
+    out_dir = Path(args.out) if args.out else PACKAGE_ROOT / "dashboard"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "mode": "paper",
+        "repo": "Anson-gzy/poly-copy",
+        "wallet": {
+            "address": primary.address,
+            "profile": primary.profile,
+            "fetched_at": primary.fetched_at,
+            "leaderboard_pnl": primary.leaderboard_pnl,
+            "leaderboard_vol": primary.leaderboard_vol,
+            "portfolio_value": primary.portfolio_value,
+            "traded_market_count": primary.traded_market_count,
+            "trade_count": len(primary.trades),
+            "open_positions": len(primary.positions),
+            "closed_positions": len(primary.closed_positions),
+        },
+        "features": feat.to_dict(),
+        "score": sc.to_dict(),
+        "verdict": "适合跟" if sc.suitable else f"不适合跟 ({sc.hard_reject_reason})",
+        "allocation": alloc,
+        "domain_dispersion": domain_dispersion(features, alloc),
+        "backtest": bt.to_dict(),
+        "recent_trades": sorted(
+            primary.trades, key=lambda t: t.get("timestamp") or "", reverse=True
+        )[:40],
+    }
+    path = out_dir / "data.json"
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+    print(str(path), file=sys.stderr)
+    _print({"ok": True, "path": str(path), "verdict": payload["verdict"]})
+    return 0
+
+
 def cmd_fetch(args: argparse.Namespace) -> int:
     cfg = load_config(args.config)
     store = default_store(cfg)
@@ -306,6 +363,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("report", "Portfolio weights, dispersion, simulated equity", cmd_report),
         ("backtest", "Historical replay / param scan", cmd_backtest),
         ("watch", "Fast poll newest trades with liquidity gate", cmd_watch),
+        ("dashboard", "Export dashboard/data.json for the HTML page", cmd_dashboard),
     ]:
         sp = sub.add_parser(name, help=help_)
         add_wallet_args(sp)
@@ -326,7 +384,8 @@ def build_parser() -> argparse.ArgumentParser:
             sp.add_argument("--mode", choices=["fixed", "portfolio"])
             sp.add_argument("--interval", type=float, help="Poll seconds (default 15)")
             sp.add_argument("--once", action="store_true", help="Single poll then exit")
-
+        if name == "dashboard":
+            sp.add_argument("--out", help="Output directory (default: dashboard/)")
     return p
 
 

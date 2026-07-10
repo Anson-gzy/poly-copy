@@ -50,12 +50,16 @@ jobs:
           poly-copy screen --wallet "$POLY_WALLET" | tee out/screen.json
           poly-copy paper --wallet "$POLY_WALLET" --mode "$POLY_MODE" --limit 30 | tee out/paper.json
           poly-copy report --wallet "$POLY_WALLET" | tee out/report.json
+          poly-copy dashboard --wallet "$POLY_WALLET" --out out/dashboard
+          cp -f out/dashboard/data.json dashboard/data.json || true
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: poly-copy-out
-          path: out/
+          path: |
+            out/
+            dashboard/data.json
           retention-days: 14
 
       - name: Test

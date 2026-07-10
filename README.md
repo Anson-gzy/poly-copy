@@ -100,3 +100,15 @@ poly-copy screen --wallet 0x25e2...   # 含流动性特征与黑名单
 
 也可在 Actions 页手动 **Run workflow**；输出在 Artifacts。  
 可选：Repo → Settings → Variables 设 `POLY_WALLET`。
+
+## Dashboard（Geist HTML）
+
+状态与历史看板：`dashboard/index.html`
+
+```bash
+poly-copy dashboard --wallet 0x25e28169faea17421fcd4cc361f6436d1e449a09
+python -m http.server 8787 --directory dashboard
+# open http://127.0.0.1:8787
+```
+
+页面展示：当前 verdict / PnL / 纸面净值、评分拆解、赛道分散、最近成交、GitHub Actions 运行历史。

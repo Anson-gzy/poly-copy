@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>poly-copy · Paper Status</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.min.css" />
+  <style>
+    :root {
+      --geist-background-100: #ffffff;
+      --geist-background-200: #fafafa;
+      --geist-gray-100: #f2f2f2;
+      --geist-gray-200: #ebebeb;
+      --geist-gray-400: #eaeaea;
+      --geist-gray-500: #c9c9c9;
+      --geist-gray-700: #8f8f8f;
+      --geist-gray-900: #4d4d4d;
+      --geist-gray-1000: #171717;
+      --geist-blue-100: #f0f7ff;
+      --geist-blue-700: #006bff;
+      --geist-red-100: #ffeeef;
+      --geist-red-700: #fc0035;
+      --geist-amber-100: #fff6de;
+      --geist-amber-800: #ff9300;
+      --geist-green-100: #ecfdec;
+      --geist-green-700: #28a948;
+      --geist-radius-sm: 6px;
+      --geist-radius-md: 12px;
+      --shadow-card: 0 2px 2px rgba(0, 0, 0, 0.04);
+      --font-sans: "Geist Sans", "GeistSans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+      --font-mono: "Geist Mono", "GeistMono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--geist-background-200);
+      color: var(--geist-gray-1000);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--geist-blue-700); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button:focus-visible, a:focus-visible, select:focus-visible {
+      outline: 2px solid var(--geist-blue-700);
+      outline-offset: 2px;
+    }
+
+    .shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+    header.top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .brand {
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.96px;
+      line-height: 32px;
+    }
+    .sub {
+      color: var(--geist-gray-900);
+      margin-top: 4px;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      height: 32px;
+      padding: 0 12px;
+      border-radius: var(--geist-radius-sm);
+      border: 1px solid var(--geist-gray-400);
+      background: var(--geist-background-100);
+      color: var(--geist-gray-1000);
+      font: 500 13px/16px var(--font-sans);
+      cursor: pointer;
+    }
+    .btn:hover { background: var(--geist-gray-100); }
+    .btn-primary {
+      background: var(--geist-gray-1000);
+      color: #fff;
+      border-color: var(--geist-gray-1000);
+    }
+    .btn-primary:hover { background: #000; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 960px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      header.top { flex-direction: column; }
+    }
+
+    .card {
+      background: var(--geist-background-100);
+      border: 1px solid var(--geist-gray-400);
+      border-radius: var(--geist-radius-sm);
+      box-shadow: var(--shadow-card);
+      padding: 24px;
+    }
+    .card h2 {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.28px;
+    }
+    .metric-label {
+      color: var(--geist-gray-900);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.96px;
+      line-height: 32px;
+    }
+    .metric-hint {
+      margin-top: 8px;
+      color: var(--geist-gray-700);
+      font-size: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 24px;
+      padding: 0 8px;
+      border-radius: var(--geist-radius-full);
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid transparent;
+    }
+    .badge-ok { background: var(--geist-green-100); color: var(--geist-green-700); }
+    .badge-warn { background: var(--geist-amber-100); color: var(--geist-amber-800); }
+    .badge-err { background: var(--geist-red-100); color: var(--geist-red-700); }
+    .badge-info { background: var(--geist-blue-100); color: var(--geist-blue-700); }
+    .badge-muted { background: var(--geist-gray-100); color: var(--geist-gray-900); }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 960px) {
+      .row-2 { grid-template-columns: 1fr; }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--geist-gray-400);
+      vertical-align: top;
+    }
+    th {
+      color: var(--geist-gray-900);
+      font-weight: 500;
+      font-size: 12px;
+    }
+    td.mono, th.mono, .mono {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+    tr:last-child td { border-bottom: none; }
+    .muted { color: var(--geist-gray-700); }
+    .truncate {
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .bars {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 88px 1fr 64px;
+      gap: 8px;
+      align-items: center;
+    }
+    .bar-track {
+      height: 8px;
+      background: var(--geist-gray-100);
+      border-radius: var(--geist-radius-full);
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--geist-gray-1000);
+      border-radius: var(--geist-radius-full);
+    }
+
+    .empty {
+      padding: 24px;
+      color: var(--geist-gray-700);
+      text-align: center;
+    }
+    .error {
+      background: var(--geist-red-100);
+      color: var(--geist-red-700);
+      border: 1px solid #ffd7d6;
+      border-radius: var(--geist-radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+    footer {
+      margin-top: 32px;
+      color: var(--geist-gray-700);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div>
+        <div class="brand">poly-copy</div>
+        <div class="sub">Paper status · wallet portfolio follow (not live trading)</div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="btnRefresh" type="button">Refresh Data</button>
+        <a class="btn btn-primary" href="https://github.com/Anson-gzy/poly-copy/actions" target="_blank" rel="noreferrer">Open Actions</a>
+      </div>
+    </header>
+
+    <div id="error" class="error" hidden></div>
+
+    <section class="grid" id="metrics">
+      <div class="card"><div class="metric-label">Mode</div><div class="metric-value" id="mMode">—</div><div class="metric-hint" id="mGenerated">—</div></div>
+      <div class="card"><div class="metric-label">Verdict</div><div class="metric-value" style="font-size:18px;line-height:28px" id="mVerdict">—</div><div class="metric-hint" id="mScore">—</div></div>
+      <div class="card"><div class="metric-label">Leaderboard PnL</div><div class="metric-value" id="mPnl">—</div><div class="metric-hint" id="mWallet">—</div></div>
+      <div class="card"><div class="metric-label">Paper Equity</div><div class="metric-value" id="mEquity">—</div><div class="metric-hint" id="mDd">—</div></div>
+    </section>
+
+    <section class="row-2">
+      <div class="card">
+        <h2>Current Snapshot</h2>
+        <table>
+          <tbody id="snapshotBody"></tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Score Components</h2>
+        <div class="bars" id="scoreBars"></div>
+      </div>
+    </section>
+
+    <section class="row-2">
+      <div class="card">
+        <h2>GitHub Actions History</h2>
+        <div id="runsWrap"><div class="empty">Loading runs…</div></div>
+      </div>
+      <div class="card">
+        <h2>Domain Dispersion</h2>
+        <div class="bars" id="domainBars"></div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <h2>Recent Trades</h2>
+      <div id="tradesWrap"><div class="empty">Loading trades…</div></div>
+    </section>
+
+    <footer>
+      Serve locally with <span class="mono">python -m http.server 8787 --directory dashboard</span>
+      then open <span class="mono">http://127.0.0.1:8787</span>. Data from <span class="mono">data.json</span> + public GitHub / Polymarket APIs.
+    </footer>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const fmt = {
+      money(n) {
+        if (n == null || Number.isNaN(Number(n))) return "—";
+        const x = Number(n);
+        const sign = x < 0 ? "-" : "";
+        return sign + "$" + Math.abs(x).toLocaleString(undefined, { maximumFractionDigits: 0 });
+      },
+      pct(n) {
+        if (n == null || Number.isNaN(Number(n))) return "—";
+        return (Number(n) * 100).toFixed(1) + "%";
+      },
+      num(n, d = 2) {
+        if (n == null || Number.isNaN(Number(n))) return "—";
+        return Number(n).toLocaleString(undefined, { maximumFractionDigits: d });
+      },
+      shortAddr(a) {
+        if (!a) return "—";
+        return a.slice(0, 6) + "…" + a.slice(-4);
+      },
+      time(iso) {
+        if (!iso) return "—";
+        try { return new Date(iso).toLocaleString(); } catch { return iso; }
+      }
+    };
+
+    function badge(text, kind) {
+      return `<span class="badge badge-${kind}">${text}</span>`;
+    }
+
+    function row(k, v) {
+      return `<tr><th style="width:42%">${k}</th><td>${v}</td></tr>`;
+    }
+
+    function renderSnapshot(data) {
+      const w = data.wallet || {};
+      const f = data.features || {};
+      const s = data.score || {};
+      $("snapshotBody").innerHTML = [
+        row("Wallet", `<span class="mono">${w.address || "—"}</span>`),
+        row("Fetched At", `<span class="mono">${fmt.time(w.fetched_at || data.generated_at)}</span>`),
+        row("Trades / Closed / Open", `<span class="mono">${w.trade_count ?? "—"} / ${w.closed_positions ?? "—"} / ${w.open_positions ?? "—"}</span>`),
+        row("Active Markets", `<span class="mono">${w.traded_market_count ?? f.active_markets ?? "—"}</span>`),
+        row("Monthly Freq", `<span class="mono">${fmt.num(f.monthly_freq, 1)}</span>`),
+        row("Win Rate", `<span class="mono">${fmt.pct(f.win_rate)}</span>`),
+        row("Max Drawdown", `<span class="mono">${fmt.pct(f.max_drawdown)}</span>`),
+        row("Liquid Trade Share", `<span class="mono">${fmt.pct(f.liquid_trade_share)}</span>`),
+        row("Median Liquidity", `<span class="mono">${fmt.money(f.median_market_liquidity)}</span>`),
+        row("Tags", (s.tags || []).map(t => badge(t, t.includes("suitable") && !t.includes("un") ? "ok" : "muted")).join(" ") || "—"),
+      ].join("");
+    }
+
+    function renderBars(el, obj, colorFn) {
+      const entries = Object.entries(obj || {});
+      if (!entries.length) {
+        el.innerHTML = `<div class="empty">No data</div>`;
+        return;
+      }
+      const max = Math.max(...entries.map(([, v]) => Number(v) || 0), 1e-9);
+      el.innerHTML = entries
+        .sort((a, b) => Number(b[1]) - Number(a[1]))
+        .map(([k, v]) => {
+          const n = Number(v) || 0;
+          const pct = Math.max(0, Math.min(100, (n / (max > 1 ? max : 1)) * (max > 1 ? 100 : 100 * max)));
+          const width = max > 1 ? (n / max) * 100 : n * 100;
+          return `<div class="bar-row">
+            <div class="truncate" title="${k}">${k}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${width}%"></div></div>
+            <div class="mono muted">${max > 1 ? fmt.num(n, 2) : fmt.pct(n)}</div>
+          </div>`;
+        })
+        .join("");
+    }
+
+    function renderTrades(trades) {
+      if (!trades || !trades.length) {
+        $("tradesWrap").innerHTML = `<div class="empty">No recent trades in snapshot</div>`;
+        return;
+      }
+      $("tradesWrap").innerHTML = `<table>
+        <thead>
+          <tr>
+            <th>Time</th><th>Side</th><th>Market</th><th class="mono">Price</th><th class="mono">Size</th><th class="mono">Notional</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${trades.map(t => {
+            const price = Number(t.price || 0);
+            const size = Number(t.size || 0);
+            const side = String(t.side || "").toUpperCase();
+            const sideBadge = side === "BUY" ? badge("BUY", "ok") : badge("SELL", "warn");
+            return `<tr>
+              <td class="mono">${fmt.time(t.timestamp)}</td>
+              <td>${sideBadge}</td>
+              <td class="truncate" title="${t.title || t.slug || ""}">${t.slug || t.title || "—"}</td>
+              <td class="mono">${fmt.num(price, 3)}</td>
+              <td class="mono">${fmt.num(size, 2)}</td>
+              <td class="mono">${fmt.money(price * size)}</td>
+            </tr>`;
+          }).join("")}
+        </tbody>
+      </table>`;
+    }
+
+    function renderMetrics(data) {
+      const suitable = data.score?.suitable;
+      $("mMode").textContent = (data.mode || "paper").toUpperCase();
+      $("mGenerated").textContent = "Updated " + fmt.time(data.generated_at);
+      $("mVerdict").innerHTML = suitable
+        ? badge("适合跟", "ok")
+        : badge(data.verdict || "不适合跟", "err");
+      $("mScore").textContent = "score " + fmt.num(data.score?.score, 3);
+      $("mPnl").textContent = fmt.money(data.wallet?.leaderboard_pnl);
+      $("mWallet").textContent = fmt.shortAddr(data.wallet?.address);
+      $("mEquity").textContent = fmt.money(data.backtest?.final_equity);
+      $("mDd").textContent = "max DD " + fmt.pct(data.backtest?.max_drawdown) + " · fills " + (data.backtest?.n_fills ?? "—");
+    }
+
+    async function loadRuns(repo) {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${repo}/actions/runs?per_page=12`, {
+          headers: { Accept: "application/vnd.github+json" },
+        });
+        if (!res.ok) throw new Error("GitHub API " + res.status);
+        const json = await res.json();
+        const runs = json.workflow_runs || [];
+        if (!runs.length) {
+          $("runsWrap").innerHTML = `<div class="empty">No workflow runs yet</div>`;
+          return;
+        }
+        $("runsWrap").innerHTML = `<table>
+          <thead><tr><th>Workflow</th><th>Status</th><th>When</th></tr></thead>
+          <tbody>
+            ${runs.map(r => {
+              const ok = r.conclusion === "success";
+              const fail = r.conclusion === "failure";
+              const kind = ok ? "ok" : fail ? "err" : r.status === "in_progress" ? "info" : "muted";
+              const label = r.conclusion || r.status || "unknown";
+              return `<tr>
+                <td><a href="${r.html_url}" target="_blank" rel="noreferrer">${r.name}</a></td>
+                <td>${badge(label, kind)}</td>
+                <td class="mono">${fmt.time(r.created_at)}</td>
+              </tr>`;
+            }).join("")}
+          </tbody>
+        </table>`;
+      } catch (e) {
+        $("runsWrap").innerHTML = `<div class="empty">Could not load Actions history (${e.message})</div>`;
+      }
+    }
+
+    async function loadDashboard() {
+      $("error").hidden = true;
+      try {
+        const res = await fetch("./data.json?ts=" + Date.now());
+        if (!res.ok) throw new Error("data.json " + res.status + " — serve the dashboard folder over HTTP");
+        const data = await res.json();
+        renderMetrics(data);
+        renderSnapshot(data);
+        renderBars($("scoreBars"), data.score?.components || {});
+        renderBars($("domainBars"), data.domain_dispersion || {});
+        renderTrades(data.recent_trades || []);
+        await loadRuns(data.repo || "Anson-gzy/poly-copy");
+      } catch (e) {
+        $("error").hidden = false;
+        $("error").textContent = e.message;
+      }
+    }
+
+    $("btnRefresh").addEventListener("click", loadDashboard);
+    loadDashboard();
+  </script>
+</body>
+</html>
