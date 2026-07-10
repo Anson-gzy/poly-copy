@@ -286,6 +286,11 @@
     </section>
 
     <section class="card" style="margin-top:16px">
+      <h2>Universe (Target 10)</h2>
+      <div id="universeWrap"><div class="empty">Loading universe…</div></div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
       <h2>Recent Trades</h2>
       <div id="tradesWrap"><div class="empty">Loading trades…</div></div>
     </section>
@@ -448,6 +453,37 @@
       }
     }
 
+    async function loadUniverse() {
+      try {
+        const res = await fetch("./universe.json?ts=" + Date.now());
+        if (!res.ok) throw new Error("no universe yet");
+        const u = await res.json();
+        const members = u.members || [];
+        const status = u.status === "ok" ? badge("Full " + (u.active_n || 0) + "/10", "ok")
+          : badge("Short " + (u.active_n || 0) + "/" + (u.target_n || 10), "warn");
+        if (!members.length) {
+          $("universeWrap").innerHTML = `<div class="empty">Empty — run poly-copy universe sync</div>`;
+          return;
+        }
+        $("universeWrap").innerHTML = `<div style="margin-bottom:12px">${status}
+          <span class="mono muted" style="margin-left:8px">${fmt.time(u.updated_at)}</span></div>
+          <table>
+            <thead><tr><th>Wallet</th><th>Name</th><th class="mono">Score</th><th class="mono">Weight</th><th class="mono">PnL</th></tr></thead>
+            <tbody>
+              ${members.map(m => `<tr>
+                <td class="mono">${fmt.shortAddr(m.address)}</td>
+                <td class="truncate">${m.user_name || "—"}</td>
+                <td class="mono">${fmt.num(m.score, 3)}</td>
+                <td class="mono">${fmt.pct(m.weight)}</td>
+                <td class="mono">${fmt.money(m.pnl)}</td>
+              </tr>`).join("")}
+            </tbody>
+          </table>`;
+      } catch (e) {
+        $("universeWrap").innerHTML = `<div class="empty">Universe not built yet (${e.message})</div>`;
+      }
+    }
+
     async function loadDashboard() {
       $("error").hidden = true;
       try {
@@ -459,6 +495,7 @@
         renderBars($("scoreBars"), data.score?.components || {});
         renderBars($("domainBars"), data.domain_dispersion || {});
         renderTrades(data.recent_trades || []);
+        await loadUniverse();
         await loadRuns(data.repo || "Anson-gzy/poly-copy");
       } catch (e) {
         $("error").hidden = false;

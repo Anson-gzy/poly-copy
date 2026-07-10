@@ -2,17 +2,11 @@ name: poly-copy watch
 
 on:
   schedule:
-    # every 5 minutes (GitHub Actions practical minimum)
     - cron: "*/5 * * * *"
   workflow_dispatch:
-    inputs:
-      wallet:
-        description: "Wallet (empty = default case)"
-        required: false
-        default: ""
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   watch:
@@ -28,13 +22,21 @@ jobs:
           python -m pip install -U pip
           pip install "polymarket-client" --pre
           pip install -e ".[dev]"
-      - name: Fast watch once (liquidity gated)
-        env:
-          POLY_WALLET: ${{ inputs.wallet || vars.POLY_WALLET || '0x25e28169faea17421fcd4cc361f6436d1e449a09' }}
+      - name: Sync universe (10 wallets) + paper follow
         run: |
+          set -euo pipefail
           mkdir -p out
-          poly-copy watch --wallet "$POLY_WALLET" --once --interval 1 | tee out/watch.json || true
-          poly-copy screen --wallet "$POLY_WALLET" | tee out/screen.json
+          poly-copy universe sync | tee out/universe.json
+          cp -f dashboard/universe.json out/universe.json
+          poly-copy paper --universe --mode portfolio --limit 40 | tee out/paper.json
+          poly-copy watch --universe --once --interval 1 --mode portfolio | tee out/watch.json || true
+      - name: Commit universe state
+        run: |
+          git config user.name "poly-copy-bot"
+          git config user.email "poly-copy-bot@users.noreply.github.com"
+          git add dashboard/universe.json || true
+          git diff --cached --quiet || git commit -m "chore: refresh universe $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push || true
       - uses: actions/upload-artifact@v4
         with:
           name: poly-copy-watch

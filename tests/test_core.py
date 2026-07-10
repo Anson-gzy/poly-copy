@@ -162,3 +162,20 @@ def test_discover_hard_reject_pnl_band():
     assert _hard_reject(c, cfg) is not None
     c.pnl = 50000
     assert _hard_reject(c, cfg) is None
+
+
+def test_universe_save_load(tmp_path):
+    from poly_copy.universe import load_universe, save_universe
+
+    path = tmp_path / "universe.json"
+    state = {
+        "updated_at": "2026-01-01T00:00:00+00:00",
+        "target_n": 10,
+        "active_n": 1,
+        "members": [{"address": "0xabc", "score": 0.5, "suitable": True, "weight": 1.0}],
+        "allocation": {"0xabc": 1.0},
+    }
+    save_universe(state, path)
+    loaded = load_universe(path)
+    assert loaded["active_n"] == 1
+    assert loaded["members"][0]["address"] == "0xabc"

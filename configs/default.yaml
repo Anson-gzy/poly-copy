@@ -4,10 +4,10 @@ case_wallet: "0x25e28169faea17421fcd4cc361f6436d1e449a09"
 
 # guide: polymarketanalytics Traders filters → public leaderboard + probe
 discover:
-  time_periods: ["MONTH", "ALL"]
-  leaderboard_limit: 100
-  max_candidates: 40
-  max_results: 10
+  time_periods: ["MONTH", "WEEK", "ALL"]
+  leaderboard_limit: 200
+  max_candidates: 80
+  max_results: 20
   workers: 8
 
 data:
@@ -55,10 +55,11 @@ liquidity:
   allow_unknown: false
 
 portfolio:
-  n_wallets: 10
+  n_wallets: 10  # always try to keep this many suitable wallets
   method: "score_weighted"  # equal | score_weighted
   rebalance_days: 7
   correlation_penalty: 0.15  # down-weight overlapping event_slug share
+  refill: true  # when active < n_wallets, rediscover and pick best
 
 copy:
   mode: "fixed"  # fixed | portfolio

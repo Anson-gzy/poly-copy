@@ -41,6 +41,40 @@ def fetch_leaderboard(
     return data if isinstance(data, list) else []
 
 
+def iter_leaderboard_band(
+    *,
+    time_period: str,
+    pnl_min: float,
+    pnl_max: float,
+    want: int,
+    page_size: int = 50,
+    max_pages: int = 20,
+) -> list[dict[str, Any]]:
+    """
+    Walk leaderboard pages until we collect `want` wallets inside PnL band.
+    Leaderboard is PnL-desc, so once pnl < pnl_min we can stop.
+    """
+    out: list[dict[str, Any]] = []
+    for page in range(max_pages):
+        rows = fetch_leaderboard(time_period=time_period, limit=page_size, offset=page * page_size)
+        if not rows:
+            break
+        stop = False
+        for row in rows:
+            pnl = float(row.get("pnl") or 0)
+            if pnl > pnl_max:
+                continue
+            if pnl < pnl_min:
+                stop = True
+                break
+            out.append(row)
+            if len(out) >= want:
+                return out
+        if stop or len(rows) < page_size:
+            break
+    return out
+
+
 @dataclass
 class DiscoverCandidate:
     address: str
@@ -136,11 +170,12 @@ def _hard_reject(c: DiscoverCandidate, cfg: dict[str, Any]) -> str | None:
     return None
 
 
-def discover_wallets(cfg: dict[str, Any]) -> dict[str, Any]:
+def discover_wallets(cfg: dict[str, Any], *, exclude: set[str] | None = None) -> dict[str, Any]:
     """
     Guide flow without polymarketanalytics SaaS:
     leaderboard → PnL band → probe positions/trades/win rate → hard filters.
     """
+    exclude = {a.lower() for a in (exclude or set())}
     dcfg = cfg.get("discover", {})
     periods = list(dcfg.get("time_periods", ["MONTH", "ALL"]))
     lb_limit = int(dcfg.get("leaderboard_limit", 100))
@@ -153,15 +188,22 @@ def discover_wallets(cfg: dict[str, Any]) -> dict[str, Any]:
     pnl_max = float(hs.get("pnl_max", 400000))
 
     seen: dict[str, DiscoverCandidate] = {}
+    # oversample band rows; probes are the bottleneck
+    band_want = max(max_candidates * 3, 60)
     for period in periods:
-        rows = fetch_leaderboard(time_period=period, limit=lb_limit)
+        rows = iter_leaderboard_band(
+            time_period=period,
+            pnl_min=pnl_min,
+            pnl_max=pnl_max,
+            want=band_want,
+            page_size=min(100, lb_limit),
+            max_pages=max(8, lb_limit // 25),
+        )
         for row in rows:
             addr = str(row.get("proxyWallet") or "").lower()
-            if not addr or addr in seen:
+            if not addr or addr in seen or addr in exclude:
                 continue
             pnl = float(row.get("pnl") or 0)
-            if pnl < pnl_min or pnl > pnl_max:
-                continue
             seen[addr] = DiscoverCandidate(
                 address=addr,
                 user_name=row.get("userName"),
@@ -170,6 +212,10 @@ def discover_wallets(cfg: dict[str, Any]) -> dict[str, Any]:
                 rank=str(row.get("rank")) if row.get("rank") is not None else None,
                 source_period=period,
             )
+            if len(seen) >= max_candidates:
+                break
+        if len(seen) >= max_candidates:
+            break
 
     candidates = list(seen.values())[:max_candidates]
 

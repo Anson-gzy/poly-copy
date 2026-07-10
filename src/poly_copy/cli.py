@@ -28,7 +28,34 @@ def _wallets_from_args(args: argparse.Namespace, cfg: dict[str, Any]) -> list[st
         return [w.strip().lower() for w in args.wallets if w.strip()]
     if getattr(args, "wallet", None):
         return [args.wallet.strip().lower()]
+    use_universe = getattr(args, "universe", None)
+    if use_universe is not False:
+        from poly_copy.universe import universe_wallets
+
+        ws = universe_wallets()
+        if ws:
+            return ws
+        if use_universe is True:
+            raise SystemExit("universe is empty; run: poly-copy universe sync")
     return [str(cfg.get("case_wallet", "")).lower()]
+
+
+def cmd_universe(args: argparse.Namespace) -> int:
+    from poly_copy.universe import load_universe, sync_universe
+
+    cfg = load_config(args.config)
+    if args.action == "show":
+        _print(load_universe())
+        return 0
+    # sync
+    state = sync_universe(cfg, refresh=not args.no_refresh)
+    _print(state)
+    if state.get("shortfall", 0) > 0:
+        print(
+            f"warning: only {state.get('active_n')} / {state.get('target_n')} suitable wallets",
+            file=sys.stderr,
+        )
+    return 0
 
 
 def _load_snaps(
@@ -94,8 +121,14 @@ def cmd_paper(args: argparse.Namespace) -> int:
     features = [compute_features(s) for s in snaps]
     ranked = rank_universe(features, cfg)
     alloc: Allocation = allocate(ranked, cfg)
+    from poly_copy.universe import load_universe
+
+    uni = load_universe()
+    if uni.get("allocation") and not args.wallet and not args.wallets:
+        # follow system portfolio weights when running the maintained universe
+        alloc = {str(k).lower(): float(v) for k, v in uni["allocation"].items()}
+        cfg.setdefault("copy", {})["mode"] = args.mode or "portfolio"
     if not alloc:
-        # still paper-follow even if hard-rejected, equal weight for demo
         alloc = {s.address: 1.0 / len(snaps) for s in snaps}
 
     events = []
@@ -306,11 +339,18 @@ def cmd_watch(args: argparse.Namespace) -> int:
     if args.mode:
         cfg["copy"]["mode"] = args.mode
     wallets = _wallets_from_args(args, cfg)
-    alloc: Allocation = {w: 1.0 / len(wallets) for w in wallets}
+    from poly_copy.universe import load_universe
+
+    uni = load_universe()
+    if uni.get("allocation") and not args.wallet and not args.wallets:
+        alloc = {str(k).lower(): float(v) for k, v in uni["allocation"].items()}
+        cfg.setdefault("copy", {})["mode"] = args.mode or "portfolio"
+    else:
+        alloc = {w: 1.0 / len(wallets) for w in wallets}
     interval = float(args.interval or cfg.get("copy", {}).get("poll_seconds", 15))
     limit = int(cfg.get("copy", {}).get("poll_trade_limit", 20))
     cursors: dict[str, float] = {w: 0.0 for w in wallets}
-    print(f"watch wallets={wallets} interval={interval}s liquidity_gate=on", file=sys.stderr)
+    print(f"watch wallets={len(wallets)} interval={interval}s liquidity_gate=on", file=sys.stderr)
 
     while True:
         for w in wallets:
@@ -372,6 +412,17 @@ def build_parser() -> argparse.ArgumentParser:
     def add_wallet_args(sp: argparse.ArgumentParser) -> None:
         sp.add_argument("--wallet", help="Single wallet address")
         sp.add_argument("--wallets", nargs="+", help="Multiple wallet addresses")
+        sp.add_argument(
+            "--universe",
+            action=argparse.BooleanOptionalAction,
+            default=None,
+            help="Use dashboard/universe.json members (default: auto if file has members)",
+        )
+
+    uni = sub.add_parser("universe", help="Maintain 10 suitable wallets + allocation")
+    uni.add_argument("action", choices=["sync", "show"], help="sync=validate+refill; show=print state")
+    uni.add_argument("--no-refresh", action="store_true", help="Reuse cache when re-checking members")
+    uni.set_defaults(func=cmd_universe)
 
     for name, help_, fn in [
         ("fetch", "Fetch and cache wallet public data", cmd_fetch),

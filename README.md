@@ -118,11 +118,14 @@ python -m http.server 8787 --directory dashboard
 替代 polymarketanalytics：公开 leaderboard → 教程硬筛。
 
 ```bash
-poly-copy discover --candidates 30 --limit 10
-# 结果：dashboard/discover.json
+poly-copy discover --candidates 80 --limit 20
+poly-copy universe sync    # 校验现有成员；不足 10 个则重扫并挑最好的补齐；系统配权
+poly-copy universe show
+poly-copy paper --universe --mode portfolio   # 同时跟组合内全部钱包
+poly-copy watch --universe --mode portfolio --once
 ```
 
-筛选（与指南一致）：
-- PnL `$15k–$400k`
-- 持仓 ≥ `$5k`、活跃仓位 ≥ `2`
-- 交易 ≥ `20`、胜率 ≥ `70%`
+组合规则：
+- 目标 **10** 个合格钱包，分数加权分配仓位
+- 每次 sync 检测是否仍符合硬筛/黑名单；不合格剔除
+- 活跃数 < 10 时自动 discover，按深度评分选最好的补齐
