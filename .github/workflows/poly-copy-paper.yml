@@ -2,7 +2,7 @@ name: poly-copy paper
 
 on:
   schedule:
-    # research snapshot every 30m; speed path is poly-copy-watch.yml (5m) + Worker (1m)
+    # research snapshot every 30m; faster paper path is poly-copy-watch.yml (5m)
     - cron: "*/30 * * * *"
   workflow_dispatch:
     inputs:

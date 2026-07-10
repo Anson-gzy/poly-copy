@@ -5,8 +5,6 @@ __pycache__/
 .mypy_cache/
 cache/*.json
 !cache/.gitkeep
-worker/node_modules/
-worker/.wrangler/
 .DS_Store
 dist/
 *.egg-info/

@@ -73,12 +73,13 @@ pytest -q
 
 ## 跟单速度与流动性
 
+当前是**纸面程序推进**，不是实盘。云端只用 GitHub Actions。
+
 | 路径 | 频率 | 用途 |
 |---|---|---|
-| `poly-copy watch` | 默认 15s 轮询 | 本地最快纸面跟单（流动性门控） |
-| GitHub `poly-copy-watch` | 每 5 分钟 | 免费云端快跟 |
-| Cloudflare Worker | 每 1 分钟 | 边缘最快（需 deploy） |
-| `poly-copy paper/report` | 按需 / 30m | 研究回放，不挡历史盘口 |
+| `poly-copy watch` | 默认 15s 轮询 | 本地纸面跟单（流动性门控） |
+| GitHub `poly-copy-watch` | 每 5 分钟 | 免费云端纸面快跟 |
+| `poly-copy paper/report` | 按需 / 30m | 研究回放 |
 
 流动性规则（选钱包 + 跟单）：
 - 盘口 `liquidity` ≥ **$10k**
@@ -92,22 +93,10 @@ poly-copy screen --wallet 0x25e2...   # 含流动性特征与黑名单
 
 ## GitHub Actions（免费定时纸面跟单）
 
-仓库已带 workflow：`.github/workflows/poly-copy-paper.yml`
+仓库已带 workflow：
 
-- 每小时 UTC 跑一次：`fetch` → `screen` → `paper` → `report`
-- 也可在 Actions 页手动 **Run workflow**
-- 输出在 Artifacts：`poly-copy-out`
-- 可选：Repo → Settings → Variables 设 `POLY_WALLET`
+- `poly-copy-watch.yml`：每 5 分钟流动性门控快跟
+- `poly-copy-paper.yml`：每 30 分钟研究快照（fetch/screen/paper/report）
 
-本地推送后启用：
-
-```bash
-cd strategies/poly-copy
-git push
-# GitHub → Actions → poly-copy paper → Enable / Run workflow
-```
-
-## Cloudflare Worker
-
-边缘定时纸面跟单（Fixed）：见 [`worker/README.md`](worker/README.md)。
-评分/组合/回测仍用本目录 Python CLI。
+也可在 Actions 页手动 **Run workflow**；输出在 Artifacts。  
+可选：Repo → Settings → Variables 设 `POLY_WALLET`。

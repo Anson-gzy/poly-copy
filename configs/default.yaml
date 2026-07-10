@@ -59,7 +59,7 @@ copy:
   slippage_bps: 500  # 5%
   follow_buys: true
   follow_sells: true
-  # true for live watch/worker; historical paper/report should pass --live-liq or set false
+  # true for live watch; historical paper/report should pass --live-liq or set false
   require_liquidity: false
   poll_seconds: 15
   poll_trade_limit: 20
