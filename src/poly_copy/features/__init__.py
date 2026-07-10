@@ -9,6 +9,7 @@ from typing import Any
 import numpy as np
 
 from poly_copy.data import WalletSnapshot
+from poly_copy.liquidity import enrich_trade_liquidities
 from poly_copy.types import WalletFeatures
 
 
@@ -119,6 +120,28 @@ def compute_features(snap: WalletSnapshot) -> WalletFeatures:
         {p.get("condition_id") for p in positions if p.get("condition_id")}
     )
 
+    # liquidity profile of markets this wallet actually trades
+    liq_map = enrich_trade_liquidities(trades, max_markets=40)
+    min_liq = 10_000.0
+    liquid_n = 0
+    shares: list[float] = []
+    liq_vals: list[float] = []
+    for t in trades:
+        key = str(t.get("slug") or t.get("event_slug") or t.get("condition_id") or "")
+        liq = liq_map.get(key)
+        if liq is None:
+            continue
+        liq_vals.append(liq)
+        notional = float(t.get("size") or 0) * float(t.get("price") or 0)
+        if liq >= min_liq:
+            liquid_n += 1
+        if liq > 0:
+            shares.append(notional / liq)
+    known = len(liq_vals)
+    liquid_trade_share = (liquid_n / known) if known else 0.0
+    median_liq = float(np.median(liq_vals)) if liq_vals else 0.0
+    max_share = float(max(shares)) if shares else 0.0
+
     return WalletFeatures(
         address=snap.address,
         sample_days=float(sample_days),
@@ -138,5 +161,13 @@ def compute_features(snap: WalletSnapshot) -> WalletFeatures:
         avg_position_value=float(avg_pos),
         single_event_pnl_share=float(single_share),
         position_volatility=float(pos_vol),
-        meta={"n_domains": n_dom, "closed_count": len(closed), "open_count": len(positions)},
+        liquid_trade_share=float(liquid_trade_share),
+        median_market_liquidity=float(median_liq),
+        max_trade_liquidity_share=float(max_share),
+        meta={
+            "n_domains": n_dom,
+            "closed_count": len(closed),
+            "open_count": len(positions),
+            "liquidity_markets_known": known,
+        },
     )

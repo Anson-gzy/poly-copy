@@ -61,7 +61,7 @@ def run_backtest(
     turnover = 0.0
 
     for ev in events:
-        intent = map_intent(ev, allocation=allocation, cfg=cfg)
+        intent = map_intent(ev, allocation=allocation, cfg=cfg, skip_liquidity=True)
         if intent is None:
             continue
         decision = guard.check_intent(intent, fills)

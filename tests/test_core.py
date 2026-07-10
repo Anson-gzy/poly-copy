@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 
 from poly_copy.config import load_config
 from poly_copy.copy import map_intent, simulate_fill
+from poly_copy.liquidity import trade_ok
 from poly_copy.risk import RiskGuard, detect_drift
 from poly_copy.score import blacklist, hard_screen, score_wallet
 from poly_copy.types import CopyIntent, RiskAction, WalletEvent, WalletFeatures
@@ -73,7 +74,7 @@ def test_fixed_sizing():
         outcome="Yes",
         timestamp=datetime.now(timezone.utc),
     )
-    intent = map_intent(ev, allocation={"0xabc": 1.0}, cfg=cfg)
+    intent = map_intent(ev, allocation={"0xabc": 1.0}, cfg=cfg, skip_liquidity=True)
     assert intent is not None
     assert abs(intent.size * 0.5 - 25.0) < 1e-6
     fill = simulate_fill(intent, cfg)
@@ -117,3 +118,24 @@ def test_drift_detection():
     cur = _feat(monthly_freq=200, focus_score=0.4)
     d = detect_drift(base, cur, cfg)
     assert d.action == RiskAction.HALT
+
+
+def test_liquidity_gate_rejects_thin_and_dominated():
+    cfg = load_config()
+    ok, _ = trade_ok(trade_notional=100, liquidity=50_000, cfg=cfg)
+    assert ok
+    bad, reason = trade_ok(trade_notional=100, liquidity=500, cfg=cfg)
+    assert not bad and "liq_thin" in reason
+    dom, reason2 = trade_ok(trade_notional=20_000, liquidity=50_000, cfg=cfg)
+    assert not dom and "liq_dominated" in reason2
+
+
+def test_blacklist_thin_markets():
+    cfg = load_config()
+    f = _feat(
+        liquid_trade_share=0.2,
+        median_market_liquidity=1000,
+        max_trade_liquidity_share=0.1,
+        meta={"open_count": 0, "liquidity_markets_known": 10},
+    )
+    assert blacklist(f, cfg) is not None

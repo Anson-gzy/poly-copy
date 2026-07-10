@@ -1,9 +1,10 @@
-"""Paper copy executor: Fixed / Portfolio sizing with slippage."""
+"""Paper copy executor: Fixed / Portfolio sizing with slippage + liquidity gate."""
 
 from __future__ import annotations
 
 from typing import Any
 
+from poly_copy.liquidity import market_liquidity, trade_ok
 from poly_copy.types import Allocation, CopyIntent, PaperFill, RiskAction, RiskDecision, WalletEvent
 
 
@@ -12,6 +13,7 @@ def map_intent(
     *,
     allocation: Allocation,
     cfg: dict[str, Any],
+    skip_liquidity: bool = False,
 ) -> CopyIntent | None:
     copy_cfg = cfg.get("copy", {})
     side = event.side.upper()
@@ -19,6 +21,15 @@ def map_intent(
         return None
     if side == "SELL" and not copy_cfg.get("follow_sells", True):
         return None
+
+    if not skip_liquidity and copy_cfg.get("require_liquidity", True):
+        liq = market_liquidity(
+            slug=event.market or event.event_slug or None,
+            condition_id=event.condition_id,
+        )
+        ok, _reason = trade_ok(trade_notional=event.notional, liquidity=liq, cfg=cfg)
+        if not ok:
+            return None
 
     mode = str(copy_cfg.get("mode", "fixed")).lower()
     addr = event.address.lower()
@@ -94,11 +105,15 @@ def paper_copy_events(
     cfg: dict[str, Any],
     *,
     risk_fn=None,
+    skip_liquidity: bool | None = None,
 ) -> list[PaperFill]:
     """Replay events into paper fills. risk_fn(intent, fills_so_far) -> RiskDecision."""
+    if skip_liquidity is None:
+        # historical replay: don't gate on today's book; live watch sets require_liquidity
+        skip_liquidity = not bool(cfg.get("copy", {}).get("require_liquidity", False))
     fills: list[PaperFill] = []
     for ev in events:
-        intent = map_intent(ev, allocation=allocation, cfg=cfg)
+        intent = map_intent(ev, allocation=allocation, cfg=cfg, skip_liquidity=skip_liquidity)
         if intent is None:
             continue
         decision = risk_fn(intent, fills) if risk_fn else None

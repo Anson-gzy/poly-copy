@@ -30,11 +30,21 @@ blacklist:
   monthly_freq_pref_max: 200
 
 score_weights:
-  stability: 0.25
-  drawdown_control: 0.25
-  focus: 0.20
-  profit_factor: 0.20
-  win_rate: 0.10
+  stability: 0.22
+  drawdown_control: 0.22
+  focus: 0.16
+  profit_factor: 0.16
+  win_rate: 0.08
+  liquidity: 0.16
+
+# deep book only — skip thin markets / leader-dominated fills
+liquidity:
+  min_market_liquidity: 10000
+  max_trade_liquidity_share: 0.15   # skip if leader trade >15% of book
+  min_liquid_trade_share: 0.60      # wallet must mostly trade deep markets
+  min_median_liquidity: 8000
+  max_wallet_trade_liq_share: 0.35  # reject wallet if any trade dominates book
+  allow_unknown: false
 
 portfolio:
   n_wallets: 10
@@ -49,6 +59,10 @@ copy:
   slippage_bps: 500  # 5%
   follow_buys: true
   follow_sells: true
+  # true for live watch/worker; historical paper/report should pass --live-liq or set false
+  require_liquidity: false
+  poll_seconds: 15
+  poll_trade_limit: 20
 
 risk:
   per_trade_stop_loss: 0.70  # lose 70% of entry → stop

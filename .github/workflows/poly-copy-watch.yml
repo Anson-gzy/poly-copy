@@ -1,0 +1,43 @@
+name: poly-copy watch
+
+on:
+  schedule:
+    # every 5 minutes (GitHub Actions practical minimum)
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      wallet:
+        description: "Wallet (empty = default case)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          pip install "polymarket-client" --pre
+          pip install -e ".[dev]"
+      - name: Fast watch once (liquidity gated)
+        env:
+          POLY_WALLET: ${{ inputs.wallet || vars.POLY_WALLET || '0x25e28169faea17421fcd4cc361f6436d1e449a09' }}
+        run: |
+          mkdir -p out
+          poly-copy watch --wallet "$POLY_WALLET" --once --interval 1 | tee out/watch.json || true
+          poly-copy screen --wallet "$POLY_WALLET" | tee out/screen.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: poly-copy-watch
+          path: out/
+          retention-days: 7
+      - run: pytest -q

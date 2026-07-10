@@ -54,6 +54,10 @@ class WalletFeatures:
     avg_position_value: float = 0.0
     single_event_pnl_share: float = 0.0
     position_volatility: float = 0.0
+    # share of trades in markets meeting min liquidity; median book depth
+    liquid_trade_share: float = 0.0
+    median_market_liquidity: float = 0.0
+    max_trade_liquidity_share: float = 0.0  # worst trade_notional/liquidity
     meta: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:

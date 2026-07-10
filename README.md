@@ -71,6 +71,25 @@ pytest -q
 - 实盘下单 / Kreo / Telegram bot
 - 私钥接法预留：沿用 `tool/Polymarket-py-sdk/.env.account.example`
 
+## 跟单速度与流动性
+
+| 路径 | 频率 | 用途 |
+|---|---|---|
+| `poly-copy watch` | 默认 15s 轮询 | 本地最快纸面跟单（流动性门控） |
+| GitHub `poly-copy-watch` | 每 5 分钟 | 免费云端快跟 |
+| Cloudflare Worker | 每 1 分钟 | 边缘最快（需 deploy） |
+| `poly-copy paper/report` | 按需 / 30m | 研究回放，不挡历史盘口 |
+
+流动性规则（选钱包 + 跟单）：
+- 盘口 `liquidity` ≥ **$10k**
+- 标的钱包该笔成交名义 / 盘口深度 ≤ **15%**（避免「只有他一笔」）
+- 钱包层面：多数成交在深盘、中位深度够、不长期主导盘口
+
+```bash
+poly-copy watch --wallet 0x25e2... --interval 15
+poly-copy screen --wallet 0x25e2...   # 含流动性特征与黑名单
+```
+
 ## GitHub Actions（免费定时纸面跟单）
 
 仓库已带 workflow：`.github/workflows/poly-copy-paper.yml`

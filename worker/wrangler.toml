@@ -3,18 +3,19 @@ main = "src/index.ts"
 compatibility_date = "2025-05-01"
 workers_dev = true
 
-# Comma-separated wallets; override in dashboard or `wrangler secret` / vars
 [vars]
 WALLETS = "0x25e28169faea17421fcd4cc361f6436d1e449a09"
 FIXED_NOTIONAL = "25"
 SLIPPAGE_BPS = "500"
 FOLLOW_SELLS = "true"
+MIN_LIQUIDITY = "10000"
+MAX_TRADE_LIQ_SHARE = "0.15"
 
 [[kv_namespaces]]
 binding = "STATE"
 id = "REPLACE_WITH_KV_NAMESPACE_ID"
 preview_id = "REPLACE_WITH_KV_PREVIEW_ID"
 
-# every 5 minutes
+# every minute — fastest CF cron for follow latency
 [triggers]
-crons = ["*/5 * * * *"]
+crons = ["* * * * *"]

@@ -86,6 +86,8 @@ def cmd_paper(args: argparse.Namespace) -> int:
     cfg = load_config(args.config)
     if args.mode:
         cfg.setdefault("copy", {})["mode"] = args.mode
+    if getattr(args, "live_liq", False):
+        cfg.setdefault("copy", {})["require_liquidity"] = True
     store = default_store(cfg)
     wallets = _wallets_from_args(args, cfg)
     snaps = _load_snaps(wallets, store, cfg, args.refresh)
@@ -215,6 +217,77 @@ def cmd_fetch(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_watch(args: argparse.Namespace) -> int:
+    """Fast poll: only newest trades, liquidity-gated paper fills."""
+    import time
+    import urllib.parse
+    import urllib.request
+
+    from poly_copy.copy import map_intent, simulate_fill
+    from poly_copy.types import WalletEvent
+
+    cfg = load_config(args.config)
+    cfg.setdefault("copy", {})["require_liquidity"] = True
+    if args.mode:
+        cfg["copy"]["mode"] = args.mode
+    wallets = _wallets_from_args(args, cfg)
+    alloc: Allocation = {w: 1.0 / len(wallets) for w in wallets}
+    interval = float(args.interval or cfg.get("copy", {}).get("poll_seconds", 15))
+    limit = int(cfg.get("copy", {}).get("poll_trade_limit", 20))
+    cursors: dict[str, float] = {w: 0.0 for w in wallets}
+    print(f"watch wallets={wallets} interval={interval}s liquidity_gate=on", file=sys.stderr)
+
+    while True:
+        for w in wallets:
+            url = f"https://data-api.polymarket.com/trades?{urllib.parse.urlencode({'user': w, 'limit': limit})}"
+            try:
+                with urllib.request.urlopen(
+                    urllib.request.Request(
+                        url,
+                        headers={
+                            "accept": "application/json",
+                            "user-agent": "Mozilla/5.0 (compatible; poly-copy/0.1)",
+                        },
+                    ),
+                    timeout=10,
+                ) as resp:
+                    trades = json.loads(resp.read().decode())
+            except Exception as e:
+                print(f"poll_error {w}: {e}", file=sys.stderr)
+                continue
+            if not isinstance(trades, list):
+                continue
+            fresh = [t for t in trades if float(t.get("timestamp") or 0) > cursors[w]]
+            fresh.sort(key=lambda t: float(t.get("timestamp") or 0))
+            for t in fresh:
+                ts = float(t.get("timestamp") or 0)
+                cursors[w] = max(cursors[w], ts)
+                size = float(t.get("size") or 0)
+                price = float(t.get("price") or 0)
+                ev = WalletEvent(
+                    address=w,
+                    side=str(t.get("side") or "BUY").upper(),
+                    size=size,
+                    price=price,
+                    notional=size * price,
+                    market=str(t.get("slug") or t.get("title") or ""),
+                    event_slug=str(t.get("eventSlug") or ""),
+                    outcome=str(t.get("outcome") or ""),
+                    timestamp=None,
+                    tx_hash=t.get("transactionHash"),
+                    condition_id=t.get("conditionId"),
+                )
+                intent = map_intent(ev, allocation=alloc, cfg=cfg, skip_liquidity=False)
+                if intent is None:
+                    continue
+                fill = simulate_fill(intent, cfg)
+                if fill:
+                    _print({"fill": fill.to_dict(), "lag_hint_s": interval})
+        if args.once:
+            return 0
+        time.sleep(interval)
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="poly-copy", description="Polymarket wallet copy framework (paper)")
     p.add_argument("--config", default=str(PACKAGE_ROOT / "configs" / "default.yaml"))
@@ -232,6 +305,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("paper", "Paper copy log from cached/public trades", cmd_paper),
         ("report", "Portfolio weights, dispersion, simulated equity", cmd_report),
         ("backtest", "Historical replay / param scan", cmd_backtest),
+        ("watch", "Fast poll newest trades with liquidity gate", cmd_watch),
     ]:
         sp = sub.add_parser(name, help=help_)
         add_wallet_args(sp)
@@ -239,10 +313,19 @@ def build_parser() -> argparse.ArgumentParser:
         if name == "paper":
             sp.add_argument("--mode", choices=["fixed", "portfolio"])
             sp.add_argument("--limit", type=int, default=50, help="Max fills to print")
+            sp.add_argument(
+                "--live-liq",
+                action="store_true",
+                help="Gate historical paper fills by current market liquidity",
+            )
         if name == "report":
             sp.add_argument("--baseline-cache", help="Prior snapshot JSON for drift check")
         if name == "backtest":
             sp.add_argument("--scan", action="store_true", help="Scan fixed notional × stop loss")
+        if name == "watch":
+            sp.add_argument("--mode", choices=["fixed", "portfolio"])
+            sp.add_argument("--interval", type=float, help="Poll seconds (default 15)")
+            sp.add_argument("--once", action="store_true", help="Single poll then exit")
 
     return p
 

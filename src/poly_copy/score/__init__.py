@@ -30,6 +30,7 @@ def hard_screen(feat: WalletFeatures, cfg: dict[str, Any]) -> str | None:
 
 def blacklist(feat: WalletFeatures, cfg: dict[str, Any]) -> str | None:
     bl = cfg.get("blacklist", {})
+    liq = cfg.get("liquidity", {})
     if feat.monthly_freq > float(bl.get("monthly_freq_max", 400)):
         return f"hft_freq:{feat.monthly_freq:.0f}"
     if feat.single_event_pnl_share > float(bl.get("single_event_pnl_share_max", 0.80)):
@@ -38,6 +39,17 @@ def blacklist(feat: WalletFeatures, cfg: dict[str, Any]) -> str | None:
         # only flag when we have open positions to judge
         if feat.meta.get("open_count", 0) > 0:
             return f"low_liquidity_avg_pos:{feat.avg_position_value:.1f}"
+    # prefer wallets that trade deep books, not one-sided thin markets
+    if feat.meta.get("liquidity_markets_known", 0) >= 5:
+        min_share = float(liq.get("min_liquid_trade_share", 0.60))
+        if feat.liquid_trade_share < min_share:
+            return f"thin_markets:{feat.liquid_trade_share:.2f}"
+        min_med = float(liq.get("min_median_liquidity", 8_000))
+        if feat.median_market_liquidity < min_med:
+            return f"median_liq_low:{feat.median_market_liquidity:.0f}"
+        max_dom = float(liq.get("max_wallet_trade_liq_share", 0.35))
+        if feat.max_trade_liquidity_share > max_dom:
+            return f"dominates_book:{feat.max_trade_liquidity_share:.2f}"
     return None
 
 
@@ -57,6 +69,7 @@ def _component_scores(feat: WalletFeatures, cfg: dict[str, Any]) -> dict[str, fl
         "focus": _clip01(feat.focus_score),
         "profit_factor": _clip01(feat.profit_factor / 3.0),  # PF 3 → full
         "win_rate": _clip01(feat.win_rate),
+        "liquidity": _clip01(feat.liquid_trade_share) * _clip01(feat.median_market_liquidity / 50_000),
     }
 
 
