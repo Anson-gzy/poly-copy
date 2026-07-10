@@ -2,6 +2,14 @@
 
 case_wallet: "0x25e28169faea17421fcd4cc361f6436d1e449a09"
 
+# guide: polymarketanalytics Traders filters → public leaderboard + probe
+discover:
+  time_periods: ["MONTH", "ALL"]
+  leaderboard_limit: 100
+  max_candidates: 40
+  max_results: 10
+  workers: 8
+
 data:
   cache_dir: "cache"
   trade_page_size: 100

@@ -139,3 +139,26 @@ def test_blacklist_thin_markets():
         meta={"open_count": 0, "liquidity_markets_known": 10},
     )
     assert blacklist(f, cfg) is not None
+
+
+def test_discover_hard_reject_pnl_band():
+    from poly_copy.discover import DiscoverCandidate, _hard_reject
+
+    cfg = load_config()
+    c = DiscoverCandidate(
+        address="0xabc",
+        user_name=None,
+        pnl=5000,
+        vol=1,
+        rank="1",
+        source_period="MONTH",
+        position_value=10000,
+        active_markets=3,
+        trade_count=25,
+        traded_markets=30,
+        win_rate=0.8,
+        closed_sample=20,
+    )
+    assert _hard_reject(c, cfg) is not None
+    c.pnl = 50000
+    assert _hard_reject(c, cfg) is None

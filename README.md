@@ -112,3 +112,17 @@ python -m http.server 8787 --directory dashboard
 ```
 
 页面展示：当前 verdict / PnL / 纸面净值、评分拆解、赛道分散、最近成交、GitHub Actions 运行历史。
+
+## 发现钱包（教程筛选）
+
+替代 polymarketanalytics：公开 leaderboard → 教程硬筛。
+
+```bash
+poly-copy discover --candidates 30 --limit 10
+# 结果：dashboard/discover.json
+```
+
+筛选（与指南一致）：
+- PnL `$15k–$400k`
+- 持仓 ≥ `$5k`、活跃仓位 ≥ `2`
+- 交易 ≥ `20`、胜率 ≥ `70%`

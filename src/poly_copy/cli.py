@@ -202,6 +202,24 @@ def cmd_backtest(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_discover(args: argparse.Namespace) -> int:
+    """Guide-style wallet discovery from public leaderboard + hard filters."""
+    from poly_copy.discover import discover_wallets
+
+    cfg = load_config(args.config)
+    if args.limit:
+        cfg.setdefault("discover", {})["max_results"] = int(args.limit)
+    if args.candidates:
+        cfg.setdefault("discover", {})["max_candidates"] = int(args.candidates)
+    result = discover_wallets(cfg)
+    out = Path(args.out) if args.out else PACKAGE_ROOT / "dashboard" / "discover.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+    print(str(out), file=sys.stderr)
+    _print(result)
+    return 0
+
+
 def cmd_dashboard(args: argparse.Namespace) -> int:
     """Write dashboard/data.json for the HTML status page."""
     from datetime import datetime, timezone
@@ -364,6 +382,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("backtest", "Historical replay / param scan", cmd_backtest),
         ("watch", "Fast poll newest trades with liquidity gate", cmd_watch),
         ("dashboard", "Export dashboard/data.json for the HTML page", cmd_dashboard),
+        ("discover", "Find wallets via leaderboard + guide hard filters", cmd_discover),
     ]:
         sp = sub.add_parser(name, help=help_)
         add_wallet_args(sp)
@@ -386,6 +405,10 @@ def build_parser() -> argparse.ArgumentParser:
             sp.add_argument("--once", action="store_true", help="Single poll then exit")
         if name == "dashboard":
             sp.add_argument("--out", help="Output directory (default: dashboard/)")
+        if name == "discover":
+            sp.add_argument("--limit", type=int, help="Max passed wallets to return")
+            sp.add_argument("--candidates", type=int, help="Max leaderboard candidates to probe")
+            sp.add_argument("--out", help="Write JSON path (default: dashboard/discover.json)")
     return p
 
 

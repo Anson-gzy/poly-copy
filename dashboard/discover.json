@@ -1,0 +1,309 @@
+{
+  "filters": {
+    "pnl": [
+      15000.0,
+      400000.0
+    ],
+    "position_value_min": 5000,
+    "active_markets_min": 2,
+    "trades_min": 20,
+    "win_rate_min": 0.7,
+    "time_periods": [
+      "MONTH",
+      "ALL"
+    ],
+    "leaderboard_limit": 100,
+    "max_candidates": 20
+  },
+  "scanned": 18,
+  "passed": 8,
+  "results": [
+    {
+      "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
+      "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
+      "pnl": 398167.19021283265,
+      "vol": 2266370.003834,
+      "rank": "33",
+      "source_period": "MONTH",
+      "position_value": 194126.7225,
+      "active_markets": 50,
+      "trade_count": 25,
+      "traded_markets": 893,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": true,
+      "reject_reason": null,
+      "tags": [
+        "guide_pass"
+      ]
+    },
+    {
+      "address": "0xe30e74595517de48f1fb19f4553dd3d9f1e96b87",
+      "user_name": "0xE30E74595517de48f1FB19f4553dd3d9F1E96B87-1772612985000",
+      "pnl": 395260.8970999998,
+      "vol": 1355850.9724750002,
+      "rank": "34",
+      "source_period": "MONTH",
+      "position_value": 106590.0,
+      "active_markets": 33,
+      "trade_count": 25,
+      "traded_markets": 67,
+      "win_rate": 0.8461538461538461,
+      "closed_sample": 39,
+      "pass_hard": true,
+      "reject_reason": null,
+      "tags": [
+        "guide_pass"
+      ]
+    },
+    {
+      "address": "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f",
+      "user_name": "Q96s3kwozynxpau",
+      "pnl": 364237.9603815469,
+      "vol": 49427351.760841995,
+      "rank": "36",
+      "source_period": "MONTH",
+      "position_value": 150723.9727,
+      "active_markets": 50,
+      "trade_count": 25,
+      "traded_markets": 512,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": true,
+      "reject_reason": null,
+      "tags": [
+        "guide_pass"
+      ]
+    },
+    {
+      "address": "0x2cff41636fe21fad120fed603d54d4fdd96259db",
+      "user_name": "ThisAgain",
+      "pnl": 354268.00496653427,
+      "vol": 2311207.5564640006,
+      "rank": "38",
+      "source_period": "MONTH",
+      "position_value": 701169.9533,
+      "active_markets": 17,
+      "trade_count": 25,
+      "traded_markets": 22,
+      "win_rate": 1.0,
+      "closed_sample": 5,
+      "pass_hard": true,
+      "reject_reason": null,
+      "tags": [
+        "guide_pass"
+      ]
+    },
+    {
+      "address": "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59",
+      "user_name": "shijiebeifacai",
+      "pnl": 353410.46936719026,
+      "vol": 8663475.914447,
+      "rank": "39",
+      "source_period": "MONTH",
+      "position_value": 892531.8842,
+      "active_markets": 24,
+      "trade_count": 25,
+      "traded_markets": 115,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": true,
+      "reject_reason": null,
+      "tags": [
+        "guide_pass"
+      ]
+    }
+  ],
+  "rejected_sample": [
+    {
+      "address": "0x5257aa84944804bbb0c718814ebebeeafaca3e2a",
+      "user_name": "NO-GOD-PLEASE-NO",
+      "pnl": 364717.1443501541,
+      "vol": 4388009.26346,
+      "rank": "35",
+      "source_period": "MONTH",
+      "position_value": 0.0,
+      "active_markets": 0,
+      "trade_count": 25,
+      "traded_markets": 200,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:0",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0x412fe1a101554f0b382181c3af932e4b2d8030fa",
+      "user_name": "GrizzliesSuck",
+      "pnl": 361274.24085709156,
+      "vol": 3391894.0036450005,
+      "rank": "37",
+      "source_period": "MONTH",
+      "position_value": 0.0,
+      "active_markets": 0,
+      "trade_count": 25,
+      "traded_markets": 1179,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:0",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0x8a260ebadf8ef07e693dd1b0be120b3330dd73c3",
+      "user_name": "sinasinner",
+      "pnl": 341854.32098731375,
+      "vol": 1334639.602682,
+      "rank": "41",
+      "source_period": "MONTH",
+      "position_value": 0.0,
+      "active_markets": 8,
+      "trade_count": 24,
+      "traded_markets": 20,
+      "win_rate": 1.0,
+      "closed_sample": 12,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:0",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0x73bcd24d510ff4e4d5feac6aec763c5511e246ce",
+      "user_name": "0x73bcd24d510Ff4e4D5FEac6aec763C5511E246CE-1767607363396",
+      "pnl": 334591.8124356639,
+      "vol": 2494768.4945990006,
+      "rank": "42",
+      "source_period": "MONTH",
+      "position_value": 481.6653,
+      "active_markets": 32,
+      "trade_count": 25,
+      "traded_markets": 256,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:482",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0xfbf3d501e88815464642d0e913f15379c3eeb218",
+      "user_name": "VPenguin",
+      "pnl": 310233.6141340201,
+      "vol": 2001764.9437450003,
+      "rank": "43",
+      "source_period": "MONTH",
+      "position_value": 2551.2936,
+      "active_markets": 28,
+      "trade_count": 25,
+      "traded_markets": 1964,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:2551",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
+      "pnl": 307161.67963379517,
+      "vol": 9709582.570665002,
+      "rank": "44",
+      "source_period": "MONTH",
+      "position_value": 0.0,
+      "active_markets": 14,
+      "trade_count": 25,
+      "traded_markets": 81,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:0",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0xd1c537b2a7cba8d365e111bffb9de7b205e2cbd0",
+      "user_name": "weatherman12",
+      "pnl": 307000.6632629037,
+      "vol": 3078642.3608280006,
+      "rank": "45",
+      "source_period": "MONTH",
+      "position_value": 0.0,
+      "active_markets": 19,
+      "trade_count": 25,
+      "traded_markets": 37,
+      "win_rate": 0.9473684210526315,
+      "closed_sample": 19,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:0",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0x0d18e30e252008d83f51dae00d36873ddd9e24a6",
+      "user_name": "MonsieurDimanche",
+      "pnl": 291393.869546334,
+      "vol": 1589078.685173,
+      "rank": "46",
+      "source_period": "MONTH",
+      "position_value": 329.9423,
+      "active_markets": 2,
+      "trade_count": 25,
+      "traded_markets": 9227,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:330",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0xa6cd8300ff70129ced69975180609e40a12b2f2c",
+      "user_name": "lookaon",
+      "pnl": 288838.7453224665,
+      "vol": 1861645.3707770002,
+      "rank": "47",
+      "source_period": "MONTH",
+      "position_value": 161.7864,
+      "active_markets": 13,
+      "trade_count": 13,
+      "traded_markets": 72,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:162",
+      "tags": [
+        "guide_reject"
+      ]
+    },
+    {
+      "address": "0x511f9c771449162349795d17becf8b37031acbe1",
+      "user_name": "Bigggggggg",
+      "pnl": 284995.06688167725,
+      "vol": 2966407.7326979996,
+      "rank": "48",
+      "source_period": "MONTH",
+      "position_value": 2387.7584,
+      "active_markets": 50,
+      "trade_count": 25,
+      "traded_markets": 6203,
+      "win_rate": 1.0,
+      "closed_sample": 50,
+      "pass_hard": false,
+      "reject_reason": "position_value_low:2388",
+      "tags": [
+        "guide_reject"
+      ]
+    }
+  ]
+}
