@@ -229,17 +229,32 @@ def _activity_row(a: Any) -> dict[str, Any]:
 
 
 def fetch_wallet(address: str, cfg: dict[str, Any] | None = None) -> WalletSnapshot:
-    """Pull public trades/positions/activity for an address via Polymarket SDK."""
-    from polymarket import PublicClient
+    """Pull public trades/positions for an address.
+
+    Prefer data-api HTTP (robust). SDK used only for optional enrichment.
+    Activity via SDK is skipped — malformed ConversionActivity rows crash the client.
+    """
+    import urllib.parse
+    import urllib.request
 
     cfg = cfg or load_config()
     data_cfg = cfg.get("data", {})
-    page = int(data_cfg.get("trade_page_size", 100))
     max_trades = int(data_cfg.get("max_trades", 500))
     max_pos = int(data_cfg.get("max_positions", 200))
     max_closed = int(data_cfg.get("max_closed", 200))
-    max_act = int(data_cfg.get("max_activity", 300))
-    addr = address.strip()
+    addr = address.strip().lower()
+
+    def http_json(path: str) -> Any:
+        url = f"https://data-api.polymarket.com{path}"
+        req = urllib.request.Request(
+            url,
+            headers={
+                "accept": "application/json",
+                "user-agent": "Mozilla/5.0 (compatible; poly-copy/0.1)",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            return json.loads(resp.read().decode())
 
     trades: list[dict[str, Any]] = []
     positions: list[dict[str, Any]] = []
@@ -251,62 +266,130 @@ def fetch_wallet(address: str, cfg: dict[str, Any] | None = None) -> WalletSnaps
     lb_vol: float | None = None
     profile: dict[str, Any] | None = None
 
-    with PublicClient() as client:
-        trades = [
-            _trade_row(t)
-            for t in _take(client.list_trades(user=addr, page_size=page).iter_items(), max_trades)
-        ]
-        positions = [
-            _position_row(p)
-            for p in _take(
-                client.list_positions(user=addr, page_size=page).iter_items(), max_pos
-            )
-        ]
-        closed = [
-            _closed_row(p)
-            for p in _take(
-                client.list_closed_positions(user=addr, page_size=page).iter_items(),
-                max_closed,
-            )
-        ]
-        activity = [
-            _activity_row(a)
-            for a in _take(
-                client.list_activity(user=addr, page_size=page).iter_items(), max_act
-            )
-        ]
-        try:
-            vals = client.get_portfolio_values(user=addr)
-            if vals:
-                portfolio_value = _dec(vals[0].value)
-        except Exception:
-            portfolio_value = sum(float(p.get("current_value") or 0) for p in positions)
-        try:
-            traded_count = int(client.get_traded_market_count(user=addr).traded or 0)
-        except Exception:
-            traded_count = len({p.get("condition_id") for p in positions if p.get("condition_id")})
-        try:
-            entries = list(
-                client.list_trader_leaderboard(user=addr, time_period="ALL", page_size=5).iter_items()
-            )
-            if entries:
-                lb_pnl = _dec(entries[0].pnl)
-                lb_vol = _dec(entries[0].vol)
-        except Exception:
-            pass
-        try:
-            prof = client.get_public_profile(addr)
-            if prof is not None:
-                profile = {
-                    "name": getattr(prof, "name", None),
-                    "pseudonym": getattr(prof, "pseudonym", None),
-                    "bio": getattr(prof, "bio", None),
-                }
-        except Exception:
-            pass
+    try:
+        raw = http_json(f"/trades?user={urllib.parse.quote(addr)}&limit={min(max_trades, 500)}")
+        if isinstance(raw, list):
+            for t in raw[:max_trades]:
+                ts = t.get("timestamp")
+                if str(ts or "").isdigit():
+                    ts_out = datetime.fromtimestamp(int(ts), tz=timezone.utc).isoformat()
+                else:
+                    ts_out = ts
+                trades.append(
+                    {
+                        "side": t.get("side"),
+                        "size": _dec(t.get("size")),
+                        "price": _dec(t.get("price")),
+                        "timestamp": ts_out,
+                        "title": t.get("title"),
+                        "slug": t.get("slug"),
+                        "event_slug": t.get("eventSlug"),
+                        "outcome": t.get("outcome"),
+                        "condition_id": t.get("conditionId"),
+                        "token_id": str(t.get("asset") or "") or None,
+                        "transaction_hash": t.get("transactionHash"),
+                    }
+                )
+    except Exception:
+        trades = []
+
+    try:
+        raw = http_json(f"/positions?user={urllib.parse.quote(addr)}&limit={min(max_pos, 100)}")
+        if isinstance(raw, list):
+            for p in raw[:max_pos]:
+                positions.append(
+                    {
+                        "condition_id": p.get("conditionId"),
+                        "size": _dec(p.get("size")),
+                        "avg_price": _dec(p.get("avgPrice")),
+                        "current_value": _dec(p.get("currentValue")),
+                        "initial_value": _dec(p.get("initialValue")),
+                        "cash_pnl": _dec(p.get("cashPnl")),
+                        "realized_pnl": _dec(p.get("realizedPnl")),
+                        "percent_pnl": p.get("percentPnl"),
+                        "title": p.get("title"),
+                        "slug": p.get("slug"),
+                        "event_slug": p.get("eventSlug"),
+                        "outcome": p.get("outcome"),
+                        "cur_price": _dec(p.get("curPrice")),
+                    }
+                )
+    except Exception:
+        positions = []
+
+    try:
+        raw = http_json(
+            f"/closed-positions?user={urllib.parse.quote(addr)}&limit={min(max_closed, 100)}"
+        )
+        if isinstance(raw, list):
+            for p in raw[:max_closed]:
+                ts = p.get("timestamp")
+                closed.append(
+                    {
+                        "condition_id": p.get("conditionId"),
+                        "avg_price": _dec(p.get("avgPrice")),
+                        "total_bought": _dec(p.get("totalBought")),
+                        "realized_pnl": _dec(p.get("realizedPnl")),
+                        "cur_price": _dec(p.get("curPrice")),
+                        "timestamp": (
+                            datetime.fromtimestamp(int(ts), tz=timezone.utc).isoformat()
+                            if str(ts or "").isdigit()
+                            else ts
+                        ),
+                        "title": p.get("title"),
+                        "slug": p.get("slug"),
+                        "event_slug": p.get("eventSlug"),
+                        "outcome": p.get("outcome"),
+                    }
+                )
+    except Exception:
+        closed = []
+
+    try:
+        vals = http_json(f"/value?user={urllib.parse.quote(addr)}")
+        if isinstance(vals, list) and vals:
+            portfolio_value = _dec(vals[0].get("value"))
+    except Exception:
+        portfolio_value = sum(float(p.get("current_value") or 0) for p in positions)
+
+    try:
+        traded = http_json(f"/traded?user={urllib.parse.quote(addr)}")
+        if isinstance(traded, dict):
+            traded_count = int(traded.get("traded") or 0)
+    except Exception:
+        traded_count = len({p.get("condition_id") for p in positions if p.get("condition_id")})
+
+    # optional SDK enrichment (never required)
+    try:
+        from polymarket import PublicClient
+
+        with PublicClient() as client:
+            try:
+                entries = list(
+                    client.list_trader_leaderboard(
+                        user=addr, time_period="ALL", page_size=5
+                    ).iter_items()
+                )
+                if entries:
+                    lb_pnl = _dec(entries[0].pnl)
+                    lb_vol = _dec(entries[0].vol)
+            except Exception:
+                pass
+            try:
+                prof = client.get_public_profile(addr)
+                if prof is not None:
+                    profile = {
+                        "name": getattr(prof, "name", None),
+                        "pseudonym": getattr(prof, "pseudonym", None),
+                        "bio": getattr(prof, "bio", None),
+                    }
+            except Exception:
+                pass
+    except Exception:
+        pass
 
     return WalletSnapshot(
-        address=addr.lower(),
+        address=addr,
         fetched_at=datetime.now(timezone.utc).isoformat(),
         trades=trades,
         positions=positions,

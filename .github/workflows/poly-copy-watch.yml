@@ -28,6 +28,7 @@ jobs:
           mkdir -p out
           poly-copy universe sync | tee out/universe.json
           cp -f dashboard/universe.json out/universe.json
+          # paper/watch must not crash the job on a single bad wallet/API row
           poly-copy paper --universe --mode portfolio --limit 40 | tee out/paper.json
           poly-copy watch --universe --once --interval 1 --mode portfolio | tee out/watch.json || true
       - name: Commit universe state

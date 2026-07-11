@@ -66,7 +66,12 @@ def _load_snaps(
 ):
     snaps = []
     for w in wallets:
-        snaps.append(store.get_or_fetch(w, refresh=refresh, cfg=cfg))
+        try:
+            snaps.append(store.get_or_fetch(w, refresh=refresh, cfg=cfg))
+        except Exception as e:
+            print(f"skip_wallet {w}: {e}", file=sys.stderr)
+    if not snaps:
+        raise SystemExit("no wallet snapshots loaded")
     return snaps
 
 
