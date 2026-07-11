@@ -1,9 +1,23 @@
 {
-  "updated_at": "2026-07-11T08:10:38.100849+00:00",
+  "updated_at": "2026-07-11T09:49:36.064268+00:00",
   "target_n": 10,
   "active_n": 10,
   "shortfall": 0,
   "members": [
+    {
+      "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
+      "score": 0.9983338092843933,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
+      "pnl": 398167.19021283265,
+      "weight": 0.11036380268291678,
+      "tags": [
+        "active"
+      ],
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
+      "exit_strikes": 0
+    },
     {
       "address": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
       "score": 0.9675590405887523,
@@ -11,11 +25,11 @@
       "reject_reason": null,
       "user_name": "0x2c335066FE58fe9237c3d3Dc7b275C2a034a0563-1759935795465",
       "pnl": 364314.94464762765,
-      "weight": 0.10913904031806593,
+      "weight": 0.10696171365382472,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
@@ -25,11 +39,11 @@
       "reject_reason": null,
       "user_name": "Q96s3kwozynxpau",
       "pnl": 364237.9603815469,
-      "weight": 0.109131146048647,
+      "weight": 0.10695397687528393,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
@@ -39,11 +53,11 @@
       "reject_reason": null,
       "user_name": "0x3DFb153c197D4C19D3B31c1ecD2c7B6860eeabAf-1722957908185",
       "pnl": 356982.88623810257,
-      "weight": 0.10838718221215865,
+      "weight": 0.10622485513648763,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
@@ -53,11 +67,11 @@
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.10802085253609033,
+      "weight": 0.1058658337468884,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
@@ -67,11 +81,11 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.10641681271546907,
+      "weight": 0.10429379456198619,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
@@ -81,81 +95,67 @@
       "reject_reason": null,
       "user_name": "ferrariChampions2026",
       "pnl": 283962.73403417686,
-      "weight": 0.10089940862080496,
+      "weight": 0.09888646282106182,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
       "address": "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c",
-      "score": 0.8675359503652079,
+      "score": 0.8823446437652079,
       "suitable": true,
       "reject_reason": null,
       "user_name": "",
       "pnl": 369186.5993217288,
-      "weight": 0.09785660315536586,
+      "weight": 0.0975414327925378,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
-      "exit_strikes": 0
-    },
-    {
-      "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
-      "score": 0.8441412084843932,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
-      "pnl": 398167.19021283265,
-      "weight": 0.09521771542836231,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
       "address": "0xf1528f12e645462c344799b62b1b421a6a4c64aa",
-      "score": 0.7600469960918498,
+      "score": 0.7600605346918499,
       "suitable": true,
       "reject_reason": null,
       "user_name": "phonesculptor",
       "pnl": 279085.50662103476,
-      "weight": 0.08573202902390159,
+      "weight": 0.08402316950272481,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     },
     {
       "address": "0x9cb990f1862568a63d8601efeebe0304225c32f2",
-      "score": 0.7021310739283316,
+      "score": 0.7135810739283316,
       "suitable": true,
       "reject_reason": null,
       "user_name": "jtwyslljy",
       "pnl": 348468.62398116477,
-      "weight": 0.07919920994113433,
+      "weight": 0.0788849582262879,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T08:10:38.100849+00:00",
+      "checked_at": "2026-07-11T09:49:36.064268+00:00",
       "exit_strikes": 0
     }
   ],
   "allocation": {
-    "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563": 0.10913904031806593,
-    "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f": 0.109131146048647,
-    "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": 0.10838718221215865,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.10802085253609033,
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.10641681271546907,
-    "0xfe787d2da716d60e8acff57fb87eb13cd4d10319": 0.10089940862080496,
-    "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c": 0.09785660315536586,
-    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.09521771542836231,
-    "0xf1528f12e645462c344799b62b1b421a6a4c64aa": 0.08573202902390159,
-    "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.07919920994113433
+    "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563": 0.10696171365382472,
+    "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f": 0.10695397687528393,
+    "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": 0.10622485513648763,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.1058658337468884,
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.10429379456198619,
+    "0xfe787d2da716d60e8acff57fb87eb13cd4d10319": 0.09888646282106182,
+    "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c": 0.0975414327925378,
+    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.11036380268291678,
+    "0xf1528f12e645462c344799b62b1b421a6a4c64aa": 0.08402316950272481,
+    "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0788849582262879
   },
   "dropped": [],
   "warned": [],
