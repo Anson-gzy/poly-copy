@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T15:28:37.181314+00:00",
+  "updated_at": "2026-07-12T16:30:49.866355+00:00",
   "target_n": 10,
   "active_n": 7,
   "shortfall": 3,
@@ -11,12 +11,12 @@
       "reject_reason": null,
       "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
       "pnl": 398167.19021283265,
-      "weight": 0.3017970617910243,
+      "weight": 0.3017970617910242,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T15:28:37.181314+00:00",
+      "checked_at": "2026-07-12T16:30:49.866355+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -36,12 +36,12 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.2982029382089758,
+      "weight": 0.29820293820897564,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T15:28:37.181314+00:00",
+      "checked_at": "2026-07-12T16:30:49.866355+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -62,12 +62,12 @@
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.09114974435034846,
+      "weight": 0.09066177592816323,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T15:28:37.181314+00:00",
+      "checked_at": "2026-07-12T16:30:49.866355+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -87,12 +87,12 @@
       "reject_reason": null,
       "user_name": "Djdjdjekekek",
       "pnl": 361566.4376158215,
-      "weight": 0.08666408635628581,
+      "weight": 0.08620013181882868,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T15:28:37.181314+00:00",
+      "checked_at": "2026-07-12T16:30:49.866355+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -113,12 +113,12 @@
       "reject_reason": null,
       "user_name": "RJW1",
       "pnl": 267926.9961810007,
-      "weight": 0.08392273828006792,
+      "weight": 0.08347345949738057,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T15:28:37.181314+00:00",
+      "checked_at": "2026-07-12T16:30:49.866355+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -134,17 +134,17 @@
     },
     {
       "address": "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517",
-      "score": 0.7370548302839085,
+      "score": 0.7584405952839085,
       "suitable": true,
       "reject_reason": null,
       "user_name": "pigfish",
       "pnl": 266574.12849651,
-      "weight": 0.07068632379646049,
+      "weight": 0.07234790115768927,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T15:28:37.181314+00:00",
+      "checked_at": "2026-07-12T16:30:49.866355+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T11:42:38.397726+00:00",
       "baseline": {
@@ -160,17 +160,17 @@
     },
     {
       "address": "0x0c787cc2962ee6464414da592b892c3886e077f1",
-      "score": 0.7046346537161066,
+      "score": 0.7056976245161065,
       "suitable": true,
       "reject_reason": null,
       "user_name": "bbb17367162806",
       "pnl": 327419.69467438397,
-      "weight": 0.06757710721683732,
+      "weight": 0.06731673159793827,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T15:28:37.181314+00:00",
+      "checked_at": "2026-07-12T16:30:49.866355+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T10:38:13.544296+00:00",
       "baseline": {
@@ -186,13 +186,13 @@
     }
   ],
   "allocation": {
-    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.3017970617910243,
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.2982029382089758,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.09114974435034846,
-    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.08392273828006792,
-    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.08666408635628581,
-    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.06757710721683732,
-    "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517": 0.07068632379646049
+    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.3017970617910242,
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.29820293820897564,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.09066177592816323,
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.08620013181882868,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.08347345949738057,
+    "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517": 0.07234790115768927,
+    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.06731673159793827
   },
   "dropped": [],
   "warned": [],
