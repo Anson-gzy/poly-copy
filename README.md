@@ -130,3 +130,36 @@ poly-copy watch --universe --mode portfolio --once
 - **入选**用 `hard_screen`（教程筛参，偏严）
 - **剔除**用 `exit_screen`（更难触发 + 连续 2 次不达标才踢），避免擦线就换钱包
 - 活跃数 < 10 时自动 discover，按评分选最好的补齐
+
+## 持久化纸面账本与风控纪律
+
+跨 CI 运行累积的纸面账户状态（起始资金 **1000 USDC**），由 watch/paper 增量维护：
+
+- `dashboard/ledger.json`：现金、当前持仓（token → size/avg_price/source_wallet/domain/opened_at）、
+  每个源钱包的**处理游标**（last_seen 时间戳 + 同秒 tx hash 去重）、累计已实现 PnL、
+  高水位、`halted` 熔断标志、钱包淘汰记录
+- `dashboard/equity.json`：追加式净值序列 `[{ts, equity, cash, positions_value, n_open, realized_pnl_cum}]`，
+  滚动保留最近 2000 个点
+
+工作方式：每次运行只处理游标之后的**新成交**（账本不存在时冷启动，游标回看
+`ledger.bootstrap_lookback_hours`，默认 6 小时，避免重放全部历史）；持仓用 Gamma
+盘口 mid 估值（取不到价保留上次估值并标 `mark_stale`）；市场 resolve 后按结算价
+自动转已实现。`poly-copy-watch.yml` 会把两个文件随 universe 一起 commit。
+
+风控规则（`configs/default.yaml` 的 `risk` 段）：
+
+1. **仓位公式**：单笔跟单名义 = min(成员 weight × 当前 equity × 对方该笔占其组合比例, `per_trade_cap` $50)，
+   单一源钱包合计敞口 ≤ equity 的 `wallet_exposure_cap` 10%
+2. **组合熔断**：equity 从高水位回撤 ≥ `portfolio_halt_drawdown` 15% → `ledger.json` 写 `halted=true`，
+   之后只处理卖出/结算、不开新仓；解除需手动把 `halted` 改回 `false`
+3. **单钱包淘汰**：某源钱包贡献的 PnL 从峰值回撤超过起始资金的
+   `wallet_evict_drawdown` 20% → 立即踢出 universe 并按市价平掉其纸面持仓（记录 reason）
+4. **行为漂移 strike**：与入池 baseline（存于 universe 成员 `baseline` 字段）相比 —
+   赛道 Jaccard < 0.4、月频 >2x 或 <0.5x、单笔名义中位数 >3x，各记 1 strike，
+   与 exit_screen 失败共用 `exit_strikes`，累计 2 次剔除
+5. **新钱包隔离期**：入池 `quarantine_days` 7 天内权重减半（tags 带 `quarantine`），期满自动转正
+6. **赛道集中度**：单一 domain 合计权重 ≤ `domain_weight_cap` 40%，超出部分按比例压缩并归一化给其他 domain
+
+硬筛对齐（`hard_screen` + `blacklist`）：PnL $15k–$400k、持仓 ≥ $5k、活跃仓位 ≥ 2、
+交易数 ≥ 20、胜率 ≥ 70%、月频 30–200；黑名单硬拒：月频 >200 或分钟级连发
+（60s 窗口 >8 笔）、单事件 PnL 占比 >50%、低流动性交易员（liquid_trade_share < 0.5）。
