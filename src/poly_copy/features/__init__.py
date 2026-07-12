@@ -48,6 +48,15 @@ def compute_features(snap: WalletSnapshot) -> WalletFeatures:
     trade_count = len(trades)
     monthly_freq = trade_count / (sample_days / 30.0) if sample_days > 0 else float(trade_count)
 
+    # minute-level burst: max trades inside any rolling 60s window (bot signal)
+    epochs = sorted(t.timestamp() for t in timestamps)
+    burst_max = 0
+    lo = 0
+    for hi in range(len(epochs)):
+        while epochs[hi] - epochs[lo] > 60.0:
+            lo += 1
+        burst_max = max(burst_max, hi - lo + 1)
+
     # win rate from closed positions (realized_pnl > 0)
     wins = sum(1 for c in closed if float(c.get("realized_pnl") or 0) > 0)
     losses = sum(1 for c in closed if float(c.get("realized_pnl") or 0) < 0)
@@ -58,7 +67,21 @@ def compute_features(snap: WalletSnapshot) -> WalletFeatures:
     gross_loss = abs(
         sum(float(c.get("realized_pnl") or 0) for c in closed if float(c.get("realized_pnl") or 0) < 0)
     )
-    profit_factor = (gross_profit / gross_loss) if gross_loss > 0 else (2.0 if gross_profit > 0 else 0.0)
+    # Real PF from closed-position PnL — no placeholder constants. A sample
+    # with zero recorded losses caps at 10 and is flagged in meta so scoring
+    # can tell "no-loss sample" (often an API sampling artifact) from a real
+    # ratio.
+    pf_capped = False
+    if gross_loss > 0:
+        profit_factor = gross_profit / gross_loss
+        if profit_factor > 10.0:
+            profit_factor = 10.0
+            pf_capped = True
+    elif gross_profit > 0:
+        profit_factor = 10.0
+        pf_capped = True
+    else:
+        profit_factor = 0.0
 
     realized = sum(float(c.get("realized_pnl") or 0) for c in closed)
     unrealized = sum(float(p.get("cash_pnl") or 0) for p in positions)
@@ -167,7 +190,10 @@ def compute_features(snap: WalletSnapshot) -> WalletFeatures:
         meta={
             "n_domains": n_dom,
             "closed_count": len(closed),
+            "closed_decided": decided,
             "open_count": len(positions),
             "liquidity_markets_known": known,
+            "profit_factor_capped": pf_capped,
+            "burst_max_per_minute": burst_max,
         },
     )

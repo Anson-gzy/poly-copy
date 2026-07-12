@@ -99,6 +99,47 @@ class RiskGuard:
         return fill
 
 
+def drift_strikes(
+    baseline: dict[str, Any],
+    current: dict[str, Any],
+    cfg: dict[str, Any] | None = None,
+) -> list[str]:
+    """Behavior-drift strike reasons vs. the entry baseline snapshot.
+
+    Each returned reason counts as 1 strike (universe kicks at 2 total):
+    - domain drift: Jaccard(top_domains) < 0.4
+    - monthly frequency jump: >2x or <0.5x baseline
+    - median trade size jump: >3x baseline
+    """
+    drift = (cfg or {}).get("risk", {}).get("drift", {})
+    jaccard_min = float(drift.get("domain_jaccard_min", 0.4))
+    freq_hi = float(drift.get("freq_jump_max", 2.0))
+    freq_lo = float(drift.get("freq_drop_min", 0.5))
+    size_hi = float(drift.get("median_size_jump_max", 3.0))
+
+    reasons: list[str] = []
+    base_dom = {str(d).lower() for d in (baseline.get("top_domains") or []) if d}
+    cur_dom = {str(d).lower() for d in (current.get("top_domains") or []) if d}
+    if base_dom and cur_dom:
+        jac = len(base_dom & cur_dom) / len(base_dom | cur_dom)
+        if jac < jaccard_min:
+            reasons.append(f"drift_domains:jaccard={jac:.2f}")
+
+    base_freq = float(baseline.get("monthly_freq") or 0)
+    cur_freq = float(current.get("monthly_freq") or 0)
+    if base_freq > 0 and cur_freq > 0:
+        ratio = cur_freq / base_freq
+        if ratio > freq_hi or ratio < freq_lo:
+            reasons.append(f"drift_freq:{ratio:.2f}x")
+
+    base_med = float(baseline.get("median_trade_notional") or 0)
+    cur_med = float(current.get("median_trade_notional") or 0)
+    if base_med > 0 and cur_med > 0 and cur_med / base_med > size_hi:
+        reasons.append(f"drift_size:{cur_med / base_med:.2f}x")
+
+    return reasons
+
+
 def detect_drift(
     baseline: WalletFeatures,
     current: WalletFeatures,

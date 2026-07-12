@@ -26,6 +26,9 @@ hard_screen:
   active_markets_min: 2
   trades_min: 20
   win_rate_min: 0.70
+  # 月交易频率硬区间（指南）
+  monthly_freq_min: 30
+  monthly_freq_max: 200
 
 # 剔除（已在组合内）条件 — 更难触发，避免擦线就换钱包
 exit_screen:
@@ -39,9 +42,11 @@ exit_screen:
 
 blacklist:
   # monthly trade frequency above this → HFT reject
-  monthly_freq_max: 400
+  monthly_freq_max: 200
+  # max trades within any rolling 60s window → bot burst reject
+  burst_per_minute_max: 8
   # single closed position share of |realized pnl| above this → one-event reject
-  single_event_pnl_share_max: 0.80
+  single_event_pnl_share_max: 0.50
   # average position current_value below this → low liquidity heuristic
   avg_position_value_min: 50
   # monthly freq preferred band (outside band loses score; above max rejects)
@@ -60,7 +65,7 @@ score_weights:
 liquidity:
   min_market_liquidity: 10000
   max_trade_liquidity_share: 0.15   # skip if leader trade >15% of book
-  min_liquid_trade_share: 0.60      # wallet must mostly trade deep markets
+  min_liquid_trade_share: 0.50      # wallet must mostly trade deep markets
   min_median_liquidity: 8000
   max_wallet_trade_liq_share: 0.35  # reject wallet if any trade dominates book
   allow_unknown: false
@@ -86,12 +91,30 @@ copy:
 
 risk:
   per_trade_stop_loss: 0.70  # lose 70% of entry → stop
-  wallet_max_drawdown: 0.18  # 15–20% band midpoint
-  portfolio_max_drawdown: 0.25
+  wallet_max_drawdown: 0.18  # 15–20% band midpoint (legacy RiskGuard)
+  portfolio_max_drawdown: 0.25  # legacy RiskGuard (backtest replay)
+  # persistent ledger risk controls
+  per_trade_cap: 50.0            # single follow notional cap (USDC)
+  wallet_exposure_cap: 0.10      # single source wallet ≤10% of equity
+  portfolio_halt_drawdown: 0.15  # equity −15% from high water → halted=true
+  wallet_evict_drawdown: 0.20    # wallet contribution −20% of capital from peak → evict
+  quarantine_days: 7             # new members run at half weight for 7 days
+  domain_weight_cap: 0.40        # single domain ≤40% of combined weight
   drift:
     # flag if recent monthly freq / focus diverges from baseline
     freq_ratio_max: 3.0
     focus_drop_min: 0.35
+    # strike-based drift vs entry baseline (2 strikes → kicked)
+    domain_jaccard_min: 0.4
+    freq_jump_max: 2.0
+    freq_drop_min: 0.5
+    median_size_jump_max: 3.0
+
+ledger:
+  # cold start: how far back to bootstrap cursors (avoid replaying full
+  # history and buying at stale prices)
+  bootstrap_lookback_hours: 6
+  equity_max_points: 2000
 
 backtest:
   initial_capital: 1000.0

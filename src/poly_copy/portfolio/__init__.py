@@ -63,6 +63,61 @@ def needs_rebalance(
     return now - last_rebalance >= timedelta(days=days)
 
 
+def cap_domain_weights(
+    allocation: Allocation,
+    domain_by_addr: dict[str, str],
+    *,
+    cap: float = 0.40,
+    max_iter: int = 5,
+) -> Allocation:
+    """Cap any single domain's combined weight at `cap` (default 40%).
+
+    Overweight domains are scaled down proportionally and the surplus is
+    redistributed to wallets in other domains pro-rata, then normalized.
+    Wallets with no known domain get their own singleton bucket. If every
+    wallet shares one domain the cap cannot be satisfied; the allocation is
+    returned normalized as-is.
+    """
+    if not allocation:
+        return {}
+    alloc = {a: max(0.0, float(w)) for a, w in allocation.items()}
+    total = sum(alloc.values())
+    if total <= 0:
+        return {a: 1.0 / len(alloc) for a in alloc}
+    alloc = {a: w / total for a, w in alloc.items()}
+
+    def dom(addr: str) -> str:
+        return domain_by_addr.get(addr) or f"__solo__:{addr}"
+
+    domains = {dom(a) for a in alloc}
+    if len(domains) <= 1:
+        return alloc
+
+    for _ in range(max_iter):
+        by_dom: dict[str, float] = defaultdict(float)
+        for a, w in alloc.items():
+            by_dom[dom(a)] += w
+        over = {d: w for d, w in by_dom.items() if w > cap + 1e-9}
+        if not over:
+            break
+        surplus = 0.0
+        for d, w in over.items():
+            scale = cap / w
+            for a in alloc:
+                if dom(a) == d:
+                    surplus += alloc[a] * (1 - scale)
+                    alloc[a] *= scale
+        receivers = {a: w for a, w in alloc.items() if dom(a) not in over}
+        recv_total = sum(receivers.values())
+        if recv_total <= 0:
+            break
+        for a in receivers:
+            alloc[a] += surplus * (alloc[a] / recv_total)
+
+    total = sum(alloc.values())
+    return {a: w / total for a, w in alloc.items()} if total > 0 else alloc
+
+
 def domain_dispersion(features: list[WalletFeatures], allocation: Allocation) -> dict[str, float]:
     """Weighted domain exposure for reporting."""
     by_addr = {f.address: f for f in features}

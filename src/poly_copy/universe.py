@@ -15,7 +15,8 @@ from poly_copy.discover import (
     _probe,
     discover_wallets,
 )
-from poly_copy.portfolio import allocate
+from poly_copy.portfolio import allocate, cap_domain_weights
+from poly_copy.risk import drift_strikes
 from poly_copy.types import Allocation, WalletFeatures, WalletScore
 
 
@@ -30,7 +31,9 @@ class UniverseMember:
     weight: float = 0.0
     tags: list[str] = field(default_factory=list)
     checked_at: str = ""
-    exit_strikes: int = 0  # consecutive exit-screen failures
+    exit_strikes: int = 0  # exit-screen failures + behavior-drift strikes
+    added_at: str = ""  # entry timestamp (quarantine clock)
+    baseline: dict[str, Any] = field(default_factory=dict)  # entry behavior snapshot
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -87,7 +90,84 @@ def _probe_candidate(
         traded_markets=int(stats["traded_markets"]),
         win_rate=float(stats["win_rate"]),
         closed_sample=int(stats["closed_sample"]),
+        behavior=dict(stats.get("behavior") or {}),
     )
+
+
+def apply_quarantine(
+    members: list[UniverseMember],
+    alloc: Allocation,
+    *,
+    now: datetime | None = None,
+    days: int = 7,
+) -> Allocation:
+    """Halve the weight of members added within the last `days`, renormalize.
+
+    Quarantined members get a "quarantine" tag; it drops off automatically
+    once the entry timestamp ages past the window.
+    """
+    now = now or datetime.now(timezone.utc)
+    out = {a: float(w) for a, w in alloc.items()}
+    for m in members:
+        if "quarantine" in m.tags:
+            m.tags.remove("quarantine")
+        if not m.added_at:
+            continue
+        try:
+            added = datetime.fromisoformat(str(m.added_at).replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        if added.tzinfo is None:
+            added = added.replace(tzinfo=timezone.utc)
+        if (now - added).total_seconds() < days * 86400:
+            if m.address in out:
+                out[m.address] *= 0.5
+            m.tags.append("quarantine")
+    total = sum(out.values())
+    return {a: w / total for a, w in out.items()} if total > 0 else out
+
+
+def evict_member(
+    address: str,
+    reason: str,
+    *,
+    path: Path | None = None,
+) -> dict[str, Any] | None:
+    """Immediately remove a wallet from the universe (e.g. ledger drawdown kick).
+
+    Renormalizes remaining weights and records the drop with its reason.
+    Returns the updated state, or None if the wallet was not a member.
+    """
+    addr = address.lower()
+    state = load_universe(path)
+    members = state.get("members") or []
+    hit = [m for m in members if str(m.get("address", "")).lower() == addr]
+    if not hit:
+        return None
+    now = datetime.now(timezone.utc).isoformat()
+    remain = [m for m in members if str(m.get("address", "")).lower() != addr]
+    for m in hit:
+        m["reject_reason"] = reason
+        m["suitable"] = False
+        m["tags"] = ["evicted"]
+        m["checked_at"] = now
+        state.setdefault("dropped", []).append(m)
+    state["members"] = remain
+    alloc = {
+        str(m.get("address", "")).lower(): float(m.get("weight") or 0.0) for m in remain
+    }
+    total = sum(alloc.values())
+    if total > 0:
+        alloc = {a: w / total for a, w in alloc.items()}
+    elif remain:
+        alloc = {a: 1.0 / len(remain) for a in alloc}
+    for m in remain:
+        m["weight"] = alloc.get(str(m.get("address", "")).lower(), 0.0)
+    state["allocation"] = alloc
+    state["active_n"] = len(remain)
+    state["updated_at"] = now
+    save_universe(state, path)
+    return state
 
 
 def _as_scored_pair(c: DiscoverCandidate) -> tuple[WalletFeatures, WalletScore]:
@@ -194,9 +274,17 @@ def sync_universe(
             cand.pnl = float(m["pnl"])
             reason = _exit_reject(cand, cfg)
 
+        # behavior-drift strikes vs entry baseline (domain Jaccard / freq / size)
+        baseline = dict(m.get("baseline") or {})
+        added_at = str(m.get("added_at") or "") or str(m.get("checked_at") or now)
+        if not baseline and cand.behavior:
+            # grandfather members that predate baselines: snapshot now
+            baseline = dict(cand.behavior)
+        drift_reasons = drift_strikes(baseline, cand.behavior, cfg) if baseline else []
+
         score = _guide_score(cand)
-        if reason is None:
-            strikes = 0
+        strikes_this_run = (1 if reason else 0) + len(drift_reasons)
+        if strikes_this_run == 0:
             member = UniverseMember(
                 address=addr,
                 score=score,
@@ -207,21 +295,26 @@ def sync_universe(
                 tags=["active"],
                 checked_at=now,
                 exit_strikes=0,
+                added_at=added_at,
+                baseline=baseline,
             )
             kept.append(member)
             scored_pairs.append(_as_scored_pair(cand))
         else:
-            strikes = prev_strikes + 1
+            strikes = prev_strikes + strikes_this_run
+            all_reasons = ";".join(filter(None, [reason, *drift_reasons]))
             member = UniverseMember(
                 address=addr,
                 score=score,
                 suitable=False,
-                reject_reason=reason,
+                reject_reason=all_reasons,
                 user_name=cand.user_name or m.get("user_name"),
                 pnl=cand.pnl or m.get("pnl"),
                 tags=["exit_warn"] if strikes < strikes_required else ["exited"],
                 checked_at=now,
                 exit_strikes=strikes,
+                added_at=added_at,
+                baseline=baseline,
             )
             if strikes >= strikes_required:
                 dropped.append(member.to_dict())
@@ -253,6 +346,8 @@ def sync_universe(
                 pnl=cand.pnl,
                 tags=["guide_pass", "refilled"],
                 checked_at=now,
+                added_at=now,
+                baseline=dict(cand.behavior or {}),
             )
             kept.append(member)
             added.append(member)
@@ -266,6 +361,19 @@ def sync_universe(
     alloc: Allocation = allocate(scored_pairs, cfg)
     if not alloc and kept:
         alloc = {m.address: 1.0 / len(kept) for m in kept}
+
+    # single-domain concentration cap (default 40%)
+    domain_cap = float(cfg.get("risk", {}).get("domain_weight_cap", 0.40))
+    domain_by_addr = {
+        m.address: str((m.baseline.get("top_domains") or ["unknown"])[0]) if m.baseline else ""
+        for m in kept
+    }
+    alloc = cap_domain_weights(alloc, domain_by_addr, cap=domain_cap)
+
+    # new members run at half weight during the quarantine window
+    qdays = int(cfg.get("risk", {}).get("quarantine_days", 7))
+    alloc = apply_quarantine(kept, alloc, days=qdays)
+
     for m in kept:
         m.weight = float(alloc.get(m.address, 0.0))
 

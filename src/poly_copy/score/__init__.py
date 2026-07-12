@@ -25,15 +25,24 @@ def hard_screen(feat: WalletFeatures, cfg: dict[str, Any]) -> str | None:
         return f"trades_low:{feat.trade_count}"
     if feat.win_rate < float(hs.get("win_rate_min", 0.70)):
         return f"win_rate_low:{feat.win_rate:.2f}"
+    # guide: monthly trade frequency must sit in the 30–200 band (hard)
+    freq_lo = float(hs.get("monthly_freq_min", 30))
+    freq_hi = float(hs.get("monthly_freq_max", 200))
+    if not (freq_lo <= feat.monthly_freq <= freq_hi):
+        return f"monthly_freq_out_of_band:{feat.monthly_freq:.0f}"
     return None
 
 
 def blacklist(feat: WalletFeatures, cfg: dict[str, Any]) -> str | None:
     bl = cfg.get("blacklist", {})
     liq = cfg.get("liquidity", {})
-    if feat.monthly_freq > float(bl.get("monthly_freq_max", 400)):
+    if feat.monthly_freq > float(bl.get("monthly_freq_max", 200)):
         return f"hft_freq:{feat.monthly_freq:.0f}"
-    if feat.single_event_pnl_share > float(bl.get("single_event_pnl_share_max", 0.80)):
+    # minute-level burst firing (bot signal) — from features meta
+    burst = int(feat.meta.get("burst_max_per_minute", 0) or 0)
+    if burst > int(bl.get("burst_per_minute_max", 8)):
+        return f"hft_burst:{burst}/min"
+    if feat.single_event_pnl_share > float(bl.get("single_event_pnl_share_max", 0.50)):
         return f"single_event_rich:{feat.single_event_pnl_share:.2f}"
     if feat.avg_position_value < float(bl.get("avg_position_value_min", 50)) and feat.trade_count > 0:
         # only flag when we have open positions to judge
@@ -41,7 +50,7 @@ def blacklist(feat: WalletFeatures, cfg: dict[str, Any]) -> str | None:
             return f"low_liquidity_avg_pos:{feat.avg_position_value:.1f}"
     # prefer wallets that trade deep books, not one-sided thin markets
     if feat.meta.get("liquidity_markets_known", 0) >= 5:
-        min_share = float(liq.get("min_liquid_trade_share", 0.60))
+        min_share = float(liq.get("min_liquid_trade_share", 0.50))
         if feat.liquid_trade_share < min_share:
             return f"thin_markets:{feat.liquid_trade_share:.2f}"
         min_med = float(liq.get("min_median_liquidity", 8_000))

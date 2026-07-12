@@ -92,9 +92,43 @@ class DiscoverCandidate:
     pass_hard: bool = False
     reject_reason: str | None = None
     tags: list[str] = field(default_factory=list)
+    behavior: dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+
+def behavior_stats(trades: list[dict[str, Any]]) -> dict[str, Any]:
+    """Compact behavior snapshot from raw data-api trade rows.
+
+    Used as the entry baseline for drift-strike detection: top domains,
+    monthly trade frequency, and median per-trade notional.
+    """
+    from statistics import median
+
+    from poly_copy.features import _domain_key
+
+    domains: dict[str, int] = {}
+    notionals: list[float] = []
+    epochs: list[float] = []
+    for t in trades:
+        d = _domain_key({"event_slug": t.get("eventSlug"), "slug": t.get("slug"), "title": t.get("title")})
+        domains[d] = domains.get(d, 0) + 1
+        notionals.append(float(t.get("size") or 0) * float(t.get("price") or 0))
+        ts = t.get("timestamp")
+        if str(ts or "").lstrip("-").isdigit():
+            epochs.append(float(ts))
+    top = sorted(domains, key=domains.get, reverse=True)[:3]
+    monthly_freq = 0.0
+    if len(epochs) >= 2:
+        span_days = max((max(epochs) - min(epochs)) / 86400.0, 1.0)
+        monthly_freq = len(epochs) / (span_days / 30.0)
+    return {
+        "top_domains": top,
+        "monthly_freq": round(monthly_freq, 2),
+        "median_trade_notional": round(float(median(notionals)), 2) if notionals else 0.0,
+        "n_trades": len(trades),
+    }
 
 
 def _probe(address: str) -> dict[str, Any]:
@@ -106,6 +140,7 @@ def _probe(address: str) -> dict[str, Any]:
         "traded_markets": 0,
         "win_rate": 0.0,
         "closed_sample": 0,
+        "behavior": {},
     }
     try:
         vals = _get(f"{DATA}/value?user={addr}")
@@ -130,15 +165,29 @@ def _probe(address: str) -> dict[str, Any]:
     except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
         pass
     try:
-        # guide: trades >= 20 — fetch 25 is enough to pass/fail floor
-        trades = _get(f"{DATA}/trades?user={addr}&limit=25")
+        # 100 recent trades: enough for the trades>=20 floor AND for a
+        # behavior baseline (domains / monthly freq / median trade size).
+        trades = _get(f"{DATA}/trades?user={addr}&limit=100")
         if isinstance(trades, list):
             out["trade_count"] = len(trades)
+            out["behavior"] = behavior_stats(trades)
     except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
         pass
     try:
-        closed = _get(f"{DATA}/closed-positions?user={addr}&limit=50")
-        if isinstance(closed, list) and closed:
+        # /closed-positions defaults to realizedPnl-desc (winners first) with a
+        # 50-row page cap → win_rate would read 1.0. Paginate with explicit sort.
+        closed: list[Any] = []
+        for offset in (0, 50, 100, 150):
+            page = _get(
+                f"{DATA}/closed-positions?user={addr}"
+                f"&sortBy=realizedpnl&sortDirection=asc&limit=50&offset={offset}"
+            )
+            if not isinstance(page, list) or not page:
+                break
+            closed.extend(page)
+            if len(page) < 50:
+                break
+        if closed:
             wins = sum(1 for c in closed if float(c.get("realizedPnl") or 0) > 0)
             losses = sum(1 for c in closed if float(c.get("realizedPnl") or 0) < 0)
             decided = wins + losses
@@ -245,6 +294,7 @@ def discover_wallets(cfg: dict[str, Any], *, exclude: set[str] | None = None) ->
         c.traded_markets = int(stats["traded_markets"])
         c.win_rate = float(stats["win_rate"])
         c.closed_sample = int(stats["closed_sample"])
+        c.behavior = dict(stats.get("behavior") or {})
         reason = _hard_reject(c, cfg)
         c.reject_reason = reason
         c.pass_hard = reason is None
