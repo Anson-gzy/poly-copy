@@ -318,9 +318,24 @@ def fetch_wallet(address: str, cfg: dict[str, Any] | None = None) -> WalletSnaps
         positions = []
 
     try:
-        raw = http_json(
-            f"/closed-positions?user={urllib.parse.quote(addr)}&limit={min(max_closed, 100)}"
-        )
+        # NOTE: /closed-positions defaults to realizedPnl-descending and caps
+        # pages at 50 rows, so a single page returns only the biggest winners
+        # — that skewed win_rate to 1.0 and zeroed gross losses (which in turn
+        # made profit_factor hit its placeholder constant). Paginate with an
+        # explicit sort to retrieve the full (or max_closed-capped) set.
+        raw: list[Any] = []
+        offset = 0
+        while len(raw) < max_closed:
+            page = http_json(
+                f"/closed-positions?user={urllib.parse.quote(addr)}"
+                f"&sortBy=realizedpnl&sortDirection=asc&limit=50&offset={offset}"
+            )
+            if not isinstance(page, list) or not page:
+                break
+            raw.extend(page)
+            if len(page) < 50:
+                break
+            offset += 50
         if isinstance(raw, list):
             for p in raw[:max_closed]:
                 ts = p.get("timestamp")

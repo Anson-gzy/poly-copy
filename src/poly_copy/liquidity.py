@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -10,9 +11,16 @@ from typing import Any
 
 GAMMA = "https://gamma-api.polymarket.com"
 _CACHE: dict[str, float] = {}
+_ROW_CACHE: dict[str, dict[str, Any] | None] = {}
+
+# Simple in-process backoff: after a failed/rate-limited call, wait this long
+# before the next Gamma request. Keeps us polite without an external limiter.
+_MIN_INTERVAL_S = 0.12
+_last_call = 0.0
 
 
-def _get_json(url: str, timeout: float = 8.0) -> Any:
+def _get_json(url: str, timeout: float = 8.0, retries: int = 2) -> Any:
+    global _last_call
     req = urllib.request.Request(
         url,
         headers={
@@ -20,38 +28,133 @@ def _get_json(url: str, timeout: float = 8.0) -> Any:
             "user-agent": "Mozilla/5.0 (compatible; poly-copy/0.1)",
         },
     )
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return json.loads(resp.read().decode())
+    last_exc: Exception | None = None
+    for attempt in range(retries + 1):
+        wait = _MIN_INTERVAL_S - (time.monotonic() - _last_call)
+        if wait > 0:
+            time.sleep(wait)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                _last_call = time.monotonic()
+                return json.loads(resp.read().decode())
+        except urllib.error.HTTPError as e:
+            _last_call = time.monotonic()
+            last_exc = e
+            if e.code == 429 or e.code >= 500:
+                time.sleep(0.25 * (2**attempt))
+                continue
+            raise
+        except (urllib.error.URLError, TimeoutError) as e:
+            _last_call = time.monotonic()
+            last_exc = e
+            time.sleep(0.2 * (2**attempt))
+            continue
+    if last_exc:
+        raise last_exc
+    return None
+
+
+def _market_row(*, slug: str | None = None, condition_id: str | None = None) -> dict[str, Any] | None:
+    """Fetch (and cache) the raw Gamma market row for a slug/condition_id.
+
+    Gamma's `/markets?slug=` list endpoint filters out resolved/closed
+    markets by default, so a wallet's historical (already-resolved) trades
+    would silently miss every lookup — this was the root cause of
+    liquid_trade_share / median_market_liquidity always coming back 0.
+    We use the singular `/markets/slug/{slug}` endpoint (returns the market
+    regardless of closed state) for slug lookups, and `closed=true` on the
+    condition_id list lookup for the same reason.
+    """
+    key = (slug or "") + "|" + (condition_id or "")
+    if not key.strip("|"):
+        return None
+    if key in _ROW_CACHE:
+        return _ROW_CACHE[key]
+
+    row: dict[str, Any] | None = None
+    try:
+        if slug:
+            data = _get_json(f"{GAMMA}/markets/slug/{urllib.parse.quote(slug)}")
+            if isinstance(data, dict) and data:
+                row = data
+        if row is None and condition_id:
+            q = urllib.parse.urlencode({"condition_ids": condition_id, "closed": "true"})
+            data = _get_json(f"{GAMMA}/markets?{q}")
+            rows = data if isinstance(data, list) else []
+            if rows:
+                row = rows[0]
+    except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
+        row = None
+
+    _ROW_CACHE[key] = row
+    return row
 
 
 def market_liquidity(*, slug: str | None = None, condition_id: str | None = None) -> float | None:
-    """Return market liquidity USD if found. Cached in-process."""
+    """Return a market's liquidity (USD) if found, cached in-process.
+
+    Once a market is fully resolved its order-book liquidity genuinely goes
+    to ~0 and Gamma omits the `liquidity`/`liquidityNum` field entirely. In
+    that case we fall back to traded `volume` as a liquidity proxy (deep,
+    frequently-traded markets are the ones we want to reward) rather than
+    reporting a hard zero.
+    """
     key = (slug or "") + "|" + (condition_id or "")
     if not key.strip("|"):
         return None
     if key in _CACHE:
         return _CACHE[key]
 
+    row = _market_row(slug=slug, condition_id=condition_id)
     liq: float | None = None
-    try:
-        if slug:
-            q = urllib.parse.urlencode({"slug": slug})
-            data = _get_json(f"{GAMMA}/markets?{q}")
-            rows = data if isinstance(data, list) else []
-            if rows:
-                liq = float(rows[0].get("liquidity") or rows[0].get("liquidityNum") or 0) or None
-        if liq is None and condition_id:
-            q = urllib.parse.urlencode({"condition_ids": condition_id})
-            data = _get_json(f"{GAMMA}/markets?{q}")
-            rows = data if isinstance(data, list) else []
-            if rows:
-                liq = float(rows[0].get("liquidity") or rows[0].get("liquidityNum") or 0) or None
-    except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
-        liq = None
+    if row:
+        liq = float(row.get("liquidityNum") or row.get("liquidity") or 0)
+        if liq <= 0:
+            vol = float(row.get("volumeNum") or row.get("volume") or 0)
+            liq = vol or None
 
     if liq is not None:
         _CACHE[key] = liq
     return liq
+
+
+def market_mark_price(
+    *, slug: str | None = None, condition_id: str | None = None, outcome: str | None = None
+) -> float | None:
+    """Best-effort mark/mid price for a position's outcome.
+
+    Reads Gamma's `outcomes` / `outcomePrices` arrays, which reflect the
+    current book mid-price for live markets and collapse to 1.0/0.0 once a
+    market resolves — so this doubles as our resolution price source.
+    """
+    row = _market_row(slug=slug, condition_id=condition_id)
+    if not row:
+        return None
+    try:
+        outcomes = json.loads(row.get("outcomes") or "[]")
+        prices = json.loads(row.get("outcomePrices") or "[]")
+    except (ValueError, TypeError):
+        return None
+    if not outcomes or not prices or len(outcomes) != len(prices):
+        return None
+    if outcome:
+        for name, price in zip(outcomes, prices):
+            if str(name).strip().lower() == str(outcome).strip().lower():
+                try:
+                    return float(price)
+                except (TypeError, ValueError):
+                    return None
+    try:
+        return float(prices[0])
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
+def market_is_closed(*, slug: str | None = None, condition_id: str | None = None) -> bool | None:
+    row = _market_row(slug=slug, condition_id=condition_id)
+    if not row:
+        return None
+    return bool(row.get("closed"))
 
 
 def trade_ok(
