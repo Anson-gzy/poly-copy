@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-07-12T04:02:03.878398+00:00",
+  "updated_at": "2026-07-12T06:44:20.810428+00:00",
   "target_n": 10,
   "active_n": 5,
   "shortfall": 5,
   "members": [
     {
       "address": "0x2cff41636fe21fad120fed603d54d4fdd96259db",
-      "score": 0.9584254590604856,
+      "score": 0.9534254590604856,
       "suitable": true,
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.3324134358463163,
+      "weight": 0.331637795605939,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
+      "checked_at": "2026-07-12T06:44:20.810428+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -32,17 +32,17 @@
     },
     {
       "address": "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59",
-      "score": 0.9502774601902685,
+      "score": 0.9504293863975394,
       "suitable": true,
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.14832387860836208,
+      "weight": 0.13929997585469905,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
+      "checked_at": "2026-07-12T06:44:20.810428+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -56,19 +56,44 @@
       }
     },
     {
+      "address": "0x6d20c35f65d9899b6d6b74f8466e824580f9a165",
+      "score": 0.903656889060635,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "Djdjdjekekek",
+      "pnl": 361566.4376158215,
+      "weight": 0.13244475037141468,
+      "tags": [
+        "active",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T06:44:20.810428+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T04:02:03.878398+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "atp",
+          "cs2"
+        ],
+        "monthly_freq": 543.94,
+        "median_trade_notional": 2041.82,
+        "n_trades": 100
+      }
+    },
+    {
       "address": "0x85f031d069de300055900c4055c1baeb6bde3f67",
-      "score": 0.8750040554270301,
+      "score": 0.8750725217807077,
       "suitable": true,
       "reject_reason": null,
       "user_name": "RJW1",
       "pnl": 267926.9961810007,
-      "weight": 0.13657484338626472,
+      "weight": 0.12825527377388632,
       "tags": [
-        "guide_pass",
-        "refilled",
+        "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
+      "checked_at": "2026-07-12T06:44:20.810428+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -89,12 +114,12 @@
       "reject_reason": null,
       "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
       "pnl": 398167.19021283265,
-      "weight": 0.26758656415368365,
+      "weight": 0.2683622043940609,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
+      "checked_at": "2026-07-12T06:44:20.810428+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -106,274 +131,18 @@
         "median_trade_notional": 1000.0,
         "n_trades": 100
       }
-    },
-    {
-      "address": "0x6d20c35f65d9899b6d6b74f8466e824580f9a165",
-      "score": 0.7374277908171804,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "Djdjdjekekek",
-      "pnl": 361566.4376158215,
-      "weight": 0.1151012780053732,
-      "tags": [
-        "guide_pass",
-        "refilled",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T04:02:03.878398+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "atp",
-          "cs2"
-        ],
-        "monthly_freq": 543.94,
-        "median_trade_notional": 2041.82,
-        "n_trades": 100
-      }
     }
   ],
   "allocation": {
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.3324134358463163,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.14832387860836208,
-    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.26758656415368365,
-    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.13657484338626472,
-    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.1151012780053732
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.331637795605939,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.13929997585469905,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.12825527377388632,
+    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.2683622043940609,
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.13244475037141468
   },
-  "dropped": [
-    {
-      "address": "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c",
-      "score": 0.467188370365208,
-      "suitable": false,
-      "reject_reason": "win_rate_low:0.00",
-      "user_name": "",
-      "pnl": 369186.5993217288,
-      "weight": 0.0,
-      "tags": [
-        "exited"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 2,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc"
-        ],
-        "monthly_freq": 3000.0,
-        "median_trade_notional": 24.04,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
-      "score": 0.6175590405887524,
-      "suitable": false,
-      "reject_reason": "win_rate_low:0.00",
-      "user_name": "0x2c335066FE58fe9237c3d3Dc7b275C2a034a0563-1759935795465",
-      "pnl": 364314.94464762765,
-      "weight": 0.0,
-      "tags": [
-        "exited"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 2,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "mlb",
-          "ufc"
-        ],
-        "monthly_freq": 3000.0,
-        "median_trade_notional": 3546.7,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f",
-      "score": 0.6174890548923153,
-      "suitable": false,
-      "reject_reason": "win_rate_low:0.00",
-      "user_name": "Q96s3kwozynxpau",
-      "pnl": 364237.9603815469,
-      "weight": 0.0,
-      "tags": [
-        "exited"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 2,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "world",
-          "democratic",
-          "republican"
-        ],
-        "monthly_freq": 41.47,
-        "median_trade_notional": 105.0,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf",
-      "score": 0.6108935329437296,
-      "suitable": false,
-      "reject_reason": "win_rate_low:0.00",
-      "user_name": "0x3DFb153c197D4C19D3B31c1ecD2c7B6860eeabAf-1722957908185",
-      "pnl": 356982.88623810257,
-      "weight": 0.0,
-      "tags": [
-        "exited"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 2,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "ufc",
-          "mlb",
-          "fifwc"
-        ],
-        "monthly_freq": 3000.0,
-        "median_trade_notional": 711.84,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
-      "score": 0.5445115763947063,
-      "suitable": false,
-      "reject_reason": "win_rate_low:0.00",
-      "user_name": "ferrariChampions2026",
-      "pnl": 283962.73403417686,
-      "weight": 0.0,
-      "tags": [
-        "exited"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 2,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "atp",
-          "mlb"
-        ],
-        "monthly_freq": 3000.0,
-        "median_trade_notional": 392.9,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0xf1528f12e645462c344799b62b1b421a6a4c64aa",
-      "score": 0.47007773329184976,
-      "suitable": false,
-      "reject_reason": "win_rate_low:0.00",
-      "user_name": "phonesculptor",
-      "pnl": 279085.50662103476,
-      "weight": 0.0,
-      "tags": [
-        "exited"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 2,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "mlb",
-          "atp",
-          "wta"
-        ],
-        "monthly_freq": 259.27,
-        "median_trade_notional": 1845.12,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0x9cb990f1862568a63d8601efeebe0304225c32f2",
-      "score": 0.3393416141283315,
-      "suitable": false,
-      "reject_reason": "win_rate_low:0.00",
-      "user_name": "jtwyslljy",
-      "pnl": 348468.62398116477,
-      "weight": 0.0,
-      "tags": [
-        "exited"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 2,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "atp",
-          "mlb"
-        ],
-        "monthly_freq": 690.44,
-        "median_trade_notional": 1915.91,
-        "n_trades": 100
-      }
-    }
-  ],
+  "dropped": [],
   "warned": [],
-  "added": [
-    {
-      "address": "0x85f031d069de300055900c4055c1baeb6bde3f67",
-      "score": 0.8750040554270301,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "RJW1",
-      "pnl": 267926.9961810007,
-      "weight": 0.13657484338626472,
-      "tags": [
-        "guide_pass",
-        "refilled",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T04:02:03.878398+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "epl",
-          "world"
-        ],
-        "monthly_freq": 47.66,
-        "median_trade_notional": 4093.32,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0x6d20c35f65d9899b6d6b74f8466e824580f9a165",
-      "score": 0.7374277908171804,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "Djdjdjekekek",
-      "pnl": 361566.4376158215,
-      "weight": 0.1151012780053732,
-      "tags": [
-        "guide_pass",
-        "refilled",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-12T04:02:03.878398+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T04:02:03.878398+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "atp",
-          "cs2"
-        ],
-        "monthly_freq": 543.94,
-        "median_trade_notional": 2041.82,
-        "n_trades": 100
-      }
-    }
-  ],
+  "added": [],
   "exit_policy": {
     "strikes_required": 2,
     "screen": "exit_screen",
