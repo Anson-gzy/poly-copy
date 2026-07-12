@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T23:13:30.258621+00:00",
+  "updated_at": "2026-07-12T00:13:36.307614+00:00",
   "target_n": 10,
   "active_n": 10,
   "shortfall": 0,
@@ -11,11 +11,11 @@
       "reject_reason": null,
       "user_name": "",
       "pnl": 369186.5993217288,
-      "weight": 0.10671136489877196,
+      "weight": 0.1072077736990679,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
@@ -25,11 +25,11 @@
       "reject_reason": null,
       "user_name": "0x2c335066FE58fe9237c3d3Dc7b275C2a034a0563-1759935795465",
       "pnl": 364314.94464762765,
-      "weight": 0.10622514395294397,
+      "weight": 0.10671929091021479,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
@@ -39,11 +39,11 @@
       "reject_reason": null,
       "user_name": "Q96s3kwozynxpau",
       "pnl": 364237.9603815469,
-      "weight": 0.10621746045212717,
+      "weight": 0.10671157166665,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
@@ -53,11 +53,11 @@
       "reject_reason": null,
       "user_name": "0x3DFb153c197D4C19D3B31c1ecD2c7B6860eeabAf-1722957908185",
       "pnl": 356982.88623810257,
-      "weight": 0.10549335965926288,
+      "weight": 0.10598410244150841,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
@@ -67,11 +67,11 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.10522239789617031,
+      "weight": 0.10571188019595579,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
@@ -81,11 +81,11 @@
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.10513681059614864,
+      "weight": 0.1056258947538153,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
@@ -95,67 +95,67 @@
       "reject_reason": null,
       "user_name": "ferrariChampions2026",
       "pnl": 283962.73403417686,
-      "weight": 0.0982055016635303,
+      "weight": 0.09866234218196522,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
-      "exit_strikes": 0
-    },
-    {
-      "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
-      "score": 0.8572701020843932,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
-      "pnl": 398167.19021283265,
-      "weight": 0.09411688194764643,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
       "address": "0xf1528f12e645462c344799b62b1b421a6a4c64aa",
-      "score": 0.8450777332918499,
+      "score": 0.8500777332918499,
       "suitable": true,
       "reject_reason": null,
       "user_name": "phonesculptor",
       "pnl": 279085.50662103476,
-      "weight": 0.09277832163681804,
+      "weight": 0.09376140277730924,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
+      "exit_strikes": 0
+    },
+    {
+      "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
+      "score": 0.8440039302843932,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
+      "pnl": 398167.19021283265,
+      "weight": 0.09309147781883881,
+      "tags": [
+        "active"
+      ],
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     },
     {
       "address": "0x9cb990f1862568a63d8601efeebe0304225c32f2",
-      "score": 0.7277086829283317,
+      "score": 0.6937990535283316,
       "suitable": true,
       "reject_reason": null,
       "user_name": "jtwyslljy",
       "pnl": 348468.62398116477,
-      "weight": 0.07989275729658032,
+      "weight": 0.07652426355467451,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-11T23:13:30.258621+00:00",
+      "checked_at": "2026-07-12T00:13:36.307614+00:00",
       "exit_strikes": 0
     }
   ],
   "allocation": {
-    "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c": 0.10671136489877196,
-    "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563": 0.10622514395294397,
-    "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f": 0.10621746045212717,
-    "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": 0.10549335965926288,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.10513681059614864,
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.10522239789617031,
-    "0xfe787d2da716d60e8acff57fb87eb13cd4d10319": 0.0982055016635303,
-    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.09411688194764643,
-    "0xf1528f12e645462c344799b62b1b421a6a4c64aa": 0.09277832163681804,
-    "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.07989275729658032
+    "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c": 0.1072077736990679,
+    "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563": 0.10671929091021479,
+    "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f": 0.10671157166665,
+    "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": 0.10598410244150841,
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.10571188019595579,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.1056258947538153,
+    "0xfe787d2da716d60e8acff57fb87eb13cd4d10319": 0.09866234218196522,
+    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.09309147781883881,
+    "0xf1528f12e645462c344799b62b1b421a6a4c64aa": 0.09376140277730924,
+    "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.07652426355467451
   },
   "dropped": [],
   "warned": [],
