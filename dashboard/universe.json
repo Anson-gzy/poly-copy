@@ -1,65 +1,9 @@
 {
-  "updated_at": "2026-07-12T00:13:36.307614+00:00",
+  "updated_at": "2026-07-12T03:04:30.993010+00:00",
   "target_n": 10,
   "active_n": 10,
   "shortfall": 0,
   "members": [
-    {
-      "address": "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c",
-      "score": 0.971987817565208,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "",
-      "pnl": 369186.5993217288,
-      "weight": 0.1072077736990679,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
-    },
-    {
-      "address": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
-      "score": 0.9675590405887523,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "0x2c335066FE58fe9237c3d3Dc7b275C2a034a0563-1759935795465",
-      "pnl": 364314.94464762765,
-      "weight": 0.10671929091021479,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
-    },
-    {
-      "address": "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f",
-      "score": 0.9674890548923153,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "Q96s3kwozynxpau",
-      "pnl": 364237.9603815469,
-      "weight": 0.10671157166665,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
-    },
-    {
-      "address": "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf",
-      "score": 0.9608935329437295,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "0x3DFb153c197D4C19D3B31c1ecD2c7B6860eeabAf-1722957908185",
-      "pnl": 356982.88623810257,
-      "weight": 0.10598410244150841,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
-    },
     {
       "address": "0x2cff41636fe21fad120fed603d54d4fdd96259db",
       "score": 0.9584254590604856,
@@ -67,98 +11,458 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.10571188019595579,
+      "weight": 0.16579938613127904,
       "tags": [
-        "active"
+        "active",
+        "quarantine"
       ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "atp",
+          "ufc",
+          "nba"
+        ],
+        "monthly_freq": 23.94,
+        "median_trade_notional": 13563.16,
+        "n_trades": 35
+      }
     },
     {
       "address": "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59",
-      "score": 0.9576458812429002,
+      "score": 0.9502774601902685,
       "suitable": true,
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.1056258947538153,
+      "weight": 0.12268794562835869,
       "tags": [
-        "active"
+        "active",
+        "quarantine"
       ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
-    },
-    {
-      "address": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
-      "score": 0.8945115763947061,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "ferrariChampions2026",
-      "pnl": 283962.73403417686,
-      "weight": 0.09866234218196522,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
-    },
-    {
-      "address": "0xf1528f12e645462c344799b62b1b421a6a4c64aa",
-      "score": 0.8500777332918499,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "phonesculptor",
-      "pnl": 279085.50662103476,
-      "weight": 0.09376140277730924,
-      "tags": [
-        "active"
-      ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "world"
+        ],
+        "monthly_freq": 313.55,
+        "median_trade_notional": 17900.0,
+        "n_trades": 100
+      }
     },
     {
       "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
-      "score": 0.8440039302843932,
+      "score": 0.7914942232271068,
       "suitable": true,
       "reject_reason": null,
       "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
       "pnl": 398167.19021283265,
-      "weight": 0.09309147781883881,
+      "weight": 0.13692171373050524,
       "tags": [
-        "active"
+        "active",
+        "quarantine"
       ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "dota2",
+          "fifwc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 1000.0,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c",
+      "score": 0.6219878175652079,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "",
+      "pnl": 369186.5993217288,
+      "weight": 0.08030329113316285,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 24.04,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
+      "score": 0.6175590405887524,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "0x2c335066FE58fe9237c3d3Dc7b275C2a034a0563-1759935795465",
+      "pnl": 364314.94464762765,
+      "weight": 0.07973150281696025,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "mlb",
+          "ufc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 3546.7,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f",
+      "score": 0.6174890548923153,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "Q96s3kwozynxpau",
+      "pnl": 364237.9603815469,
+      "weight": 0.10682031166439253,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "world",
+          "democratic",
+          "republican"
+        ],
+        "monthly_freq": 41.47,
+        "median_trade_notional": 105.0,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf",
+      "score": 0.6108935329437296,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "0x3DFb153c197D4C19D3B31c1ecD2c7B6860eeabAf-1722957908185",
+      "pnl": 356982.88623810257,
+      "weight": 0.10567934292242813,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "ufc",
+          "mlb",
+          "fifwc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 711.84,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
+      "score": 0.5445115763947063,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "ferrariChampions2026",
+      "pnl": 283962.73403417686,
+      "weight": 0.07030052745368665,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "atp",
+          "mlb"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 392.9,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0xf1528f12e645462c344799b62b1b421a6a4c64aa",
+      "score": 0.4900777332918498,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "phonesculptor",
+      "pnl": 279085.50662103476,
+      "weight": 0.08477924555139502,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "atp",
+          "wta"
+        ],
+        "monthly_freq": 259.27,
+        "median_trade_notional": 1845.12,
+        "n_trades": 100
+      }
     },
     {
       "address": "0x9cb990f1862568a63d8601efeebe0304225c32f2",
-      "score": 0.6937990535283316,
+      "score": 0.3638575107283316,
       "suitable": true,
-      "reject_reason": null,
+      "reject_reason": "win_rate_low:0.00",
       "user_name": "jtwyslljy",
       "pnl": 348468.62398116477,
-      "weight": 0.07652426355467451,
+      "weight": 0.04697673296783162,
       "tags": [
-        "active"
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
       ],
-      "checked_at": "2026-07-12T00:13:36.307614+00:00",
-      "exit_strikes": 0
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "atp",
+          "mlb"
+        ],
+        "monthly_freq": 690.44,
+        "median_trade_notional": 1915.91,
+        "n_trades": 100
+      }
     }
   ],
   "allocation": {
-    "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c": 0.1072077736990679,
-    "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563": 0.10671929091021479,
-    "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f": 0.10671157166665,
-    "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": 0.10598410244150841,
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.10571188019595579,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.1056258947538153,
-    "0xfe787d2da716d60e8acff57fb87eb13cd4d10319": 0.09866234218196522,
-    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.09309147781883881,
-    "0xf1528f12e645462c344799b62b1b421a6a4c64aa": 0.09376140277730924,
-    "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.07652426355467451
+    "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c": 0.08030329113316285,
+    "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563": 0.07973150281696025,
+    "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f": 0.10682031166439253,
+    "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": 0.10567934292242813,
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.16579938613127904,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.12268794562835869,
+    "0xfe787d2da716d60e8acff57fb87eb13cd4d10319": 0.07030052745368665,
+    "0xf1528f12e645462c344799b62b1b421a6a4c64aa": 0.08477924555139502,
+    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.13692171373050524,
+    "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.04697673296783162
   },
   "dropped": [],
-  "warned": [],
+  "warned": [
+    {
+      "address": "0x076daa87c4fe1a85402a9b6b8e0a866224388d4c",
+      "score": 0.6219878175652079,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "",
+      "pnl": 369186.5993217288,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 24.04,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x2c335066fe58fe9237c3d3dc7b275c2a034a0563",
+      "score": 0.6175590405887524,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "0x2c335066FE58fe9237c3d3Dc7b275C2a034a0563-1759935795465",
+      "pnl": 364314.94464762765,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "mlb",
+          "ufc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 3546.7,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x2663daca3cecf3767ca1c3b126002a8578a8ed1f",
+      "score": 0.6174890548923153,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "Q96s3kwozynxpau",
+      "pnl": 364237.9603815469,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "world",
+          "democratic",
+          "republican"
+        ],
+        "monthly_freq": 41.47,
+        "median_trade_notional": 105.0,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf",
+      "score": 0.6108935329437296,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "0x3DFb153c197D4C19D3B31c1ecD2c7B6860eeabAf-1722957908185",
+      "pnl": 356982.88623810257,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "ufc",
+          "mlb",
+          "fifwc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 711.84,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0xfe787d2da716d60e8acff57fb87eb13cd4d10319",
+      "score": 0.5445115763947063,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "ferrariChampions2026",
+      "pnl": 283962.73403417686,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "atp",
+          "mlb"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 392.9,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0xf1528f12e645462c344799b62b1b421a6a4c64aa",
+      "score": 0.4900777332918498,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "phonesculptor",
+      "pnl": 279085.50662103476,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "atp",
+          "wta"
+        ],
+        "monthly_freq": 259.27,
+        "median_trade_notional": 1845.12,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x9cb990f1862568a63d8601efeebe0304225c32f2",
+      "score": 0.3638575107283316,
+      "suitable": true,
+      "reject_reason": "win_rate_low:0.00",
+      "user_name": "jtwyslljy",
+      "pnl": 348468.62398116477,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T03:04:30.993010+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "atp",
+          "mlb"
+        ],
+        "monthly_freq": 690.44,
+        "median_trade_notional": 1915.91,
+        "n_trades": 100
+      }
+    }
+  ],
   "added": [],
   "exit_policy": {
     "strikes_required": 2,
