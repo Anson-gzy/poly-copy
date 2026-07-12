@@ -35,8 +35,9 @@ jobs:
         run: |
           git config user.name "poly-copy-bot"
           git config user.email "poly-copy-bot@users.noreply.github.com"
-          git add dashboard/universe.json || true
+          git add dashboard/universe.json dashboard/ledger.json dashboard/equity.json || true
           git diff --cached --quiet || git commit -m "chore: refresh universe $(date -u +%Y-%m-%dT%H:%MZ)"
+          git pull --rebase --autostash || true
           git push || true
       - uses: actions/upload-artifact@v4
         with:

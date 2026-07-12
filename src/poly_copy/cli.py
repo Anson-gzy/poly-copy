@@ -10,13 +10,12 @@ from typing import Any
 
 from poly_copy.backtest import param_scan, run_backtest
 from poly_copy.config import PACKAGE_ROOT, load_config
-from poly_copy.copy import paper_copy_events
 from poly_copy.data import WalletStore, default_store, fetch_wallet
 from poly_copy.features import compute_features
 from poly_copy.portfolio import allocate, domain_dispersion
-from poly_copy.risk import RiskGuard, detect_drift
+from poly_copy.risk import detect_drift
 from poly_copy.score import rank_universe, score_wallet
-from poly_copy.types import Allocation, RiskAction
+from poly_copy.types import Allocation
 
 
 def _print(obj: Any) -> None:
@@ -114,7 +113,154 @@ def cmd_score(args: argparse.Namespace) -> int:
     return 0
 
 
+def _bootstrap_cursors(ledger: dict[str, Any], wallets: list[str], cfg: dict[str, Any]) -> None:
+    """Cold start: point missing cursors a short lookback into the past so a
+    fresh ledger does not replay months of history."""
+    import time as _time
+
+    lookback_h = float(cfg.get("ledger", {}).get("bootstrap_lookback_hours", 24))
+    floor_ts = _time.time() - lookback_h * 3600.0
+    for w in wallets:
+        if w.lower() not in ledger["cursors"]:
+            ledger["cursors"][w.lower()] = {"ts": floor_ts, "tx": []}
+
+
+def _fetch_leader_values(wallets: list[str]) -> dict[str, float]:
+    """Leader portfolio values (USD) so follow size can scale by the leader's
+    own portfolio share. Missing values fall back to per-trade-cap sizing."""
+    import urllib.parse
+    import urllib.request
+
+    out: dict[str, float] = {}
+    for w in wallets:
+        url = f"https://data-api.polymarket.com/value?{urllib.parse.urlencode({'user': w})}"
+        try:
+            with urllib.request.urlopen(
+                urllib.request.Request(
+                    url,
+                    headers={
+                        "accept": "application/json",
+                        "user-agent": "Mozilla/5.0 (compatible; poly-copy/0.1)",
+                    },
+                ),
+                timeout=10,
+            ) as resp:
+                vals = json.loads(resp.read().decode())
+            if isinstance(vals, list) and vals:
+                v = float(vals[0].get("value") or 0)
+                if v > 0:
+                    out[w.lower()] = v
+        except Exception as e:
+            print(f"leader_value_error {w}: {e}", file=sys.stderr)
+    return out
+
+
+def _ledger_cycle(
+    ledger: dict[str, Any],
+    events: list,
+    alloc: dict[str, float],
+    cfg: dict[str, Any],
+    *,
+    leader_values: dict[str, float] | None = None,
+) -> dict[str, Any]:
+    """Shared incremental update: ingest → settle → evict → mark → equity → save."""
+    from datetime import datetime, timezone
+
+    from poly_copy.features import _domain_key
+    from poly_copy.ledger import (
+        append_equity_point,
+        evict_drawdown_wallets,
+        ingest_events,
+        load_equity,
+        mark_positions,
+        save_equity,
+        save_ledger,
+        settle_resolved,
+        update_equity_and_halt,
+    )
+    from poly_copy.liquidity import (
+        market_is_closed,
+        market_liquidity,
+        market_mark_price,
+        trade_ok,
+    )
+    from poly_copy.universe import evict_member
+
+    risk = cfg.get("risk", {})
+
+    def liq_ok(ev) -> bool:
+        # never open a position in a market that has already resolved
+        # (bootstrap/lagged events; also avoids the volume-proxy fallback
+        # that closed markets get from market_liquidity)
+        closed = market_is_closed(
+            slug=ev.market or ev.event_slug or None, condition_id=ev.condition_id
+        )
+        if closed:
+            return False
+        liq = market_liquidity(
+            slug=ev.market or ev.event_slug or None, condition_id=ev.condition_id
+        )
+        ok, _ = trade_ok(trade_notional=ev.notional, liquidity=liq, cfg=cfg)
+        return ok
+
+    def domain_of(ev) -> str:
+        return _domain_key({"event_slug": ev.event_slug, "slug": ev.market})
+
+    summary = ingest_events(
+        ledger,
+        events,
+        alloc=alloc,
+        cfg=cfg,
+        liquidity_ok=liq_ok,
+        leader_values=leader_values,
+        domain_fn=domain_of,
+    )
+    settled = settle_resolved(ledger, is_closed_fn=market_is_closed, price_fn=market_mark_price)
+    evicted = evict_drawdown_wallets(
+        ledger,
+        max_dd=float(risk.get("wallet_evict_drawdown", 0.20)),
+        price_fn=market_mark_price,
+    )
+    for rec in evicted:
+        evict_member(rec["wallet"], rec["reason"])
+        alloc.pop(rec["wallet"], None)
+    pv = mark_positions(ledger, price_fn=market_mark_price)
+    equity = update_equity_and_halt(
+        ledger, pv, halt_drawdown=float(risk.get("portfolio_halt_drawdown", 0.15))
+    )
+    points = load_equity()
+    append_equity_point(
+        points,
+        ts=datetime.now(timezone.utc).isoformat(),
+        equity=equity,
+        cash=float(ledger["cash"]),
+        positions_value=pv,
+        n_open=len(ledger["positions"]),
+        realized_pnl_cum=float(ledger["realized_pnl_cum"]),
+        max_points=int(cfg.get("ledger", {}).get("equity_max_points", 2000)),
+    )
+    save_equity(points)
+    save_ledger(ledger)
+    summary.update(
+        {
+            "settled": settled,
+            "evicted": [{"wallet": e["wallet"], "reason": e["reason"]} for e in evicted],
+            "equity": round(equity, 4),
+            "cash": round(float(ledger["cash"]), 4),
+            "positions_value": round(pv, 4),
+            "n_open": len(ledger["positions"]),
+            "realized_pnl_cum": round(float(ledger["realized_pnl_cum"]), 4),
+            "halted": ledger["halted"],
+            "halt_reason": ledger["halt_reason"],
+        }
+    )
+    return summary
+
+
 def cmd_paper(args: argparse.Namespace) -> int:
+    """Incremental paper follow: only fills events newer than the ledger cursor."""
+    from poly_copy.ledger import load_ledger
+
     cfg = load_config(args.config)
     if args.mode:
         cfg.setdefault("copy", {})["mode"] = args.mode
@@ -141,32 +287,16 @@ def cmd_paper(args: argparse.Namespace) -> int:
         events.extend(snap.events())
     events.sort(key=lambda e: e.timestamp or 0)
 
-    capital = float(cfg.get("backtest", {}).get("initial_capital", 1000.0))
-    guard = RiskGuard(cfg, initial_capital=capital)
-
-    def risk_fn(intent, fills):
-        return guard.check_intent(intent, fills)
-
-    fills = paper_copy_events(events, alloc, cfg, risk_fn=risk_fn)
-    for f in fills:
-        # lightweight mark
-        pnl = -f.slippage * f.fill_size
-        if f.stopped:
-            pnl = f.pnl
-        else:
-            f.pnl = pnl
-        guard.on_fill(f, pnl)
-        guard.mark_stop_on_fill(f)
-
+    ledger = load_ledger()
+    _bootstrap_cursors(ledger, [s.address for s in snaps], cfg)
+    leader_values = _fetch_leader_values([s.address for s in snaps])
+    summary = _ledger_cycle(ledger, events, alloc, cfg, leader_values=leader_values)
+    fills = summary.pop("fills", [])
     _print(
         {
             "allocation": alloc,
-            "n_events": len(events),
-            "n_fills": len(fills),
-            "halted": guard.state.halted,
-            "halt_reason": guard.state.halt_reason,
-            "equity": guard.state.equity,
-            "fills": [f.to_dict() for f in fills[: args.limit]],
+            **summary,
+            "fills": fills[: args.limit],
             "fills_truncated": len(fills) > args.limit,
         }
     )
@@ -331,12 +461,13 @@ def cmd_fetch(args: argparse.Namespace) -> int:
 
 
 def cmd_watch(args: argparse.Namespace) -> int:
-    """Fast poll: only newest trades, liquidity-gated paper fills."""
+    """Fast poll: only trades newer than the persistent ledger cursor."""
     import time
     import urllib.parse
     import urllib.request
+    from datetime import datetime, timezone
 
-    from poly_copy.copy import map_intent, simulate_fill
+    from poly_copy.ledger import load_ledger
     from poly_copy.types import WalletEvent
 
     cfg = load_config(args.config)
@@ -354,10 +485,12 @@ def cmd_watch(args: argparse.Namespace) -> int:
         alloc = {w: 1.0 / len(wallets) for w in wallets}
     interval = float(args.interval or cfg.get("copy", {}).get("poll_seconds", 15))
     limit = int(cfg.get("copy", {}).get("poll_trade_limit", 20))
-    cursors: dict[str, float] = {w: 0.0 for w in wallets}
     print(f"watch wallets={len(wallets)} interval={interval}s liquidity_gate=on", file=sys.stderr)
 
     while True:
+        ledger = load_ledger()
+        _bootstrap_cursors(ledger, wallets, cfg)
+        events: list[WalletEvent] = []
         for w in wallets:
             url = f"https://data-api.polymarket.com/trades?{urllib.parse.urlencode({'user': w, 'limit': limit})}"
             try:
@@ -377,32 +510,37 @@ def cmd_watch(args: argparse.Namespace) -> int:
                 continue
             if not isinstance(trades, list):
                 continue
-            fresh = [t for t in trades if float(t.get("timestamp") or 0) > cursors[w]]
-            fresh.sort(key=lambda t: float(t.get("timestamp") or 0))
-            for t in fresh:
+            for t in trades:
                 ts = float(t.get("timestamp") or 0)
-                cursors[w] = max(cursors[w], ts)
                 size = float(t.get("size") or 0)
                 price = float(t.get("price") or 0)
-                ev = WalletEvent(
-                    address=w,
-                    side=str(t.get("side") or "BUY").upper(),
-                    size=size,
-                    price=price,
-                    notional=size * price,
-                    market=str(t.get("slug") or t.get("title") or ""),
-                    event_slug=str(t.get("eventSlug") or ""),
-                    outcome=str(t.get("outcome") or ""),
-                    timestamp=None,
-                    tx_hash=t.get("transactionHash"),
-                    condition_id=t.get("conditionId"),
+                events.append(
+                    WalletEvent(
+                        address=w,
+                        side=str(t.get("side") or "BUY").upper(),
+                        size=size,
+                        price=price,
+                        notional=size * price,
+                        market=str(t.get("slug") or t.get("title") or ""),
+                        event_slug=str(t.get("eventSlug") or ""),
+                        outcome=str(t.get("outcome") or ""),
+                        timestamp=(
+                            datetime.fromtimestamp(ts, tz=timezone.utc) if ts > 0 else None
+                        ),
+                        tx_hash=t.get("transactionHash"),
+                        condition_id=t.get("conditionId"),
+                        token_id=str(t.get("asset") or "") or None,
+                    )
                 )
-                intent = map_intent(ev, allocation=alloc, cfg=cfg, skip_liquidity=False)
-                if intent is None:
-                    continue
-                fill = simulate_fill(intent, cfg)
-                if fill:
-                    _print({"fill": fill.to_dict(), "lag_hint_s": interval})
+        leader_values = _fetch_leader_values(wallets)
+        summary = _ledger_cycle(ledger, events, alloc, cfg, leader_values=leader_values)
+        print(
+            f"watch cycle: polled={summary['n_events']} new={summary['n_new']} "
+            f"buys={summary['n_buys']} sells={summary['n_sells']} "
+            f"equity={summary['equity']} halted={summary['halted']}",
+            file=sys.stderr,
+        )
+        _print(summary)
         if args.once:
             return 0
         time.sleep(interval)
