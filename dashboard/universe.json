@@ -1,34 +1,9 @@
 {
-  "updated_at": "2026-07-12T17:38:02.600933+00:00",
+  "updated_at": "2026-07-12T18:36:38.761221+00:00",
   "target_n": 10,
-  "active_n": 9,
-  "shortfall": 1,
+  "active_n": 10,
+  "shortfall": 0,
   "members": [
-    {
-      "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
-      "score": 0.9649167238572575,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
-      "pnl": 398167.19021283265,
-      "weight": 0.20533401637273319,
-      "tags": [
-        "active",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T00:13:36.307614+00:00",
-      "baseline": {
-        "top_domains": [
-          "dota2",
-          "fifwc"
-        ],
-        "monthly_freq": 3000.0,
-        "median_trade_notional": 1000.0,
-        "n_trades": 100
-      }
-    },
     {
       "address": "0x2cff41636fe21fad120fed603d54d4fdd96259db",
       "score": 0.9534254590604856,
@@ -36,12 +11,12 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.20288867834968444,
+      "weight": 0.16299334032953325,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -56,18 +31,43 @@
       }
     },
     {
+      "address": "0xe16d3f2a5807999b358affd9445c3a09e45e5e30",
+      "score": 0.9504688560572575,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "0xE16D3F2A5807999b358aFfD9445C3a09E45E5e30-1776429210592",
+      "pnl": 398167.19021283265,
+      "weight": 0.1624878927405845,
+      "tags": [
+        "active",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T00:13:36.307614+00:00",
+      "baseline": {
+        "top_domains": [
+          "dota2",
+          "fifwc"
+        ],
+        "monthly_freq": 3000.0,
+        "median_trade_notional": 1000.0,
+        "n_trades": 100
+      }
+    },
+    {
       "address": "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59",
       "score": 0.9504293863975394,
       "suitable": true,
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.07442041571039627,
+      "weight": 0.07543199802265384,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -87,13 +87,12 @@
       "reject_reason": null,
       "user_name": "Gourmet1",
       "pnl": 378701.6585982862,
-      "weight": 0.07404523104211942,
+      "weight": 0.07505171354176998,
       "tags": [
-        "guide_pass",
-        "refilled",
+        "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T17:38:02.600933+00:00",
       "baseline": {
@@ -114,12 +113,12 @@
       "reject_reason": null,
       "user_name": "Djdjdjekekek",
       "pnl": 361566.4376158215,
-      "weight": 0.07075804084547402,
+      "weight": 0.07171984120477087,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -140,13 +139,12 @@
       "reject_reason": null,
       "user_name": "ZizzWizz",
       "pnl": 390331.3226240002,
-      "weight": 0.19177730527758236,
+      "weight": 0.15406686977730216,
       "tags": [
-        "guide_pass",
-        "refilled",
+        "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T17:38:02.600933+00:00",
       "baseline": {
@@ -166,12 +164,12 @@
       "reject_reason": null,
       "user_name": "RJW1",
       "pnl": 267926.9961810007,
-      "weight": 0.06851983090980074,
+      "weight": 0.06945120771447975,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -186,44 +184,18 @@
       }
     },
     {
-      "address": "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517",
-      "score": 0.7230458706839086,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "pigfish",
-      "pnl": 266574.12849651,
-      "weight": 0.056615857047453366,
-      "tags": [
-        "active",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T11:42:38.397726+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "atp",
-          "wta"
-        ],
-        "monthly_freq": 229.4,
-        "median_trade_notional": 2811.73,
-        "n_trades": 25
-      }
-    },
-    {
       "address": "0x0c787cc2962ee6464414da592b892c3886e077f1",
-      "score": 0.7105910931161066,
+      "score": 0.7121291401161065,
       "suitable": true,
       "reject_reason": null,
       "user_name": "bbb17367162806",
       "pnl": 327419.69467438397,
-      "weight": 0.0556406244447562,
+      "weight": 0.05651900568091631,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T10:38:13.544296+00:00",
       "baseline": {
@@ -236,72 +208,100 @@
         "median_trade_notional": 1045.06,
         "n_trades": 36
       }
+    },
+    {
+      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "score": 0.7045803534378912,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
+      "pnl": 380956.87314373173,
+      "weight": 0.12045189715258003,
+      "tags": [
+        "guide_pass",
+        "refilled",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T18:36:38.761221+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "wta",
+          "fifwc"
+        ],
+        "monthly_freq": 813.86,
+        "median_trade_notional": 5585.06,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517",
+      "score": 0.6530010726839085,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "pigfish",
+      "pnl": 266574.12849651,
+      "weight": 0.05182623383540926,
+      "tags": [
+        "active",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T11:42:38.397726+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "atp",
+          "wta"
+        ],
+        "monthly_freq": 229.4,
+        "median_trade_notional": 2811.73,
+        "n_trades": 25
+      }
     }
   ],
   "allocation": {
-    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.20533401637273319,
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.20288867834968444,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.07442041571039627,
-    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.07075804084547402,
-    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.06851983090980074,
-    "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517": 0.056615857047453366,
-    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.0556406244447562,
-    "0xc430e5b17128df7ce78d69fa28bc7de038641ebf": 0.07404523104211942,
-    "0x4cb5a6cf70340f068148a740f9ec96cbea75ef29": 0.19177730527758236
+    "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.1624878927405845,
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.16299334032953325,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.07543199802265384,
+    "0xc430e5b17128df7ce78d69fa28bc7de038641ebf": 0.07505171354176998,
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.07171984120477087,
+    "0x4cb5a6cf70340f068148a740f9ec96cbea75ef29": 0.15406686977730216,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.06945120771447975,
+    "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517": 0.05182623383540926,
+    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.05651900568091631,
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 0.12045189715258003
   },
   "dropped": [],
   "warned": [],
   "added": [
     {
-      "address": "0xc430e5b17128df7ce78d69fa28bc7de038641ebf",
-      "score": 0.9456378714529875,
+      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "score": 0.7045803534378912,
       "suitable": true,
       "reject_reason": null,
-      "user_name": "Gourmet1",
-      "pnl": 378701.6585982862,
-      "weight": 0.07404523104211942,
+      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
+      "pnl": 380956.87314373173,
+      "weight": 0.12045189715258003,
       "tags": [
         "guide_pass",
         "refilled",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
+      "checked_at": "2026-07-12T18:36:38.761221+00:00",
       "exit_strikes": 0,
-      "added_at": "2026-07-12T17:38:02.600933+00:00",
+      "added_at": "2026-07-12T18:36:38.761221+00:00",
       "baseline": {
         "top_domains": [
-          "fifwc",
-          "atp",
-          "2026"
+          "mlb",
+          "wta",
+          "fifwc"
         ],
-        "monthly_freq": 158.81,
-        "median_trade_notional": 4970.87,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0x4cb5a6cf70340f068148a740f9ec96cbea75ef29",
-      "score": 0.9012102932945457,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "ZizzWizz",
-      "pnl": 390331.3226240002,
-      "weight": 0.19177730527758236,
-      "tags": [
-        "guide_pass",
-        "refilled",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-12T17:38:02.600933+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T17:38:02.600933+00:00",
-      "baseline": {
-        "top_domains": [
-          "atp",
-          "wta"
-        ],
-        "monthly_freq": 294.38,
-        "median_trade_notional": 16713.01,
+        "monthly_freq": 813.86,
+        "median_trade_notional": 5585.06,
         "n_trades": 100
       }
     }
@@ -311,5 +311,5 @@
     "screen": "exit_screen",
     "entry_screen": "hard_screen"
   },
-  "status": "short"
+  "status": "ok"
 }
