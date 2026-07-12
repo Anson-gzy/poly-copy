@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T22:27:01.929538+00:00",
+  "updated_at": "2026-07-12T23:29:39.835909+00:00",
   "target_n": 10,
   "active_n": 6,
   "shortfall": 4,
@@ -11,12 +11,12 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.316126465577041,
+      "weight": 0.34946703290414893,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T22:27:01.929538+00:00",
+      "checked_at": "2026-07-12T23:29:39.835909+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -37,12 +37,12 @@
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.1127368544094388,
+      "weight": 0.1137344941827126,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T22:27:01.929538+00:00",
+      "checked_at": "2026-07-12T23:29:39.835909+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -62,12 +62,12 @@
       "reject_reason": null,
       "user_name": "RJW1",
       "pnl": 267926.9961810007,
-      "weight": 0.10379826728592777,
+      "weight": 0.10471680701620317,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T22:27:01.929538+00:00",
+      "checked_at": "2026-07-12T23:29:39.835909+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -83,17 +83,17 @@
     },
     {
       "address": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "score": 0.8587707532598533,
+      "score": 0.8291344752598534,
       "suitable": true,
       "reject_reason": null,
       "user_name": "Themsnw",
       "pnl": 338631.90096047294,
-      "weight": 0.10186460432195117,
+      "weight": 0.09921956486484791,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T22:27:01.929538+00:00",
+      "checked_at": "2026-07-12T23:29:39.835909+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T21:28:48.353328+00:00",
       "baseline": {
@@ -108,44 +108,18 @@
       }
     },
     {
-      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
-      "score": 0.8561518390378912,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
-      "pnl": 380956.87314373173,
-      "weight": 0.28387353442295904,
-      "tags": [
-        "active",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-12T22:27:01.929538+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T18:36:38.761221+00:00",
-      "baseline": {
-        "top_domains": [
-          "mlb",
-          "wta",
-          "fifwc"
-        ],
-        "monthly_freq": 813.86,
-        "median_trade_notional": 5585.06,
-        "n_trades": 100
-      }
-    },
-    {
       "address": "0x0c787cc2962ee6464414da592b892c3886e077f1",
-      "score": 0.6879320763161065,
+      "score": 0.6879885369161065,
       "suitable": true,
       "reject_reason": null,
       "user_name": "bbb17367162806",
       "pnl": 327419.69467438397,
-      "weight": 0.08160027398268231,
+      "weight": 0.08232913393623628,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T22:27:01.929538+00:00",
+      "checked_at": "2026-07-12T23:29:39.835909+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T10:38:13.544296+00:00",
       "baseline": {
@@ -158,18 +132,72 @@
         "median_trade_notional": 1045.06,
         "n_trades": 36
       }
+    },
+    {
+      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "score": 0.6835108513044281,
+      "suitable": true,
+      "reject_reason": "position_value_low:0",
+      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
+      "pnl": 380956.87314373173,
+      "weight": 0.25053296709585116,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-12T23:29:39.835909+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T18:36:38.761221+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "wta",
+          "fifwc"
+        ],
+        "monthly_freq": 813.86,
+        "median_trade_notional": 5585.06,
+        "n_trades": 100
+      }
     }
   ],
   "allocation": {
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.316126465577041,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.1127368544094388,
-    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 0.28387353442295904,
-    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.10379826728592777,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.10186460432195117,
-    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.08160027398268231
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.34946703290414893,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.1137344941827126,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.10471680701620317,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.09921956486484791,
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 0.25053296709585116,
+    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.08232913393623628
   },
   "dropped": [],
-  "warned": [],
+  "warned": [
+    {
+      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "score": 0.6835108513044281,
+      "suitable": true,
+      "reject_reason": "position_value_low:0",
+      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
+      "pnl": 380956.87314373173,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-12T23:29:39.835909+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-12T18:36:38.761221+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "wta",
+          "fifwc"
+        ],
+        "monthly_freq": 813.86,
+        "median_trade_notional": 5585.06,
+        "n_trades": 100
+      }
+    }
+  ],
   "added": [],
   "exit_policy": {
     "strikes_required": 2,
