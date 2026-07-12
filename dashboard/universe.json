@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T12:40:51.025355+00:00",
+  "updated_at": "2026-07-12T14:15:53.352177+00:00",
   "target_n": 10,
   "active_n": 7,
   "shortfall": 3,
@@ -16,7 +16,7 @@
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T12:40:51.025355+00:00",
+      "checked_at": "2026-07-12T14:15:53.352177+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -36,12 +36,12 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.2979297871946143,
+      "weight": 0.29792978719461427,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T12:40:51.025355+00:00",
+      "checked_at": "2026-07-12T14:15:53.352177+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -62,12 +62,12 @@
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.09516520691094249,
+      "weight": 0.09397435954197546,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T12:40:51.025355+00:00",
+      "checked_at": "2026-07-12T14:15:53.352177+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -87,12 +87,12 @@
       "reject_reason": null,
       "user_name": "RJW1",
       "pnl": 267926.9961810007,
-      "weight": 0.08761982614299023,
+      "weight": 0.08652339770219071,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T12:40:51.025355+00:00",
+      "checked_at": "2026-07-12T14:15:53.352177+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -108,17 +108,17 @@
     },
     {
       "address": "0x6d20c35f65d9899b6d6b74f8466e824580f9a165",
-      "score": 0.783569480860635,
+      "score": 0.8370083164606351,
       "suitable": true,
       "reject_reason": null,
       "user_name": "Djdjdjekekek",
       "pnl": 361566.4376158215,
-      "weight": 0.07845775061505947,
+      "weight": 0.08275977321033195,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T12:40:51.025355+00:00",
+      "checked_at": "2026-07-12T14:15:53.352177+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -134,17 +134,17 @@
     },
     {
       "address": "0x0c787cc2962ee6464414da592b892c3886e077f1",
-      "score": 0.6977659387161066,
+      "score": 0.7019546411161065,
       "suitable": true,
       "reject_reason": null,
       "user_name": "bbb17367162806",
       "pnl": 327419.69467438397,
-      "weight": 0.06986635817839881,
+      "weight": 0.06940624813426342,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T12:40:51.025355+00:00",
+      "checked_at": "2026-07-12T14:15:53.352177+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T10:38:13.544296+00:00",
       "baseline": {
@@ -160,17 +160,17 @@
     },
     {
       "address": "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517",
-      "score": 0.6880234716839085,
+      "score": 0.6810189918839086,
       "suitable": true,
       "reject_reason": null,
       "user_name": "pigfish",
       "pnl": 266574.12849651,
-      "weight": 0.06889085815260904,
+      "weight": 0.06733622141123834,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-12T12:40:51.025355+00:00",
+      "checked_at": "2026-07-12T14:15:53.352177+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T11:42:38.397726+00:00",
       "baseline": {
@@ -187,12 +187,12 @@
   ],
   "allocation": {
     "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": 0.30207021280538576,
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.2979297871946143,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.09516520691094249,
-    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.08761982614299023,
-    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.07845775061505947,
-    "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517": 0.06889085815260904,
-    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.06986635817839881
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.29792978719461427,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.09397435954197546,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.08652339770219071,
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.08275977321033195,
+    "0x0c787cc2962ee6464414da592b892c3886e077f1": 0.06940624813426342,
+    "0x7f3fdcee40e8711b9480b87dbbbc62cb8bdb8517": 0.06733622141123834
   },
   "dropped": [],
   "warned": [],
