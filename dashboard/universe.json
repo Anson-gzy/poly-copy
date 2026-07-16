@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T21:12:26.898593+00:00",
+  "updated_at": "2026-07-16T22:17:04.313874+00:00",
   "target_n": 10,
   "active_n": 10,
   "shortfall": 0,
@@ -11,12 +11,12 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.15719348438635924,
+      "weight": 0.15680810557507924,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -37,12 +37,12 @@
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.0885995081988942,
+      "weight": 0.08859950819889419,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -62,12 +62,12 @@
       "reject_reason": null,
       "user_name": "Themsnw",
       "pnl": 338631.90096047294,
-      "weight": 0.08404088617412948,
+      "weight": 0.08404088617412947,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T21:28:48.353328+00:00",
       "baseline": {
@@ -88,12 +88,12 @@
       "reject_reason": null,
       "user_name": "RJW1",
       "pnl": 267926.9961810007,
-      "weight": 0.08157470315812361,
+      "weight": 0.0815747031581236,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T04:02:03.878398+00:00",
       "baseline": {
@@ -114,12 +114,12 @@
       "reject_reason": null,
       "user_name": "Djdjdjekekek",
       "pnl": 326045.3556379993,
-      "weight": 0.14085776655518345,
+      "weight": 0.1405124367290364,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-15T22:41:32.777615+00:00",
       "baseline": {
@@ -140,12 +140,12 @@
       "reject_reason": null,
       "user_name": "GoldenAlpha168",
       "pnl": 196707.60964339192,
-      "weight": 0.13370091188538197,
+      "weight": 0.13337312795279355,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-14T23:15:48.970505+00:00",
       "baseline": {
@@ -171,7 +171,7 @@
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-15T21:41:04.323149+00:00",
       "baseline": {
@@ -190,12 +190,12 @@
       "reject_reason": null,
       "user_name": "anurag",
       "pnl": 162402.36316887315,
-      "weight": 0.07215287181652337,
+      "weight": 0.07215287181652336,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-16T11:16:07.366311+00:00",
       "baseline": {
@@ -211,17 +211,17 @@
     },
     {
       "address": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
-      "score": 0.5611771031457221,
+      "score": 0.5701678211457222,
       "suitable": true,
       "reject_reason": null,
       "user_name": "yuhyuhyuhy352352",
       "pnl": 42287.696043799544,
-      "weight": 0.09203990082629085,
+      "weight": 0.09328522635591725,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-13T16:09:15.106687+00:00",
       "baseline": {
@@ -242,12 +242,12 @@
       "reject_reason": null,
       "user_name": "asparagus2012",
       "pnl": 20112.717734965758,
-      "weight": 0.07620793634678437,
+      "weight": 0.07602110338717365,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-16T21:12:26.898593+00:00",
+      "checked_at": "2026-07-16T22:17:04.313874+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-14T08:38:21.698820+00:00",
       "baseline": {
@@ -263,16 +263,16 @@
     }
   ],
   "allocation": {
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.15719348438635924,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.0885995081988942,
-    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.08157470315812361,
-    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.14085776655518345,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.08404088617412948,
-    "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3": 0.13370091188538197,
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.15680810557507924,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.08859950819889419,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.08404088617412947,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.0815747031581236,
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.1405124367290364,
+    "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3": 0.13337312795279355,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 0.07363203065232939,
-    "0x5b6e80132e843cb8570ee93e448f05f40ef3f544": 0.07215287181652337,
-    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.09203990082629085,
-    "0x476e1322d1a412fa0325527b8c3bc5e707b1396d": 0.07620793634678437
+    "0x5b6e80132e843cb8570ee93e448f05f40ef3f544": 0.07215287181652336,
+    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.09328522635591725,
+    "0x476e1322d1a412fa0325527b8c3bc5e707b1396d": 0.07602110338717365
   },
   "dropped": [],
   "warned": [],
