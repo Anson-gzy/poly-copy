@@ -96,7 +96,8 @@ risk:
   # persistent ledger risk controls
   per_trade_cap: 50.0            # single follow notional cap (USDC)
   wallet_exposure_cap: 0.10      # single source wallet ≤10% of equity
-  portfolio_halt_drawdown: 0.15  # equity −15% from high water → halted=true
+  portfolio_halt_drawdown: 0.15  # equity −15% from high water → would_halt flag
+  halt_enabled: false            # paper stage: record-only (would_halt); set true to actually block buys live
   wallet_evict_drawdown: 0.20    # wallet contribution −20% of capital from peak → evict
   quarantine_days: 7             # new members run at half weight for 7 days
   domain_weight_cap: 0.40        # single domain ≤40% of combined weight

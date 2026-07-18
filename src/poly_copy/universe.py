@@ -59,7 +59,7 @@ def save_universe(state: dict[str, Any], path: Path | None = None) -> Path:
 
 def _guide_score(c: DiscoverCandidate) -> float:
     """Rank 'best' among guide-pass wallets without full feature pipeline."""
-    wr = max(0.0, min(1.0, c.win_rate))
+    wr = max(0.0, min(1.0, c.win_rate if c.win_rate is not None else 0.0))
     pnl_n = max(0.0, min(1.0, (c.pnl - 15000) / (400000 - 15000)))
     pos_n = max(0.0, min(1.0, c.position_value / 100000))
     act_n = max(0.0, min(1.0, c.active_markets / 20))
@@ -88,9 +88,11 @@ def _probe_candidate(
         active_markets=int(stats["active_markets"]),
         trade_count=int(stats["trade_count"]),
         traded_markets=int(stats["traded_markets"]),
-        win_rate=float(stats["win_rate"]),
+        win_rate=stats["win_rate"] if stats["win_rate"] is None else float(stats["win_rate"]),
         closed_sample=int(stats["closed_sample"]),
         behavior=dict(stats.get("behavior") or {}),
+        data_unavailable=bool(stats.get("data_unavailable", False)),
+        failed_fields=list(stats.get("failed_fields") or []),
     )
 
 
@@ -177,7 +179,7 @@ def _as_scored_pair(c: DiscoverCandidate) -> tuple[WalletFeatures, WalletScore]:
         sample_days=60.0,
         trade_count=max(c.trade_count, c.traded_markets),
         monthly_freq=40.0,
-        win_rate=c.win_rate,
+        win_rate=c.win_rate if c.win_rate is not None else 0.0,
         profit_factor=1.5,
         max_drawdown=0.1,
         focus_score=0.7,
@@ -197,6 +199,39 @@ def _as_scored_pair(c: DiscoverCandidate) -> tuple[WalletFeatures, WalletScore]:
         hard_reject_reason=None,
         tags=["guide_pass"],
         components={"guide": _guide_score(c)},
+    )
+    return feat, sc
+
+
+def _stale_scored_pair(m: UniverseMember) -> tuple[WalletFeatures, WalletScore]:
+    """Scored pair for a member we could not re-probe this cycle (data_stale):
+    reuse its last known score/pnl so allocate() still ranks it sensibly
+    instead of dropping it to zero on a transient API failure."""
+    feat = WalletFeatures(
+        address=m.address,
+        sample_days=60.0,
+        trade_count=0,
+        monthly_freq=40.0,
+        win_rate=0.0,
+        profit_factor=1.5,
+        max_drawdown=0.1,
+        focus_score=0.7,
+        stability_score=0.7,
+        position_value=0.0,
+        realized_pnl=float(m.pnl or 0),
+        unrealized_pnl=0.0,
+        total_pnl=float(m.pnl or 0),
+        active_markets=0,
+        top_domains=["mixed"],
+        liquid_trade_share=0.8,
+        median_market_liquidity=20000,
+    )
+    sc = WalletScore(
+        address=m.address,
+        score=m.score,
+        hard_reject_reason=None,
+        tags=["data_stale"],
+        components={"guide": m.score},
     )
     return feat, sc
 
@@ -267,6 +302,29 @@ def sync_universe(
             pnl=float(m.get("pnl") or 0),
             user_name=m.get("user_name"),
         )
+        if cand.data_unavailable:
+            # one or more probe calls failed after retries (rate limit / 5xx /
+            # timeout) — do NOT judge this member on defaulted-zero data.
+            # Keep it exactly as it was, tag data_stale, burn no strike.
+            tags = [t for t in (m.get("tags") or []) if t != "data_stale"]
+            tags.append("data_stale")
+            member = UniverseMember(
+                address=addr,
+                score=float(m.get("score") or 0.0),
+                suitable=bool(m.get("suitable", True)),
+                reject_reason=m.get("reject_reason"),
+                user_name=m.get("user_name"),
+                pnl=m.get("pnl"),
+                weight=float(m.get("weight") or 0.0),
+                tags=tags,
+                checked_at=now,
+                exit_strikes=prev_strikes,
+                added_at=str(m.get("added_at") or "") or str(m.get("checked_at") or now),
+                baseline=dict(m.get("baseline") or {}),
+            )
+            kept.append(member)
+            scored_pairs.append(_stale_scored_pair(member))
+            continue
         reason = _exit_reject(cand, cfg)
         if reason and reason.startswith("pnl_below") and float(m.get("pnl") or 0) >= float(
             exit_cfg.get("pnl_min", cfg.get("hard_screen", {}).get("pnl_min", 5000))

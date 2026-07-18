@@ -157,6 +157,16 @@ def market_is_closed(*, slug: str | None = None, condition_id: str | None = None
     return bool(row.get("closed"))
 
 
+def market_end_date(*, slug: str | None = None, condition_id: str | None = None) -> str | None:
+    """ISO endDate (scheduled resolution) for a market, or closedTime as a
+    fallback for already-resolved markets. Used by `poly-copy attribution`
+    to bucket fills by time-to-settlement at open. None if unknown."""
+    row = _market_row(slug=slug, condition_id=condition_id)
+    if not row:
+        return None
+    return row.get("endDate") or row.get("closedTime") or None
+
+
 def trade_ok(
     *,
     trade_notional: float,

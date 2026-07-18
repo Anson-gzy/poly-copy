@@ -137,7 +137,8 @@ poly-copy watch --universe --mode portfolio --once
 
 - `dashboard/ledger.json`：现金、当前持仓（token → size/avg_price/source_wallet/domain/opened_at）、
   每个源钱包的**处理游标**（last_seen 时间戳 + 同秒 tx hash 去重）、累计已实现 PnL、
-  高水位、`halted` 熔断标志、钱包淘汰记录
+  高水位、`halted`/`would_halt` 熔断标志、钱包淘汰记录、append-only 的 `fills` 成交日志
+  （source/domain/slippage/pnl/`reason`，用于 `poly-copy attribution` 归因）
 - `dashboard/equity.json`：追加式净值序列 `[{ts, equity, cash, positions_value, n_open, realized_pnl_cum}]`，
   滚动保留最近 2000 个点
 
@@ -150,8 +151,13 @@ poly-copy watch --universe --mode portfolio --once
 
 1. **仓位公式**：单笔跟单名义 = min(成员 weight × 当前 equity × 对方该笔占其组合比例, `per_trade_cap` $50)，
    单一源钱包合计敞口 ≤ equity 的 `wallet_exposure_cap` 10%
-2. **组合熔断**：equity 从高水位回撤 ≥ `portfolio_halt_drawdown` 15% → `ledger.json` 写 `halted=true`，
-   之后只处理卖出/结算、不开新仓；解除需手动把 `halted` 改回 `false`
+2. **组合熔断（模拟盘阶段：只记录不停机）**：equity 从高水位回撤 ≥ `portfolio_halt_drawdown` 15%
+   → `ledger.json` 写 `would_halt=true` + `would_halt_reason`，**继续正常跟单**，不阻塞新开仓。
+   `halted` 字段保留、恒为 `false`（除非 `risk.halt_enabled: true`）。这是 2026-07-18 的决策：
+   上线 6 天净值 -18.5% 触发旧版硬熔断后空转 6 天，模拟盘阶段亏损不是真实资金损失，比起被熔断
+   闷杀更需要继续采集数据、验证参数（见下方 `poly-copy attribution` / `backtest --grid`）。
+   要在实盘/真金模式恢复"回撤即停"的硬约束，把 `configs/default.yaml` 的 `risk.halt_enabled`
+   改成 `true`（`halted` 届时依然是 sticky：解除需手动把 `halted` 改回 `false`）
 3. **单钱包淘汰**：某源钱包贡献的 PnL 从峰值回撤超过起始资金的
    `wallet_evict_drawdown` 20% → 立即踢出 universe 并按市价平掉其纸面持仓（记录 reason）
 4. **行为漂移 strike**：与入池 baseline（存于 universe 成员 `baseline` 字段）相比 —
@@ -163,3 +169,39 @@ poly-copy watch --universe --mode portfolio --once
 硬筛对齐（`hard_screen` + `blacklist`）：PnL $15k–$400k、持仓 ≥ $5k、活跃仓位 ≥ 2、
 交易数 ≥ 20、胜率 ≥ 70%、月频 30–200；黑名单硬拒：月频 >200 或分钟级连发
 （60s 窗口 >8 笔）、单事件 PnL 占比 >50%、低流动性交易员（liquid_trade_share < 0.5）。
+
+`poly_copy/discover.py` 的 probe（`_get`）对 data-api 请求失败会指数退避重试 3 次
+（429/5xx/超时，基础延迟 1s 翻倍）；胜率相关的 `/closed-positions` 若样本为 0 或
+请求最终仍失败，`win_rate` 记为 `None` 并标 `data_unavailable`，而不是当作真实 0%
+胜率去硬拒/记 strike。`universe sync` 的 exit 重核验遇到 `data_unavailable` 时跳过
+该成员本轮全部硬拒检查、不计 strike、原样保留并打 `data_stale` tag；新钱包入池
+（`hard_screen`）遇到 `data_unavailable` 则直接拒绝（宁缺毋滥）。
+
+## 归因报告
+
+```bash
+poly-copy attribution   # 读 dashboard/ledger.json + equity.json，写 dashboard/attribution.json
+```
+
+按源钱包 / 按赛道（domain）统计已实现 PnL、成交笔数、滑点成本、PnL 占比；汇总滑点
+总成本占总亏损的比例；按开仓时距市场 `endDate`（Gamma）分桶（<1h / 1-6h / 6-24h / >24h）
+统计笔数与 PnL；统计因 universe 换手强平（`reason=evict_universe_churn`）贡献的已实现 PnL。
+细粒度归因依赖 `ledger["fills"]` 成交日志（本次改动新增，含 source/domain/slippage/reason）；
+在此之前的历史区间没有逐笔记录，报告会明确标注 `data_source` 并退化为
+`ledger["wallet_realized"]` 的聚合数字（仍是真实数据，只是没有赛道/滑点明细）。
+
+## 参数网格回测（回放真实成交历史）
+
+```bash
+poly-copy backtest --grid                 # 写 dashboard/backtest_grid.json
+poly-copy backtest --grid --grid-limit 500  # 每个钱包多拉一些历史成交
+```
+
+对 universe 当前成员 + ledger 里出现过的所有源钱包，重新拉取公开成交历史，在
+`fixed_notional 上限 [10,20,25,50] × stop_loss [0.5,0.7,0.85] × 距结算过滤
+[0,2h,6h] × 模拟延迟 [0s,60s,300s]` 的 4×3×3×3=108 组参数上逐组重放（复用
+`ledger.ingest_events`/`settle_resolved`，不是 `backtest.run_backtest` 的启发式
+估算 PnL）。距结算过滤用 Gamma `endDate`，未知则保守放行；延迟档位没有逐笔盘口
+可回放，用固定滑点惩罚（0/1%/2.5%）近似"更慢成交吃到的额外不利价差"，`max_dd`
+只看已实现 PnL 的回撤（同样是没有逐笔盘口序列的近似），`total_pnl`/`final_equity`
+则按当前真实盘口给未平仓头寸估值。输出仿 vectorbt 风格：每组参数一行指标。

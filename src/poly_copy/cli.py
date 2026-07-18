@@ -226,7 +226,10 @@ def _ledger_cycle(
         alloc.pop(rec["wallet"], None)
     pv = mark_positions(ledger, price_fn=market_mark_price)
     equity = update_equity_and_halt(
-        ledger, pv, halt_drawdown=float(risk.get("portfolio_halt_drawdown", 0.15))
+        ledger,
+        pv,
+        halt_drawdown=float(risk.get("portfolio_halt_drawdown", 0.15)),
+        halt_enabled=bool(risk.get("halt_enabled", False)),
     )
     points = load_equity()
     append_equity_point(
@@ -252,6 +255,8 @@ def _ledger_cycle(
             "realized_pnl_cum": round(float(ledger["realized_pnl_cum"]), 4),
             "halted": ledger["halted"],
             "halt_reason": ledger["halt_reason"],
+            "would_halt": ledger.get("would_halt", False),
+            "would_halt_reason": ledger.get("would_halt_reason", ""),
         }
     )
     return summary
@@ -349,6 +354,22 @@ def cmd_report(args: argparse.Namespace) -> int:
 
 
 def cmd_backtest(args: argparse.Namespace) -> int:
+    if args.grid:
+        from poly_copy.backtest.grid import run_grid
+
+        cfg = load_config(args.config)
+        result = run_grid(cfg, trade_limit=args.grid_limit)
+        out = Path(args.out) if args.out else PACKAGE_ROOT / "dashboard" / "backtest_grid.json"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+        print(str(out), file=sys.stderr)
+        print(f"n_events={result.get('n_events')} n_combos={result.get('n_total')}", file=sys.stderr)
+        print(f"positive_combos={result.get('n_positive')}/{result.get('n_total')}", file=sys.stderr)
+        print(f"best={result.get('best')}", file=sys.stderr)
+        print(f"by_delay_seconds={result.get('by_delay_seconds')}", file=sys.stderr)
+        _print(result)
+        return 0
+
     cfg = load_config(args.config)
     store = default_store(cfg)
     wallets = _wallets_from_args(args, cfg)
@@ -385,6 +406,38 @@ def cmd_discover(args: argparse.Namespace) -> int:
     out.write_text(json.dumps(result, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
     print(str(out), file=sys.stderr)
     _print(result)
+    return 0
+
+
+def cmd_attribution(args: argparse.Namespace) -> int:
+    """Read dashboard/ledger.json + equity.json, write dashboard/attribution.json,
+    print a summary: PnL/slippage/turnover by source wallet, by domain, and by
+    time-to-settlement bucket."""
+    from poly_copy.attribution import build_attribution
+
+    report = build_attribution(fetch_end_dates=not args.no_end_dates)
+    out = Path(args.out) if args.out else PACKAGE_ROOT / "dashboard" / "attribution.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+    print(str(out), file=sys.stderr)
+
+    def top(d: dict[str, Any], key: str, n: int = 3) -> list[tuple[str, float]]:
+        rows = [(k, v[key]) for k, v in d.items() if isinstance(v, dict) and key in v]
+        return sorted(rows, key=lambda kv: kv[1])[:n]
+
+    print(f"data_source={report['data_source']} n_fills={report['n_fills_logged']}", file=sys.stderr)
+    print(f"total_pnl={report['total_pnl']}", file=sys.stderr)
+    print(
+        f"worst wallets: {top(report['by_source_wallet'], 'realized_pnl_cumulative')}",
+        file=sys.stderr,
+    )
+    print(f"worst domains: {top(report['by_domain'], 'realized_pnl')}", file=sys.stderr)
+    print(
+        f"slippage_cost={report['slippage']['total_cost']} "
+        f"share_of_loss={report['slippage'].get('share_of_total_loss')}",
+        file=sys.stderr,
+    )
+    _print(report)
     return 0
 
 
@@ -577,6 +630,7 @@ def build_parser() -> argparse.ArgumentParser:
         ("watch", "Fast poll newest trades with liquidity gate", cmd_watch),
         ("dashboard", "Export dashboard/data.json for the HTML page", cmd_dashboard),
         ("discover", "Find wallets via leaderboard + guide hard filters", cmd_discover),
+        ("attribution", "PnL/slippage/turnover attribution by wallet/domain/time", cmd_attribution),
     ]:
         sp = sub.add_parser(name, help=help_)
         add_wallet_args(sp)
@@ -593,6 +647,17 @@ def build_parser() -> argparse.ArgumentParser:
             sp.add_argument("--baseline-cache", help="Prior snapshot JSON for drift check")
         if name == "backtest":
             sp.add_argument("--scan", action="store_true", help="Scan fixed notional × stop loss")
+            sp.add_argument(
+                "--grid",
+                action="store_true",
+                help="Replay real universe/ledger trade history across a param grid "
+                "(fixed_notional × stop_loss × settlement filter × delay); writes "
+                "dashboard/backtest_grid.json",
+            )
+            sp.add_argument(
+                "--grid-limit", type=int, default=300, help="Trades to re-pull per wallet for --grid"
+            )
+            sp.add_argument("--out", help="Output JSON path for --grid (default: dashboard/backtest_grid.json)")
         if name == "watch":
             sp.add_argument("--mode", choices=["fixed", "portfolio"])
             sp.add_argument("--interval", type=float, help="Poll seconds (default 15)")
@@ -603,6 +668,13 @@ def build_parser() -> argparse.ArgumentParser:
             sp.add_argument("--limit", type=int, help="Max passed wallets to return")
             sp.add_argument("--candidates", type=int, help="Max leaderboard candidates to probe")
             sp.add_argument("--out", help="Write JSON path (default: dashboard/discover.json)")
+        if name == "attribution":
+            sp.add_argument("--out", help="Write JSON path (default: dashboard/attribution.json)")
+            sp.add_argument(
+                "--no-end-dates",
+                action="store_true",
+                help="Skip Gamma endDate lookups (faster, no time-to-settlement buckets)",
+            )
     return p
 
 

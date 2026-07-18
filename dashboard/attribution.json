@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-07-18T02:37:47.420822+00:00",
+  "data_source": "wallet_realized_cumulative+fills_detail",
+  "fills_coverage_note": "per-wallet realized_pnl_cumulative is the full authoritative history from ledger['wallet_realized']; slippage/domain/time-to-settlement detail only covers the 3 fill(s) logged since the fills log was added — not the full 6-day pre-fix history, which has no per-fill record",
+  "n_fills_logged": 3,
+  "equity_start": 965.7332,
+  "equity_now": 814.367,
+  "total_pnl": -151.3662,
+  "by_source_wallet": {
+    "0x9cb990f1862568a63d8601efeebe0304225c32f2": {
+      "realized_pnl_cumulative": -94.1272,
+      "note": "no fills logged yet for this wallet — pnl is the pre-fix aggregate"
+    },
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": {
+      "realized_pnl_cumulative": -93.4263,
+      "note": "no fills logged yet for this wallet — pnl is the pre-fix aggregate"
+    },
+    "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": {
+      "realized_pnl_cumulative": -22.7199,
+      "note": "no fills logged yet for this wallet — pnl is the pre-fix aggregate"
+    },
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
+      "realized_pnl_cumulative": 0.0,
+      "n_fills_logged": 3,
+      "realized_pnl_in_logged_fills": 0.0,
+      "slippage_cost_in_logged_fills": 0.6175,
+      "avg_slippage_in_logged_fills": 0.05,
+      "notional_in_logged_fills": 12.35
+    },
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": {
+      "realized_pnl_cumulative": 6.6203,
+      "note": "no fills logged yet for this wallet — pnl is the pre-fix aggregate"
+    },
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": {
+      "realized_pnl_cumulative": 18.2374,
+      "note": "no fills logged yet for this wallet — pnl is the pre-fix aggregate"
+    }
+  },
+  "by_domain": {
+    "mlb": {
+      "n_fills": 3,
+      "realized_pnl": 0.0,
+      "slippage_cost": 0.6175,
+      "notional": 12.35,
+      "pnl_share_of_total": null
+    }
+  },
+  "slippage": {
+    "total_cost": 0.6175,
+    "share_of_total_loss": 0.0041,
+    "note": null
+  },
+  "time_to_settlement": {
+    "<1h": {
+      "n": 0,
+      "pnl": 0.0
+    },
+    "1-6h": {
+      "n": 0,
+      "pnl": 0.0
+    },
+    "6-24h": {
+      "n": 0,
+      "pnl": 0.0
+    },
+    ">24h": {
+      "n": 3,
+      "pnl": 0.0
+    }
+  },
+  "time_to_settlement_unknown": {
+    "n": 0,
+    "pnl": 0.0
+  },
+  "turnover_cost_from_universe_churn": {
+    "realized_pnl": 0,
+    "n_evict_fills_logged": 0,
+    "n_raw_eviction_records": 0,
+    "note": "universe-churn eviction pnl exists in ledger['evicted'] (raw closed_positions records) but predates per-fill reason tagging, so it can't be broken out by domain/slippage here; new evictions are logged with reason=evict_universe_churn"
+  }
+}

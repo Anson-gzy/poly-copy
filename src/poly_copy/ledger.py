@@ -18,6 +18,7 @@ from poly_copy.types import WalletEvent
 
 DEFAULT_INITIAL_CAPITAL = 1000.0
 EQUITY_MAX_POINTS = 2000
+FILLS_MAX_POINTS = 5000
 
 PriceFn = Callable[..., "float | None"]  # (slug=, condition_id=, outcome=) -> price
 ClosedFn = Callable[..., "bool | None"]  # (slug=, condition_id=) -> closed?
@@ -36,8 +37,13 @@ def new_ledger(initial_capital: float = DEFAULT_INITIAL_CAPITAL) -> dict[str, An
         "initial_capital": float(initial_capital),
         "cash": float(initial_capital),
         "realized_pnl_cum": 0.0,
+        # paper stage: circuit breaker is record-only by default (risk.halt_enabled
+        # gates whether it actually blocks buys). would_halt/would_halt_reason are
+        # always updated so the dashboard can still surface the signal.
         "halted": False,
         "halt_reason": "",
+        "would_halt": False,
+        "would_halt_reason": "",
         "high_water": float(initial_capital),
         # position key -> {token_id, size, avg_price, source_wallet, market,
         #                  outcome, condition_id, domain, opened_at,
@@ -48,6 +54,10 @@ def new_ledger(initial_capital: float = DEFAULT_INITIAL_CAPITAL) -> dict[str, An
         "wallet_realized": {},
         "wallet_peak": {},
         "evicted": [],
+        # append-only fill log for attribution (poly-copy attribution): source
+        # wallet, domain, slippage, pnl, and a `reason` tag (copy_buy /
+        # copy_sell / settle / evict) per fill. Truncated like equity.json.
+        "fills": [],
         "updated_at": None,
     }
 
@@ -135,6 +145,45 @@ def copy_notional(
     else:
         share = 1.0
     return min(weight * equity * share, per_trade_cap)
+
+
+def _log_fill(
+    ledger: dict[str, Any],
+    *,
+    ts: float,
+    side: str,
+    market: str,
+    outcome: str,
+    domain: str,
+    source: str,
+    size: float,
+    price: float,
+    notional: float,
+    slippage: float,
+    pnl: float,
+    reason: str,
+) -> None:
+    """Append a fill record for attribution; ledger['fills'] is truncated
+    like equity.json so it stays bounded across a long-running paper session."""
+    fills = ledger.setdefault("fills", [])
+    fills.append(
+        {
+            "ts": ts,
+            "side": side,
+            "market": market,
+            "outcome": outcome,
+            "domain": domain,
+            "source": source,
+            "size": round(size, 4),
+            "price": round(price, 4),
+            "notional": round(notional, 2),
+            "slippage": round(slippage, 5),
+            "pnl": round(pnl, 4),
+            "reason": reason,
+        }
+    )
+    if len(fills) > FILLS_MAX_POINTS:
+        del fills[: len(fills) - FILLS_MAX_POINTS]
 
 
 def _position_key(ev: WalletEvent) -> str:
@@ -276,6 +325,21 @@ def ingest_events(
                  "size": round(size, 4), "price": round(fill_price, 4),
                  "notional": round(notional, 2), "source": w}
             )
+            _log_fill(
+                ledger,
+                ts=ts,
+                side="BUY",
+                market=ev.market,
+                outcome=ev.outcome,
+                domain=domain_fn(ev) if domain_fn else "",
+                source=w,
+                size=size,
+                price=fill_price,
+                notional=notional,
+                slippage=(fill_price - price) / price if price else 0.0,
+                pnl=0.0,
+                reason="copy_buy",
+            )
         elif side == "SELL":
             pos = ledger["positions"].get(key)
             if not pos:
@@ -309,6 +373,21 @@ def ingest_events(
                 {"side": "SELL", "market": ev.market, "outcome": ev.outcome,
                  "size": round(sell_size, 4), "price": round(fill_price, 4),
                  "pnl": round(realized, 4), "source": w}
+            )
+            _log_fill(
+                ledger,
+                ts=ts,
+                side="SELL",
+                market=ev.market,
+                outcome=ev.outcome,
+                domain=str(pos.get("domain") or (domain_fn(ev) if domain_fn else "")),
+                source=w,
+                size=sell_size,
+                price=fill_price,
+                notional=sell_size * fill_price,
+                slippage=(price - fill_price) / price if price else 0.0,
+                pnl=realized,
+                reason="copy_sell",
             )
         else:
             summary["n_skipped_other"] += 1
@@ -348,10 +427,26 @@ def settle_resolved(
         if price is None:
             price = float(pos.get("last_mark") or pos["avg_price"])
         realized = (price - float(pos["avg_price"])) * float(pos["size"])
-        _book_realized(ledger, str(pos.get("source_wallet", "")), realized)
+        wallet = str(pos.get("source_wallet", ""))
+        _book_realized(ledger, wallet, realized)
         ledger["cash"] += float(pos["size"]) * price
         settled.append({"key": key, "market": pos.get("market"), "settle_price": price,
                         "pnl": round(realized, 4)})
+        _log_fill(
+            ledger,
+            ts=datetime.now(timezone.utc).timestamp(),
+            side="SETTLE",
+            market=str(pos.get("market") or ""),
+            outcome=str(pos.get("outcome") or ""),
+            domain=str(pos.get("domain") or ""),
+            source=wallet,
+            size=float(pos["size"]),
+            price=price,
+            notional=float(pos["size"]) * price,
+            slippage=0.0,
+            pnl=realized,
+            reason="settle",
+        )
         del ledger["positions"][key]
     return settled
 
@@ -380,19 +475,32 @@ def update_equity_and_halt(
     positions_value: float,
     *,
     halt_drawdown: float = 0.15,
+    halt_enabled: bool = False,
 ) -> float:
-    """Refresh high-water mark; set halted=true on >=halt_drawdown from peak.
+    """Refresh high-water mark; flag would_halt at >=halt_drawdown from peak.
 
-    halted is sticky: clearing it requires manually editing ledger.json.
+    Paper stage (halt_enabled=False, the default): the drawdown breaker is
+    record-only — would_halt/would_halt_reason are set but halted stays False
+    so buys keep flowing (ingest_events only blocks BUYs while halted=True).
+    Set risk.halt_enabled: true (live trading) to make it actually block buys;
+    halted is then sticky and clearing it requires manually editing ledger.json.
     """
     equity = float(ledger["cash"]) + positions_value
     ledger["high_water"] = max(float(ledger["high_water"]), equity)
     hw = float(ledger["high_water"])
-    if hw > 0 and not ledger["halted"]:
+    if hw > 0:
         dd = (hw - equity) / hw
         if dd >= halt_drawdown:
-            ledger["halted"] = True
-            ledger["halt_reason"] = f"portfolio_dd:{dd:.3f}"
+            ledger["would_halt"] = True
+            ledger["would_halt_reason"] = f"portfolio_dd:{dd:.3f}"
+            if halt_enabled and not ledger["halted"]:
+                ledger["halted"] = True
+                ledger["halt_reason"] = ledger["would_halt_reason"]
+        elif not ledger["halted"]:
+            # only clear the flag while not (sticky) halted, so a live-mode
+            # halt's would_halt trail stays visible until manually reset
+            ledger["would_halt"] = False
+            ledger["would_halt_reason"] = ""
     return equity
 
 
@@ -456,6 +564,21 @@ def evict_drawdown_wallets(
             _book_realized(ledger, w, realized)
             ledger["cash"] += float(pos["size"]) * mark
             closed.append({"key": key, "market": pos.get("market"), "pnl": round(realized, 4)})
+            _log_fill(
+                ledger,
+                ts=datetime.now(timezone.utc).timestamp(),
+                side="SELL",
+                market=str(pos.get("market") or ""),
+                outcome=str(pos.get("outcome") or ""),
+                domain=str(pos.get("domain") or ""),
+                source=w,
+                size=float(pos["size"]),
+                price=mark,
+                notional=float(pos["size"]) * mark,
+                slippage=0.0,
+                pnl=realized,
+                reason="evict_universe_churn",
+            )
             del ledger["positions"][key]
         record = {
             "wallet": w,

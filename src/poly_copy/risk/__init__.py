@@ -24,6 +24,8 @@ class RiskState:
     wallet_peak: dict[str, float] = field(default_factory=dict)
     halted: bool = False
     halt_reason: str = ""
+    would_halt: bool = False
+    would_halt_reason: str = ""
     open_entries: dict[str, float] = field(default_factory=dict)  # market -> entry price
 
 
@@ -31,6 +33,9 @@ class RiskGuard:
     def __init__(self, cfg: dict[str, Any], initial_capital: float = 1000.0):
         self.cfg = cfg
         self.risk = cfg.get("risk", {})
+        # paper stage default: never actually halt on portfolio drawdown, only
+        # flag it (would_halt). Flip risk.halt_enabled: true for live trading.
+        self.halt_enabled = bool(self.risk.get("halt_enabled", False))
         self.state = RiskState(equity=initial_capital, peak_equity=initial_capital)
 
     def on_fill(self, fill: PaperFill, mark_pnl: float = 0.0) -> None:
@@ -58,9 +63,12 @@ class RiskGuard:
             port_dd = (self.state.peak_equity - self.state.equity) / self.state.peak_equity
         max_port_dd = float(self.risk.get("portfolio_max_drawdown", 0.25))
         if port_dd >= max_port_dd:
-            self.state.halted = True
-            self.state.halt_reason = f"portfolio_dd:{port_dd:.2f}"
-            return RiskDecision(RiskAction.HALT, self.state.halt_reason)
+            self.state.would_halt = True
+            self.state.would_halt_reason = f"portfolio_dd:{port_dd:.2f}"
+            if self.halt_enabled:
+                self.state.halted = True
+                self.state.halt_reason = self.state.would_halt_reason
+                return RiskDecision(RiskAction.HALT, self.state.halt_reason)
 
         # per-wallet drawdown
         addr = intent.source_address

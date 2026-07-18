@@ -100,15 +100,42 @@ def test_wallet_exposure_cap():
     assert exposure <= 0.10 * 1000 + 1e-6
 
 
-def test_halt_blocks_buys_allows_sells():
+def test_drawdown_flags_would_halt_but_keeps_copying_in_paper_mode():
+    """Paper stage default (risk.halt_enabled unset/false): portfolio drawdown
+    is record-only — would_halt/would_halt_reason are set, but halted stays
+    False so buys keep flowing."""
     cfg = load_config()
     cfg["copy"]["slippage_bps"] = 0
     led = new_ledger(1000)
     ingest_events(led, [_ev(1.0, "BUY", price=0.5)], alloc={"0xaaa": 1.0}, cfg=cfg)
-    # equity collapses >15% below high water → halted
+    # equity collapses >15% below high water
     led["high_water"] = 2000.0
     update_equity_and_halt(led, positions_value=0.0, halt_drawdown=0.15)
+    assert not led["halted"]
+    assert led["would_halt"]
+    assert "portfolio_dd" in led["would_halt_reason"]
+    s = ingest_events(
+        led,
+        [_ev(2.0, "BUY", tx="b2", token="tok9"), _ev(3.0, "SELL", price=0.6, tx="s2")],
+        alloc={"0xaaa": 1.0},
+        cfg=cfg,
+    )
+    assert s["n_skipped_halted"] == 0  # BUY not blocked in paper mode
+    assert s["n_buys"] == 1
+    assert s["n_sells"] == 1
+
+
+def test_halt_enabled_still_blocks_buys_for_live_mode():
+    """risk.halt_enabled: true (future live-trading switch) restores the old
+    hard-stop behavior: halted=True blocks further BUYs, SELLs still pass."""
+    cfg = load_config()
+    cfg["copy"]["slippage_bps"] = 0
+    led = new_ledger(1000)
+    ingest_events(led, [_ev(1.0, "BUY", price=0.5)], alloc={"0xaaa": 1.0}, cfg=cfg)
+    led["high_water"] = 2000.0
+    update_equity_and_halt(led, positions_value=0.0, halt_drawdown=0.15, halt_enabled=True)
     assert led["halted"]
+    assert led["would_halt"]
     s = ingest_events(
         led,
         [_ev(2.0, "BUY", tx="b2", token="tok9"), _ev(3.0, "SELL", price=0.6, tx="s2")],

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -13,11 +14,42 @@ from typing import Any
 DATA = "https://data-api.polymarket.com"
 _UA = {"accept": "application/json", "user-agent": "Mozilla/5.0 (compatible; poly-copy/0.1)"}
 
+_RETRYABLE_HTTP = {429, 500, 502, 503, 504}
 
-def _get(url: str, timeout: float = 12.0) -> Any:
-    req = urllib.request.Request(url, headers=_UA)
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return json.loads(resp.read().decode())
+
+def _get(
+    url: str,
+    timeout: float = 12.0,
+    *,
+    retries: int = 3,
+    base_delay: float = 1.0,
+    _sleep=time.sleep,
+) -> Any:
+    """GET with exponential backoff on 429/5xx/timeout.
+
+    Without this, a rate-limited or transient-error response was silently
+    swallowed by the caller's bare `except` and treated as "wallet has no
+    data" — e.g. a failed /closed-positions call defaulted win_rate to 0.0,
+    which then read as a *real* 0% win rate and hard-rejected the wallet.
+    """
+    last_exc: Exception | None = None
+    for attempt in range(retries + 1):
+        try:
+            req = urllib.request.Request(url, headers=_UA)
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                return json.loads(resp.read().decode())
+        except urllib.error.HTTPError as e:
+            last_exc = e
+            if e.code not in _RETRYABLE_HTTP or attempt == retries:
+                raise
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last_exc = e
+            if attempt == retries:
+                raise
+        _sleep(base_delay * (2**attempt))
+    if last_exc:
+        raise last_exc
+    raise RuntimeError(f"unreachable: {url}")
 
 
 def fetch_leaderboard(
@@ -87,12 +119,17 @@ class DiscoverCandidate:
     active_markets: int = 0
     trade_count: int = 0
     traded_markets: int = 0
-    win_rate: float = 0.0
+    win_rate: float | None = 0.0
     closed_sample: int = 0
     pass_hard: bool = False
     reject_reason: str | None = None
     tags: list[str] = field(default_factory=list)
     behavior: dict[str, Any] = field(default_factory=dict)
+    # true when one or more probe calls failed after retries (rate limit /
+    # 5xx / timeout) — win_rate and possibly other fields are unreliable this
+    # cycle, not a genuine reading of the wallet.
+    data_unavailable: bool = False
+    failed_fields: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -131,6 +168,9 @@ def behavior_stats(trades: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+_PROBE_ERRORS = (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError)
+
+
 def _probe(address: str) -> dict[str, Any]:
     addr = address.lower()
     out: dict[str, Any] = {
@@ -141,13 +181,16 @@ def _probe(address: str) -> dict[str, Any]:
         "win_rate": 0.0,
         "closed_sample": 0,
         "behavior": {},
+        "data_unavailable": False,
+        "failed_fields": [],
     }
+    failed: list[str] = []
     try:
         vals = _get(f"{DATA}/value?user={addr}")
         if isinstance(vals, list) and vals:
             out["position_value"] = float(vals[0].get("value") or 0)
-    except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
-        pass
+    except _PROBE_ERRORS:
+        failed.append("value")
     try:
         positions = _get(f"{DATA}/positions?user={addr}&limit=50")
         if isinstance(positions, list):
@@ -156,14 +199,14 @@ def _probe(address: str) -> dict[str, Any]:
             )
             if out["position_value"] <= 0:
                 out["position_value"] = sum(float(p.get("currentValue") or 0) for p in positions)
-    except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
-        pass
+    except _PROBE_ERRORS:
+        failed.append("positions")
     try:
         traded = _get(f"{DATA}/traded?user={addr}")
         if isinstance(traded, dict):
             out["traded_markets"] = int(traded.get("traded") or 0)
-    except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
-        pass
+    except _PROBE_ERRORS:
+        failed.append("traded")
     try:
         # 100 recent trades: enough for the trades>=20 floor AND for a
         # behavior baseline (domains / monthly freq / median trade size).
@@ -171,8 +214,9 @@ def _probe(address: str) -> dict[str, Any]:
         if isinstance(trades, list):
             out["trade_count"] = len(trades)
             out["behavior"] = behavior_stats(trades)
-    except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
-        pass
+    except _PROBE_ERRORS:
+        failed.append("trades")
+    closed_failed = False
     try:
         # /closed-positions defaults to realizedPnl-desc (winners first) with a
         # 50-row page cap → win_rate would read 1.0. Paginate with explicit sort.
@@ -193,8 +237,18 @@ def _probe(address: str) -> dict[str, Any]:
             decided = wins + losses
             out["closed_sample"] = decided
             out["win_rate"] = (wins / decided) if decided else 0.0
-    except (urllib.error.URLError, TimeoutError, ValueError, TypeError, json.JSONDecodeError):
-        pass
+    except _PROBE_ERRORS:
+        closed_failed = True
+        failed.append("closed_positions")
+
+    # win_rate is only meaningful with a real decided sample. closed_sample==0
+    # (whether from a genuinely empty history or a failed/rate-limited
+    # request) must not be read as a real 0% win rate.
+    if out["closed_sample"] == 0 or closed_failed:
+        out["win_rate"] = None
+
+    out["failed_fields"] = failed
+    out["data_unavailable"] = len(failed) > 0
     return out
 
 
@@ -204,7 +258,19 @@ def _screen_reject(
     *,
     screen_key: str = "hard_screen",
 ) -> str | None:
-    """Apply entry (`hard_screen`) or exit (`exit_screen`) thresholds."""
+    """Apply entry (`hard_screen`) or exit (`exit_screen`) thresholds.
+
+    `exit_screen` re-validation of an *existing* member never hard-rejects on
+    a probe that failed after retries (rate limit / 5xx / timeout) — the
+    caller keeps the member's prior state and tags it "data_stale" instead of
+    burning a strike. `hard_screen` (a brand-new candidate) does the opposite:
+    missing data means we skip the wallet rather than admit it on a false 0.
+    """
+    if screen_key == "exit_screen" and c.data_unavailable:
+        return None
+    if screen_key != "exit_screen" and c.data_unavailable:
+        return f"data_unavailable:{','.join(c.failed_fields)}"
+
     hs = cfg.get(screen_key) or cfg.get("hard_screen", {})
     if c.pnl < float(hs.get("pnl_min", 15000)):
         return f"pnl_below_min:{c.pnl:.0f}"
@@ -220,7 +286,11 @@ def _screen_reject(
         return f"trades_low:{c.trade_count}"
     # exit screen: only judge win rate when sample is decent
     sample_min = 3 if screen_key == "exit_screen" else 5
-    if c.closed_sample >= sample_min and c.win_rate < float(hs.get("win_rate_min", 0.70)):
+    if (
+        c.closed_sample >= sample_min
+        and c.win_rate is not None
+        and c.win_rate < float(hs.get("win_rate_min", 0.70))
+    ):
         return f"win_rate_low:{c.win_rate:.2f}"
     if screen_key != "exit_screen" and c.closed_sample < 5:
         return "win_rate_sample_low"
