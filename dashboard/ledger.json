@@ -1,6 +1,6 @@
 {
   "initial_capital": 1000.0,
-  "cash": 702.2798507145374,
+  "cash": 700.580528428442,
   "realized_pnl_cum": -197.77380296959885,
   "halted": false,
   "halt_reason": "",
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.125,
+      "last_mark": 0.115,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4835,
+      "last_mark": 0.4725,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -57,7 +57,20 @@
       "condition_id": "0xc41f543ccb7a1a35a200c28096cc2e5c2351c54546087f4f6cf5c4ef3e0c1aa5",
       "domain": "fifwc",
       "opened_at": "2026-07-18T17:19:13.268698+00:00",
-      "last_mark": 0.535,
+      "last_mark": 0.555,
+      "mark_stale": false
+    },
+    "107315532298789701436237363960672430085793514173994076548684716531610645605062": {
+      "token_id": "107315532298789701436237363960672430085793514173994076548684716531610645605062",
+      "size": 4.9042490219202355,
+      "avg_price": 0.34650000000000003,
+      "source_wallet": "0x85f031d069de300055900c4055c1baeb6bde3f67",
+      "market": "fifwc-fra-eng-2026-07-18-spread-home-1pt5",
+      "outcome": "France",
+      "condition_id": "0xcdc47ab97b679450c8ee613c6225a070ff528f9806d6e14778e0b51f271e206a",
+      "domain": "fifwc",
+      "opened_at": "2026-07-18T20:26:37.046031+00:00",
+      "last_mark": 0.335,
       "mark_stale": false
     }
   },
@@ -128,9 +141,9 @@
       ]
     },
     "0x85f031d069de300055900c4055c1baeb6bde3f67": {
-      "ts": 1784149994.0,
+      "ts": 1784405428.0,
       "tx": [
-        "0xd9f1026c63e474b20f1d4c4b12042d089754e2387177ab9d50c8fb0fae7a5fee"
+        "0x78524a42b3f52686b7d938f0bae366037dea43fa7cf354b4e388629abcb3f3ed"
       ]
     },
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": {
@@ -180,9 +193,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784402895.0,
+      "ts": 1784406021.0,
       "tx": [
-        "0x1ef971a82fdafe3396240e24184134bd5e1b8053838cc89677ecc278b884e3ac"
+        "0x79ae842d94969fc46277de49ff650789c68602fce29fec09bb52f02a3991a0f3"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -586,7 +599,21 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784405428.0,
+      "side": "BUY",
+      "market": "fifwc-fra-eng-2026-07-18-spread-home-1pt5",
+      "outcome": "France",
+      "domain": "fifwc",
+      "source": "0x85f031d069de300055900c4055c1baeb6bde3f67",
+      "size": 4.9042,
+      "price": 0.3465,
+      "notional": 1.7,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-18T19:36:42.054105+00:00"
+  "updated_at": "2026-07-18T20:26:39.237843+00:00"
 }
