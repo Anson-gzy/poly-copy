@@ -5,7 +5,7 @@
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.185",
+  "would_halt_reason": "portfolio_dd:0.188",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.13,
+      "last_mark": 0.125,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.513,
+      "last_mark": 0.4835,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -57,7 +57,7 @@
       "condition_id": "0xc41f543ccb7a1a35a200c28096cc2e5c2351c54546087f4f6cf5c4ef3e0c1aa5",
       "domain": "fifwc",
       "opened_at": "2026-07-18T17:19:13.268698+00:00",
-      "last_mark": 0.525,
+      "last_mark": 0.535,
       "mark_stale": false
     }
   },
@@ -180,9 +180,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784347774.0,
+      "ts": 1784402895.0,
       "tx": [
-        "0x657e9d2d8e24c269ccec54095dcdf58e12c71f0d95e4922f78ad378bcdc2449d"
+        "0x1ef971a82fdafe3396240e24184134bd5e1b8053838cc89677ecc278b884e3ac"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -241,9 +241,9 @@
       ]
     },
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": {
-      "ts": 1784373286.0,
+      "ts": 1784400288.0,
       "tx": [
-        "0x8c4f09dd03c77bc0f28d2a88040aab532daa8be3d614435fd01a755001f21268"
+        "0xb152532846c6a575c4e23745f1b46ffb58ca14cf84ac78b8450167fbaf0e3d54"
       ]
     }
   },
@@ -588,5 +588,5 @@
       "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-18T18:14:05.244344+00:00"
+  "updated_at": "2026-07-18T19:36:42.054105+00:00"
 }
