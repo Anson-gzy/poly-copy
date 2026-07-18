@@ -1,27 +1,13 @@
 {
   "initial_capital": 1000.0,
   "cash": 802.226197030401,
-  "realized_pnl_cum": -185.415602436148,
+  "realized_pnl_cum": -197.77380296959885,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.191",
+  "would_halt_reason": "portfolio_dd:0.198",
   "high_water": 1000.0,
-  "positions": {
-    "96359888326612287661503194655233288194642586423232538457662749701216187209684": {
-      "token_id": "96359888326612287661503194655233288194642586423232538457662749701216187209684",
-      "size": 29.97733089747884,
-      "avg_price": 0.4122515301884402,
-      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "market": "mlb-mia-mil-2026-07-17",
-      "outcome": "Miami Marlins",
-      "condition_id": "0xec479a66c25e0890f454fc0ded792370a1fe1dc7af645175c0a72ca4228a29b4",
-      "domain": "mlb",
-      "opened_at": "2026-07-18T02:36:37.728439+00:00",
-      "last_mark": 0.235,
-      "mark_stale": false
-    }
-  },
+  "positions": {},
   "cursors": {
     "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": {
       "ts": 1783866205.0,
@@ -210,14 +196,16 @@
     "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": -22.71990591297805,
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": 18.23744969367513,
-    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": -93.42626987651207
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": -93.42626987651207,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -12.358200533450859
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
     "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": 0.6151088513779919,
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": 18.23744969367513,
-    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.0
+    "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.0,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.0
   },
   "evicted": [],
   "fills": [
@@ -262,7 +250,21 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784347718.270726,
+      "side": "SETTLE",
+      "market": "mlb-mia-mil-2026-07-17",
+      "outcome": "Miami Marlins",
+      "domain": "mlb",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 29.9773,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -12.3582,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-18T02:53:25.244308+00:00"
+  "updated_at": "2026-07-18T04:08:39.928163+00:00"
 }
