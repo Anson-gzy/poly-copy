@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T15:16:10.540266+00:00",
+  "updated_at": "2026-07-18T16:14:22.631686+00:00",
   "target_n": 10,
   "active_n": 9,
   "shortfall": 1,
@@ -16,7 +16,7 @@
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -37,12 +37,12 @@
       "reject_reason": null,
       "user_name": "shijiebeifacai",
       "pnl": 353410.46936719026,
-      "weight": 0.10883982334616188,
+      "weight": 0.10809992558205919,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -56,44 +56,18 @@
       }
     },
     {
-      "address": "0x85f031d069de300055900c4055c1baeb6bde3f67",
-      "score": 0.8750725217807077,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "RJW1",
-      "pnl": 267926.9961810007,
-      "weight": 0.10021022082102911,
-      "tags": [
-        "active",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-12T04:02:03.878398+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "epl",
-          "world"
-        ],
-        "monthly_freq": 47.66,
-        "median_trade_notional": 4093.32,
-        "n_trades": 100
-      }
-    },
-    {
       "address": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "score": 0.8725758165277026,
+      "score": 0.8964835463277027,
       "suitable": true,
       "reject_reason": null,
       "user_name": "Themsnw",
       "pnl": 338631.90096047294,
-      "weight": 0.09992430693560674,
+      "weight": 0.10196423430349445,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T21:28:48.353328+00:00",
       "baseline": {
@@ -104,6 +78,32 @@
         ],
         "monthly_freq": 509.01,
         "median_trade_notional": 3276.54,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x85f031d069de300055900c4055c1baeb6bde3f67",
+      "score": 0.8750725217807077,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "RJW1",
+      "pnl": 267926.9961810007,
+      "weight": 0.09952898746318087,
+      "tags": [
+        "active",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-12T04:02:03.878398+00:00",
+      "baseline": {
+        "top_domains": [
+          "fifwc",
+          "epl",
+          "world"
+        ],
+        "monthly_freq": 47.66,
+        "median_trade_notional": 4093.32,
         "n_trades": 100
       }
     },
@@ -119,7 +119,7 @@
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-14T23:15:48.970505+00:00",
       "baseline": {
@@ -140,12 +140,12 @@
       "reject_reason": null,
       "user_name": "hot2trot",
       "pnl": 200667.21699421247,
-      "weight": 0.09102564889720229,
+      "weight": 0.09040685265126544,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-15T21:41:04.323149+00:00",
       "baseline": {
@@ -169,7 +169,7 @@
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-17T15:58:04.645936+00:00",
       "baseline": {
@@ -190,12 +190,12 @@
       "reject_reason": null,
       "user_name": "yuhyuhyuhy352352",
       "pnl": 42287.696043799544,
-      "weight": 0.09596768138258013,
+      "weight": 0.09596768138258012,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-13T16:09:15.106687+00:00",
       "baseline": {
@@ -216,12 +216,12 @@
       "reject_reason": null,
       "user_name": "asparagus2012",
       "pnl": 20112.717734965758,
-      "weight": 0.07808792437346106,
+      "weight": 0.07808792437346107,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-18T15:16:10.540266+00:00",
+      "checked_at": "2026-07-18T16:14:22.631686+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-14T08:38:21.698820+00:00",
       "baseline": {
@@ -238,14 +238,14 @@
   ],
   "allocation": {
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.16107132024814105,
-    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.10883982334616188,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.09992430693560674,
-    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.10021022082102911,
+    "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 0.10809992558205919,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.09952898746318087,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.10196423430349445,
     "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3": 0.13699920502320528,
-    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 0.09102564889720229,
+    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 0.09040685265126544,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": 0.1278738689726125,
-    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.09596768138258013,
-    "0x476e1322d1a412fa0325527b8c3bc5e707b1396d": 0.07808792437346106
+    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.09596768138258012,
+    "0x476e1322d1a412fa0325527b8c3bc5e707b1396d": 0.07808792437346107
   },
   "dropped": [],
   "warned": [],

@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 748.4011562547154,
+  "cash": 745.4908049007475,
   "realized_pnl_cum": -197.77380296959885,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.197",
+  "would_halt_reason": "portfolio_dd:0.193",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -23,15 +23,15 @@
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
       "token_id": "62429084067171308316390058541012087925567325563248051217584518806867987132248",
-      "size": 107.66049303434222,
-      "avg_price": 0.37978363281194794,
+      "size": 114.72735250195402,
+      "avg_price": 0.3817576502354116,
       "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
       "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
       "outcome": "Yes",
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.3995,
+      "last_mark": 0.4315,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -154,9 +154,9 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784387643.0,
+      "ts": 1784390956.0,
       "tx": [
-        "0xcf42483f8f2a7b0b261ba548cbdbf100c310d0467eae47792d9f788cc633e9f2"
+        "0xdda15d3638709c2782a7466fb4d919d0ef883a2014b8944db86af20b321541f0"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -474,7 +474,21 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784387839.0,
+      "side": "BUY",
+      "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
+      "outcome": "Yes",
+      "domain": "nba",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 7.0669,
+      "price": 0.4118,
+      "notional": 2.91,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-18T15:17:17.407808+00:00"
+  "updated_at": "2026-07-18T16:15:30.406797+00:00"
 }
