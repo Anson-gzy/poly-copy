@@ -1,13 +1,53 @@
 {
   "initial_capital": 1000.0,
-  "cash": 802.226197030401,
+  "cash": 780.3655853017608,
   "realized_pnl_cum": -197.77380296959885,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
   "would_halt_reason": "portfolio_dd:0.198",
   "high_water": 1000.0,
-  "positions": {},
+  "positions": {
+    "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
+      "token_id": "113410960838036610177054042201506207817797370827970598802492258356512540837137",
+      "size": 14.15973011128563,
+      "avg_price": 0.1575,
+      "source_wallet": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
+      "market": "us-x-iran-effective-ceasfire-by-july-24-20260715194822044",
+      "outcome": "Yes",
+      "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
+      "domain": "us",
+      "opened_at": "2026-07-18T06:18:10.120048+00:00",
+      "last_mark": 0.145,
+      "mark_stale": false
+    },
+    "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
+      "token_id": "62429084067171308316390058541012087925567325563248051217584518806867987132248",
+      "size": 25.59193209142206,
+      "avg_price": 0.34867489003901414,
+      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
+      "outcome": "Yes",
+      "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
+      "domain": "nba",
+      "opened_at": "2026-07-18T06:18:10.120111+00:00",
+      "last_mark": 0.364,
+      "mark_stale": false
+    },
+    "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
+      "token_id": "62079784984413523345650422563713547632559798516317866687864953356087521248390",
+      "size": 17.581592985632593,
+      "avg_price": 0.609,
+      "source_wallet": "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
+      "market": "fifwc-esp-arg-2026-07-19-total-2pt5",
+      "outcome": "Under",
+      "condition_id": "0x750f495779adfc70a508af943bedb6e4759c9daaf067fd794f053d7e4505c717",
+      "domain": "fifwc",
+      "opened_at": "2026-07-18T06:18:10.120173+00:00",
+      "last_mark": 0.585,
+      "mark_stale": false
+    }
+  },
   "cursors": {
     "0xe16d3f2a5807999b358affd9445c3a09e45e5e30": {
       "ts": 1783866205.0,
@@ -114,9 +154,9 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784341297.0,
+      "ts": 1784350278.0,
       "tx": [
-        "0xdb2ac1c6224ac832bf242ea91a84a8aded1dc75512fd6af89e032d2da9eb2373"
+        "0xb124efecdc93208b58ea440fd1444f2d34d4c17d5fa927839c5d9544d960e177"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -126,9 +166,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784324133.0,
+      "ts": 1784347774.0,
       "tx": [
-        "0xf3b4a092d5fe787a7ebc6a813da6495b3bc81c2924b72731171233b3ae8c7a37"
+        "0x657e9d2d8e24c269ccec54095dcdf58e12c71f0d95e4922f78ad378bcdc2449d"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -175,8 +215,10 @@
       ]
     },
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": {
-      "ts": 1784130120.692811,
-      "tx": []
+      "ts": 1784353065.0,
+      "tx": [
+        "0x2207799f57f468347bb3d98368ef48786221f0038efb6588b859cc8011fbc95c"
+      ]
     },
     "0x5b6e80132e843cb8570ee93e448f05f40ef3f544": {
       "ts": 1784241676.0,
@@ -264,7 +306,77 @@
       "slippage": 0.0,
       "pnl": -12.3582,
       "reason": "settle"
+    },
+    {
+      "ts": 1784347774.0,
+      "side": "BUY",
+      "market": "us-x-iran-effective-ceasfire-by-july-24-20260715194822044",
+      "outcome": "Yes",
+      "domain": "us",
+      "source": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
+      "size": 14.1597,
+      "price": 0.1575,
+      "notional": 2.23,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784350120.0,
+      "side": "BUY",
+      "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
+      "outcome": "Yes",
+      "domain": "nba",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 9.2029,
+      "price": 0.3232,
+      "notional": 2.97,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784350222.0,
+      "side": "BUY",
+      "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
+      "outcome": "Yes",
+      "domain": "nba",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 8.3578,
+      "price": 0.3559,
+      "notional": 2.97,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784350278.0,
+      "side": "BUY",
+      "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
+      "outcome": "Yes",
+      "domain": "nba",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 8.0312,
+      "price": 0.3703,
+      "notional": 2.97,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784353065.0,
+      "side": "BUY",
+      "market": "fifwc-esp-arg-2026-07-19-total-2pt5",
+      "outcome": "Under",
+      "domain": "fifwc",
+      "source": "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
+      "size": 17.5816,
+      "price": 0.609,
+      "notional": 10.71,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-18T04:08:39.928163+00:00"
+  "updated_at": "2026-07-18T06:18:11.644651+00:00"
 }
