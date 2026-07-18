@@ -5,7 +5,7 @@
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.186",
+  "would_halt_reason": "portfolio_dd:0.191",
   "high_water": 1000.0,
   "positions": {
     "96359888326612287661503194655233288194642586423232538457662749701216187209684": {
@@ -18,7 +18,7 @@
       "condition_id": "0xec479a66c25e0890f454fc0ded792370a1fe1dc7af645175c0a72ca4228a29b4",
       "domain": "mlb",
       "opened_at": "2026-07-18T02:36:37.728439+00:00",
-      "last_mark": 0.405,
+      "last_mark": 0.235,
       "mark_stale": false
     }
   },
@@ -264,5 +264,5 @@
       "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-18T02:36:37.731264+00:00"
+  "updated_at": "2026-07-18T02:53:25.244308+00:00"
 }
