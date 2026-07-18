@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 654.6806460077714,
-  "realized_pnl_cum": -197.77380296959885,
+  "cash": 640.0712243434914,
+  "realized_pnl_cum": -244.02346201674743,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.213",
+  "would_halt_reason": "portfolio_dd:0.239",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.513,
+      "last_mark": 0.507,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -47,84 +47,6 @@
       "last_mark": 0.58625,
       "mark_stale": false
     },
-    "27017352779469567119021515174282416893555366624071034758236558815968401338728": {
-      "token_id": "27017352779469567119021515174282416893555366624071034758236558815968401338728",
-      "size": 86.59895421727158,
-      "avg_price": 0.4874164854885933,
-      "source_wallet": "0x2cff41636fe21fad120fed603d54d4fdd96259db",
-      "market": "fifwc-fra-eng-2026-07-18-fra",
-      "outcome": "Yes",
-      "condition_id": "0xc41f543ccb7a1a35a200c28096cc2e5c2351c54546087f4f6cf5c4ef3e0c1aa5",
-      "domain": "fifwc",
-      "opened_at": "2026-07-18T17:19:13.268698+00:00",
-      "last_mark": 0.1225,
-      "mark_stale": false
-    },
-    "107315532298789701436237363960672430085793514173994076548684716531610645605062": {
-      "token_id": "107315532298789701436237363960672430085793514173994076548684716531610645605062",
-      "size": 4.9042490219202355,
-      "avg_price": 0.34650000000000003,
-      "source_wallet": "0x85f031d069de300055900c4055c1baeb6bde3f67",
-      "market": "fifwc-fra-eng-2026-07-18-spread-home-1pt5",
-      "outcome": "France",
-      "condition_id": "0xcdc47ab97b679450c8ee613c6225a070ff528f9806d6e14778e0b51f271e206a",
-      "domain": "fifwc",
-      "opened_at": "2026-07-18T20:26:37.046031+00:00",
-      "last_mark": 0.0325,
-      "mark_stale": false
-    },
-    "61811493468803204160632540963577001178772148991316628543392506941734077645782": {
-      "token_id": "61811493468803204160632540963577001178772148991316628543392506941734077645782",
-      "size": 11.558120142146871,
-      "avg_price": 0.4620000000000001,
-      "source_wallet": "0x85f031d069de300055900c4055c1baeb6bde3f67",
-      "market": "fifwc-fra-eng-2026-07-18-halftime-result-home",
-      "outcome": "Yes",
-      "condition_id": "0x90ae81a0bbdf30b279e768f2a2481001f5c6ffeb423d38463cb4ce2080cb662f",
-      "domain": "fifwc",
-      "opened_at": "2026-07-18T21:25:53.595906+00:00",
-      "last_mark": 0.0005,
-      "mark_stale": false
-    },
-    "68383229798738153843260173110368067454393737148304707811610243859638727205428": {
-      "token_id": "68383229798738153843260173110368067454393737148304707811610243859638727205428",
-      "size": 25.909227952636254,
-      "avg_price": 0.3045,
-      "source_wallet": "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd",
-      "market": "fifwc-fra-eng-2026-07-18-team-to-advance",
-      "outcome": "France",
-      "condition_id": "0xaeec5397b4ee2ce20555c0099f0dcf4de4648a2f080c2d10b65ceaff9c26d7a8",
-      "domain": "fifwc",
-      "opened_at": "2026-07-18T21:25:53.595996+00:00",
-      "last_mark": 0.2125,
-      "mark_stale": false
-    },
-    "58317072795050731784998932920735446950849353270152408892281741086145970148954": {
-      "token_id": "58317072795050731784998932920735446950849353270152408892281741086145970148954",
-      "size": 24.261254258960026,
-      "avg_price": 0.052500000000000005,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "fifwc-fra-eng-2026-07-18-goals-kylian-mbappe-gte3",
-      "outcome": "Yes",
-      "condition_id": "0xebd16af8463a3ee0c6b2af289002973ade69c610df538ba0fd9a67c45a205429",
-      "domain": "fifwc",
-      "opened_at": "2026-07-18T22:24:11.807476+00:00",
-      "last_mark": 0.1425,
-      "mark_stale": false
-    },
-    "109628990302965992082997875216420207001432619423185080374659461988558309251930": {
-      "token_id": "109628990302965992082997875216420207001432619423185080374659461988558309251930",
-      "size": 15.34663803764643,
-      "avg_price": 0.20749102269000003,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "fifwc-fra-eng-2026-07-18-goals-kylian-mbappe-gte2",
-      "outcome": "Yes",
-      "condition_id": "0x9f888b77eb4bb6aa66ed76efbd1cbd344658606bd87d61b2087428ce44836778",
-      "domain": "fifwc",
-      "opened_at": "2026-07-18T22:24:11.807533+00:00",
-      "last_mark": 0.47,
-      "mark_stale": false
-    },
     "93061503731477479408464282252697138019214257012956354455241229622100106043596": {
       "token_id": "93061503731477479408464282252697138019214257012956354455241229622100106043596",
       "size": 72.06868206866886,
@@ -135,7 +57,33 @@
       "condition_id": "0x12f28bf750a67a2da5bc52328e7e77f9d36a528eea6b0cfc52cd7bd697488f56",
       "domain": "mlb",
       "opened_at": "2026-07-18T22:24:12.231060+00:00",
-      "last_mark": 0.395,
+      "last_mark": 0.235,
+      "mark_stale": false
+    },
+    "2061373972818833657972361370973580504379397837599150701169988825685587681888": {
+      "token_id": "2061373972818833657972361370973580504379397837599150701169988825685587681888",
+      "size": 34.287920287272996,
+      "avg_price": 0.7035000000000001,
+      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "market": "ufc-kam-dri-2026-07-18",
+      "outcome": "Dricus Du Plessis",
+      "condition_id": "0x029737e72b5b1661c0f96acb70528cf9a94bb3b2e211d7658f4449414665c03b",
+      "domain": "ufc",
+      "opened_at": "2026-07-18T23:25:51.769384+00:00",
+      "last_mark": 0.655,
+      "mark_stale": false
+    },
+    "96159009021927722001664326655629690461061984039231569458352417299212417765301": {
+      "token_id": "96159009021927722001664326655629690461061984039231569458352417299212417765301",
+      "size": 21.580119144749933,
+      "avg_price": 0.27036494751,
+      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "market": "ufc-jar-chr20-2026-07-18",
+      "outcome": "Jared Cannonier",
+      "condition_id": "0x1bfbd6414ee4c19fa81f2f1f948a4816b87f6bc9980e7fa20029402eb7275b81",
+      "domain": "ufc",
+      "opened_at": "2026-07-18T23:25:53.814760+00:00",
+      "last_mark": 0.245,
       "mark_stale": false
     }
   },
@@ -325,19 +273,26 @@
       ]
     },
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": {
-      "ts": 1784412550.0,
+      "ts": 1784417133.0,
       "tx": [
-        "0x15399690223c7e0a45b4fdbf7d882564d31ad5c2c8e58f24cd9ac6d30b38e829"
+        "0x6b546db47a64ba659e463b3ed9b862555d5ee4e6b88321ad97616e31d5289161"
       ]
+    },
+    "0xe549581668a5751c1972d3ad2d1991d900bd2d54": {
+      "ts": 1784395549.8539755,
+      "tx": []
     }
   },
   "wallet_realized": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": -94.12718897518045,
     "0x3dfb153c197d4c19d3b31c1ecd2c7b6860eeabaf": -22.71990591297805,
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 18.23744969367513,
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": -23.972308217894977,
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": -93.42626987651207,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -12.358200533450859
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -12.358200533450859,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
+    "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 10.888632567766518
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -345,7 +300,10 @@
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": 18.23744969367513,
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.0,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.0
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.0,
+    "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.0,
+    "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": 0.0,
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 10.888632567766518
   },
   "evicted": [],
   "fills": [
@@ -880,7 +838,119 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784417104.0,
+      "side": "BUY",
+      "market": "ufc-kam-dri-2026-07-18",
+      "outcome": "Dricus Du Plessis",
+      "domain": "ufc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 34.2879,
+      "price": 0.7035,
+      "notional": 24.12,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784417151.769473,
+      "side": "SETTLE",
+      "market": "fifwc-fra-eng-2026-07-18-fra",
+      "outcome": "Yes",
+      "domain": "fifwc",
+      "source": "0x2cff41636fe21fad120fed603d54d4fdd96259db",
+      "size": 86.599,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -42.2098,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784417151.769493,
+      "side": "SETTLE",
+      "market": "fifwc-fra-eng-2026-07-18-spread-home-1pt5",
+      "outcome": "France",
+      "domain": "fifwc",
+      "source": "0x85f031d069de300055900c4055c1baeb6bde3f67",
+      "size": 4.9042,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -1.6993,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784417151.769509,
+      "side": "SETTLE",
+      "market": "fifwc-fra-eng-2026-07-18-halftime-result-home",
+      "outcome": "Yes",
+      "domain": "fifwc",
+      "source": "0x85f031d069de300055900c4055c1baeb6bde3f67",
+      "size": 11.5581,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -5.3399,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784417151.769525,
+      "side": "SETTLE",
+      "market": "fifwc-fra-eng-2026-07-18-team-to-advance",
+      "outcome": "France",
+      "domain": "fifwc",
+      "source": "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd",
+      "size": 25.9092,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -7.8894,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784417151.769543,
+      "side": "SETTLE",
+      "market": "fifwc-fra-eng-2026-07-18-goals-kylian-mbappe-gte3",
+      "outcome": "Yes",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 24.2613,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -1.2737,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784417151.76956,
+      "side": "SETTLE",
+      "market": "fifwc-fra-eng-2026-07-18-goals-kylian-mbappe-gte2",
+      "outcome": "Yes",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 15.3466,
+      "price": 1.0,
+      "notional": 15.35,
+      "slippage": 0.0,
+      "pnl": 12.1623,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784417133.0,
+      "side": "BUY",
+      "market": "ufc-jar-chr20-2026-07-18",
+      "outcome": "Jared Cannonier",
+      "domain": "ufc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 21.5801,
+      "price": 0.2704,
+      "notional": 5.83,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-18T22:24:15.025727+00:00"
+  "updated_at": "2026-07-18T23:25:54.724408+00:00"
 }
