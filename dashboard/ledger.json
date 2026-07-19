@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.1,
+      "last_mark": 0.105,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.472,
+      "last_mark": 0.4725,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -70,7 +70,7 @@
       "condition_id": "0xd5705bc687cf8e753507ab299e64024c487caa5f6b1708e7221e9ad30adfe49f",
       "domain": "lol",
       "opened_at": "2026-07-19T07:10:06.143569+00:00",
-      "last_mark": 0.425,
+      "last_mark": 0.435,
       "mark_stale": false
     }
   },
@@ -1065,5 +1065,5 @@
       "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-19T07:10:08.984567+00:00"
+  "updated_at": "2026-07-19T09:17:12.664540+00:00"
 }
