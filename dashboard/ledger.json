@@ -5,7 +5,7 @@
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.207",
+  "would_halt_reason": "portfolio_dd:0.202",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.3925,
+      "last_mark": 0.428,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -44,7 +44,7 @@
       "condition_id": "0x750f495779adfc70a508af943bedb6e4759c9daaf067fd794f053d7e4505c717",
       "domain": "fifwc",
       "opened_at": "2026-07-18T06:18:10.120173+00:00",
-      "last_mark": 0.58875,
+      "last_mark": 0.58625,
       "mark_stale": false
     },
     "42176986171258899175066582967689667674675297176059084827747288568446712456939": {
@@ -57,7 +57,7 @@
       "condition_id": "0x7f1a83420fad6f4b7269bdc440546b05492a6457534a6a511d20babd02da3a7c",
       "domain": "mlb",
       "opened_at": "2026-07-19T01:02:28.677805+00:00",
-      "last_mark": 0.545,
+      "last_mark": 0.555,
       "mark_stale": false
     },
     "5347578882944882694678528183311777683806516836615678544993224689174263151458": {
@@ -70,7 +70,7 @@
       "condition_id": "0x019ee3c2925297b24c7d69e3fc333cef17b4da9f2466668c6f158eb1db3a183b",
       "domain": "fifwc",
       "opened_at": "2026-07-19T10:47:48.416346+00:00",
-      "last_mark": 0.245,
+      "last_mark": 0.255,
       "mark_stale": false
     },
     "105042264974012349507628582341465372921413790307165600767293079103508862620927": {
@@ -96,7 +96,7 @@
       "condition_id": "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042",
       "domain": "fifwc",
       "opened_at": "2026-07-19T11:46:26.038280+00:00",
-      "last_mark": 0.58875,
+      "last_mark": 0.59125,
       "mark_stale": false
     }
   },
@@ -1147,5 +1147,5 @@
       "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-19T15:17:41.984831+00:00"
+  "updated_at": "2026-07-19T16:16:15.578958+00:00"
 }
