@@ -5,7 +5,7 @@
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.186",
+  "would_halt_reason": "portfolio_dd:0.198",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.45,
+      "last_mark": 0.4655,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -57,7 +57,7 @@
       "condition_id": "0x7f1a83420fad6f4b7269bdc440546b05492a6457534a6a511d20babd02da3a7c",
       "domain": "mlb",
       "opened_at": "2026-07-19T01:02:28.677805+00:00",
-      "last_mark": 0.495,
+      "last_mark": 0.515,
       "mark_stale": false
     },
     "65222137872547584940477717568771042894186182773767258549559827662656341353173": {
@@ -70,7 +70,7 @@
       "condition_id": "0xd5705bc687cf8e753507ab299e64024c487caa5f6b1708e7221e9ad30adfe49f",
       "domain": "lol",
       "opened_at": "2026-07-19T07:10:06.143569+00:00",
-      "last_mark": 0.465,
+      "last_mark": 0.0005,
       "mark_stale": false
     },
     "5347578882944882694678528183311777683806516836615678544993224689174263151458": {
@@ -109,7 +109,7 @@
       "condition_id": "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042",
       "domain": "fifwc",
       "opened_at": "2026-07-19T11:46:26.038280+00:00",
-      "last_mark": 0.59375,
+      "last_mark": 0.59125,
       "mark_stale": false
     }
   },
@@ -1146,5 +1146,5 @@
       "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-19T11:46:29.169629+00:00"
+  "updated_at": "2026-07-19T12:41:16.473642+00:00"
 }
