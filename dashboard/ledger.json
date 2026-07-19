@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 704.0045019213829,
-  "realized_pnl_cum": -195.10011207955512,
+  "cash": 741.2298392798655,
+  "realized_pnl_cum": -190.88161110672826,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.178",
+  "would_halt_reason": "portfolio_dd:0.185",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.09,
+      "last_mark": 0.085,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.5555,
+      "last_mark": 0.4535,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -44,46 +44,7 @@
       "condition_id": "0x750f495779adfc70a508af943bedb6e4759c9daaf067fd794f053d7e4505c717",
       "domain": "fifwc",
       "opened_at": "2026-07-18T06:18:10.120173+00:00",
-      "last_mark": 0.58625,
-      "mark_stale": false
-    },
-    "2061373972818833657972361370973580504379397837599150701169988825685587681888": {
-      "token_id": "2061373972818833657972361370973580504379397837599150701169988825685587681888",
-      "size": 34.287920287272996,
-      "avg_price": 0.7035000000000001,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "ufc-kam-dri-2026-07-18",
-      "outcome": "Dricus Du Plessis",
-      "condition_id": "0x029737e72b5b1661c0f96acb70528cf9a94bb3b2e211d7658f4449414665c03b",
-      "domain": "ufc",
-      "opened_at": "2026-07-18T23:25:51.769384+00:00",
-      "last_mark": 0.665,
-      "mark_stale": false
-    },
-    "96159009021927722001664326655629690461061984039231569458352417299212417765301": {
-      "token_id": "96159009021927722001664326655629690461061984039231569458352417299212417765301",
-      "size": 21.580119144749933,
-      "avg_price": 0.27036494751,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "ufc-jar-chr20-2026-07-18",
-      "outcome": "Jared Cannonier",
-      "condition_id": "0x1bfbd6414ee4c19fa81f2f1f948a4816b87f6bc9980e7fa20029402eb7275b81",
-      "domain": "ufc",
-      "opened_at": "2026-07-18T23:25:53.814760+00:00",
-      "last_mark": 0.265,
-      "mark_stale": false
-    },
-    "964212147606744710017042589213126903906478010620416584548067535091676350143": {
-      "token_id": "964212147606744710017042589213126903906478010620416584548067535091676350143",
-      "size": 4.304446820318958,
-      "avg_price": 0.47250000000000003,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "mlb-sf-sea-2026-07-18",
-      "outcome": "San Francisco Giants",
-      "condition_id": "0x4185ec8428765ab57bc80e9523f0fbbf8835e1ac580b82f1e0f6a0db8d5fce3f",
-      "domain": "mlb",
-      "opened_at": "2026-07-19T01:02:28.677750+00:00",
-      "last_mark": 0.585,
+      "last_mark": 0.59125,
       "mark_stale": false
     },
     "42176986171258899175066582967689667674675297176059084827747288568446712456939": {
@@ -96,20 +57,7 @@
       "condition_id": "0x7f1a83420fad6f4b7269bdc440546b05492a6457534a6a511d20babd02da3a7c",
       "domain": "mlb",
       "opened_at": "2026-07-19T01:02:28.677805+00:00",
-      "last_mark": 0.485,
-      "mark_stale": false
-    },
-    "29616756786674000506797333093189686680563627239448639284948920916903411133262": {
-      "token_id": "29616756786674000506797333093189686680563627239448639284948920916903411133262",
-      "size": 2.9374170712095005,
-      "avg_price": 0.34619719858500003,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "wnba-nyl-ind-2026-07-18",
-      "outcome": "Indiana Fever",
-      "condition_id": "0x0c590cd0256869879577a8ec38c7bbf502f749ff460ab5cad0c38c2a14edcb5d",
-      "domain": "nba",
-      "opened_at": "2026-07-19T01:02:28.677838+00:00",
-      "last_mark": 0.275,
+      "last_mark": 0.505,
       "mark_stale": false
     }
   },
@@ -220,9 +168,9 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784411340.0,
+      "ts": 1784433919.0,
       "tx": [
-        "0xffdb352f23a1a1daec2b837b3aa4456b95fbb3e0a30bc35148f5314a6dfc5a4f"
+        "0xf5db82ae02a40c2be6cff5ecea9e1cb99340140a56046811990ebfa3661682f3"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -232,9 +180,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784409597.0,
+      "ts": 1784433508.0,
       "tx": [
-        "0x872bb1c621e62489dac129cafa738300b9a50a6ad9d52c1c13866d8d519bc48d"
+        "0x329a1a8590d6fbca5937721030ae7ef3cbd5812155ccda382df0e6c17ad1859e"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -299,9 +247,9 @@
       ]
     },
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": {
-      "ts": 1784422059.0,
+      "ts": 1784428975.0,
       "tx": [
-        "0x943d904f683dc0cfddd489baf281e03a7eb1a1695b6e3cc6b83a52bac69ae7c0"
+        "0x3113a83b48b2a089deec60f78dd0033f070af998f315b9ffa04be979cf7a35e6"
       ]
     },
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": {
@@ -318,7 +266,7 @@
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 36.565149403741444,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
-    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 10.888632567766518
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 15.107133540593404
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -329,7 +277,7 @@
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 36.565149403741444,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.0,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": 0.0,
-    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 10.888632567766518
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 21.055000932942956
   },
   "evicted": [],
   "fills": [
@@ -1032,7 +980,63 @@
       "slippage": 0.0,
       "pnl": 48.9233,
       "reason": "settle"
+    },
+    {
+      "ts": 1784435411.839862,
+      "side": "SETTLE",
+      "market": "ufc-kam-dri-2026-07-18",
+      "outcome": "Dricus Du Plessis",
+      "domain": "ufc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 34.2879,
+      "price": 1.0,
+      "notional": 34.29,
+      "slippage": 0.0,
+      "pnl": 10.1664,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784435411.839888,
+      "side": "SETTLE",
+      "market": "ufc-jar-chr20-2026-07-18",
+      "outcome": "Jared Cannonier",
+      "domain": "ufc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 21.5801,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -5.8345,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784435411.839903,
+      "side": "SETTLE",
+      "market": "mlb-sf-sea-2026-07-18",
+      "outcome": "San Francisco Giants",
+      "domain": "mlb",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 4.3044,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -2.0339,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784435411.83994,
+      "side": "SETTLE",
+      "market": "wnba-nyl-ind-2026-07-18",
+      "outcome": "Indiana Fever",
+      "domain": "nba",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 2.9374,
+      "price": 1.0,
+      "notional": 2.94,
+      "slippage": 0.0,
+      "pnl": 1.9205,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-19T01:02:31.536085+00:00"
+  "updated_at": "2026-07-19T04:30:13.980245+00:00"
 }
