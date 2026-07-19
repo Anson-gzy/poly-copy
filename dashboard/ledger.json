@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 741.2298392798655,
+  "cash": 728.5146245438442,
   "realized_pnl_cum": -190.88161110672826,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.185",
+  "would_halt_reason": "portfolio_dd:0.182",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.085,
+      "last_mark": 0.1,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4535,
+      "last_mark": 0.472,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -58,6 +58,19 @@
       "domain": "mlb",
       "opened_at": "2026-07-19T01:02:28.677805+00:00",
       "last_mark": 0.505,
+      "mark_stale": false
+    },
+    "65222137872547584940477717568771042894186182773767258549559827662656341353173": {
+      "token_id": "65222137872547584940477717568771042894186182773767258549559827662656341353173",
+      "size": 30.274320800050635,
+      "avg_price": 0.42000000000000004,
+      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "market": "lol-t1-gen-2026-07-19",
+      "outcome": "T1",
+      "condition_id": "0xd5705bc687cf8e753507ab299e64024c487caa5f6b1708e7221e9ad30adfe49f",
+      "domain": "lol",
+      "opened_at": "2026-07-19T07:10:06.143569+00:00",
+      "last_mark": 0.425,
       "mark_stale": false
     }
   },
@@ -247,9 +260,9 @@
       ]
     },
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": {
-      "ts": 1784428975.0,
+      "ts": 1784439666.0,
       "tx": [
-        "0x3113a83b48b2a089deec60f78dd0033f070af998f315b9ffa04be979cf7a35e6"
+        "0x0a48f393709712939859c139f22014a51ab74665d1da40edc1b63bb3d993095f"
       ]
     },
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": {
@@ -1036,7 +1049,21 @@
       "slippage": 0.0,
       "pnl": 1.9205,
       "reason": "settle"
+    },
+    {
+      "ts": 1784439666.0,
+      "side": "BUY",
+      "market": "lol-t1-gen-2026-07-19",
+      "outcome": "T1",
+      "domain": "lol",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 30.2743,
+      "price": 0.42,
+      "notional": 12.72,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-19T04:30:13.980245+00:00"
+  "updated_at": "2026-07-19T07:10:08.984567+00:00"
 }
