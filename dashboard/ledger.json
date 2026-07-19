@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 662.9518458712963,
-  "realized_pnl_cum": -208.11744755905698,
+  "cash": 684.2284772933208,
+  "realized_pnl_cum": -263.67479102857124,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.260",
+  "would_halt_reason": "portfolio_dd:0.259",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,72 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.386,
-      "mark_stale": false
-    },
-    "42176986171258899175066582967689667674675297176059084827747288568446712456939": {
-      "token_id": "42176986171258899175066582967689667674675297176059084827747288568446712456939",
-      "size": 9.319067287793464,
-      "avg_price": 0.54561552675,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "mlb-lad-nyy-2026-07-18",
-      "outcome": "Los Angeles Dodgers",
-      "condition_id": "0x7f1a83420fad6f4b7269bdc440546b05492a6457534a6a511d20babd02da3a7c",
-      "domain": "mlb",
-      "opened_at": "2026-07-19T01:02:28.677805+00:00",
-      "last_mark": 0.9995,
-      "mark_stale": false
-    },
-    "5347578882944882694678528183311777683806516836615678544993224689174263151458": {
-      "token_id": "5347578882944882694678528183311777683806516836615678544993224689174263151458",
-      "size": 18.632844492108212,
-      "avg_price": 0.2625,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "fifwc-esp-arg-2026-07-19-goals-lamine-yamal-gte1",
-      "outcome": "Yes",
-      "condition_id": "0x019ee3c2925297b24c7d69e3fc333cef17b4da9f2466668c6f158eb1db3a183b",
-      "domain": "fifwc",
-      "opened_at": "2026-07-19T10:47:48.416346+00:00",
-      "last_mark": 0.0005,
-      "mark_stale": false
-    },
-    "92571123127402723974640575698896369187398878096159854165218788690275715186568": {
-      "token_id": "92571123127402723974640575698896369187398878096159854165218788690275715186568",
-      "size": 12.43237061254415,
-      "avg_price": 0.33337500000000003,
-      "source_wallet": "0xe549581668a5751c1972d3ad2d1991d900bd2d54",
-      "market": "fifwc-esp-arg-2026-07-19-draw",
-      "outcome": "Yes",
-      "condition_id": "0x51166276fa646ca50165f7d030c297138ed1d62dc41f6ffde21e962c44182074",
-      "domain": "fifwc",
-      "opened_at": "2026-07-19T18:32:40.629694+00:00",
-      "last_mark": 0.99875,
-      "mark_stale": false
-    },
-    "59470269118682771304947535994646971819417763580663925170396066961563339373816": {
-      "token_id": "59470269118682771304947535994646971819417763580663925170396066961563339373816",
-      "size": 185.1380943035626,
-      "avg_price": 0.2183557794653155,
-      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
-      "outcome": "Argentina",
-      "condition_id": "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042",
-      "domain": "fifwc",
-      "opened_at": "2026-07-19T21:32:51.753122+00:00",
-      "last_mark": 0.00125,
-      "mark_stale": false
-    },
-    "28836906429705287731291653296084313396688550905564037120541019281218799876334": {
-      "token_id": "28836906429705287731291653296084313396688550905564037120541019281218799876334",
-      "size": 40.65436017429119,
-      "avg_price": 0.5482219094440942,
-      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "market": "mlb-det-laa-2026-07-19",
-      "outcome": "Detroit Tigers",
-      "condition_id": "0x9f564d4d2bb96df6e0da2f61e969a46d98ab027e85509ab59d51417bcb6ccd2f",
-      "domain": "mlb",
-      "opened_at": "2026-07-19T21:32:51.753159+00:00",
-      "last_mark": 0.135,
+      "last_mark": 0.4405,
       "mark_stale": false
     }
   },
@@ -207,10 +142,10 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784497456.0,
+      "ts": 1784501973.0,
       "tx": [
-        "0x7900e0840517e84b1d93df2814b71d7725f38ba0766002ca2338227beff76796",
-        "0x280bc2ec637b7550dddcfc7404d6ec43efd909aa99dee6bbe8c438f97b8cfb1f"
+        "0xabeda357730ec6c7b3b1ebfad9a3efd934e96aab7f07c6ce64cb85c64d2b5161",
+        "0x4b94095475a0aed3c323d9955d45f42de104c4d98d024360c8e8b5b1f98d00a2"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -220,9 +155,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784433508.0,
+      "ts": 1784501274.0,
       "tx": [
-        "0x329a1a8590d6fbca5937721030ae7ef3cbd5812155ccda382df0e6c17ad1859e"
+        "0x701166b2fa994b5899f71da13a905622290004f2cd9bb9a463307f562f322e98"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -287,9 +222,9 @@
       ]
     },
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": {
-      "ts": 1784499669.0,
+      "ts": 1784500999.0,
       "tx": [
-        "0x6cad03ec3f7f3c11b0c4e930b8ad69c02f33631ac6a6ea5ff96397f651ce1525"
+        "0xb65b5b72f09dd7f4a704126fb0f4b4d637864ed6853ebe111ac4641eebae61aa"
       ]
     },
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": {
@@ -305,11 +240,12 @@
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": -23.972308217894977,
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": -93.42626987651207,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 36.565149403741444,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -26.148434448613912,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
-    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -9.003105769117663,
-    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -10.134594445863808,
+    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
+    "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -321,7 +257,8 @@
     "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.0,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": 0.0,
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 21.055000932942956,
-    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344
+    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
+    "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244
   },
   "evicted": [],
   "fills": [
@@ -1332,7 +1269,77 @@
       "slippage": 0.0,
       "pnl": -10.1069,
       "reason": "settle"
+    },
+    {
+      "ts": 1784500999.0,
+      "side": "SELL",
+      "market": "mlb-lad-nyy-2026-07-18",
+      "outcome": "Los Angeles Dodgers",
+      "domain": "mlb",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 9.3191,
+      "price": 0.949,
+      "notional": 8.84,
+      "slippage": 0.05,
+      "pnl": 3.7596,
+      "reason": "copy_sell"
+    },
+    {
+      "ts": 1784504015.441622,
+      "side": "SETTLE",
+      "market": "fifwc-esp-arg-2026-07-19-goals-lamine-yamal-gte1",
+      "outcome": "Yes",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 18.6328,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -4.8911,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784504015.441648,
+      "side": "SETTLE",
+      "market": "fifwc-esp-arg-2026-07-19-draw",
+      "outcome": "Yes",
+      "domain": "fifwc",
+      "source": "0xe549581668a5751c1972d3ad2d1991d900bd2d54",
+      "size": 12.4324,
+      "price": 1.0,
+      "notional": 12.43,
+      "slippage": 0.0,
+      "pnl": 8.2877,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784504015.441664,
+      "side": "SETTLE",
+      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
+      "outcome": "Argentina",
+      "domain": "fifwc",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 185.1381,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -40.426,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784504015.441677,
+      "side": "SETTLE",
+      "market": "mlb-det-laa-2026-07-19",
+      "outcome": "Detroit Tigers",
+      "domain": "mlb",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 40.6544,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -22.2876,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-19T22:30:02.920212+00:00"
+  "updated_at": "2026-07-19T23:33:37.736692+00:00"
 }
