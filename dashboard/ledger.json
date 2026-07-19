@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 668.3530274466208,
-  "realized_pnl_cum": -203.59682584274952,
+  "cash": 662.9518458712963,
+  "realized_pnl_cum": -208.11744755905698,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.204",
+  "would_halt_reason": "portfolio_dd:0.260",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,20 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.3705,
-      "mark_stale": false
-    },
-    "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
-      "token_id": "62079784984413523345650422563713547632559798516317866687864953356087521248390",
-      "size": 17.581592985632593,
-      "avg_price": 0.609,
-      "source_wallet": "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
-      "market": "fifwc-esp-arg-2026-07-19-total-2pt5",
-      "outcome": "Under",
-      "condition_id": "0x750f495779adfc70a508af943bedb6e4759c9daaf067fd794f053d7e4505c717",
-      "domain": "fifwc",
-      "opened_at": "2026-07-18T06:18:10.120173+00:00",
-      "last_mark": 0.99875,
+      "last_mark": 0.386,
       "mark_stale": false
     },
     "42176986171258899175066582967689667674675297176059084827747288568446712456939": {
@@ -70,33 +57,7 @@
       "condition_id": "0x019ee3c2925297b24c7d69e3fc333cef17b4da9f2466668c6f158eb1db3a183b",
       "domain": "fifwc",
       "opened_at": "2026-07-19T10:47:48.416346+00:00",
-      "last_mark": 0.003,
-      "mark_stale": false
-    },
-    "105042264974012349507628582341465372921413790307165600767293079103508862620927": {
-      "token_id": "105042264974012349507628582341465372921413790307165600767293079103508862620927",
-      "size": 24.236353365571645,
-      "avg_price": 0.4170139481731244,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "fifwc-esp-arg-2026-07-19-esp",
-      "outcome": "Yes",
-      "condition_id": "0xdfbaae9f7587b11691c676d942f22b4ea9a9e3a68f7ca1d5d6bd4a1c967db23b",
-      "domain": "fifwc",
-      "opened_at": "2026-07-19T11:46:26.038228+00:00",
-      "last_mark": 0.00125,
-      "mark_stale": false
-    },
-    "21489275813654264105403246157265887827595023709508765470113828829105196462288": {
-      "token_id": "21489275813654264105403246157265887827595023709508765470113828829105196462288",
-      "size": 23.52743684737483,
-      "avg_price": 0.62475,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
-      "outcome": "Spain",
-      "condition_id": "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042",
-      "domain": "fifwc",
-      "opened_at": "2026-07-19T11:46:26.038280+00:00",
-      "last_mark": 0.69125,
+      "last_mark": 0.0005,
       "mark_stale": false
     },
     "92571123127402723974640575698896369187398878096159854165218788690275715186568": {
@@ -114,15 +75,15 @@
     },
     "59470269118682771304947535994646971819417763580663925170396066961563339373816": {
       "token_id": "59470269118682771304947535994646971819417763580663925170396066961563339373816",
-      "size": 11.327317076711607,
-      "avg_price": 0.356003041065,
+      "size": 185.1380943035626,
+      "avg_price": 0.2183557794653155,
       "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
       "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
       "outcome": "Argentina",
       "condition_id": "0x4b045e092c3166aa29d4864c11dffe7e316daafdac5677f11aa5cd16065fd042",
       "domain": "fifwc",
       "opened_at": "2026-07-19T21:32:51.753122+00:00",
-      "last_mark": 0.30875,
+      "last_mark": 0.00125,
       "mark_stale": false
     },
     "28836906429705287731291653296084313396688550905564037120541019281218799876334": {
@@ -135,7 +96,7 @@
       "condition_id": "0x9f564d4d2bb96df6e0da2f61e969a46d98ab027e85509ab59d51417bcb6ccd2f",
       "domain": "mlb",
       "opened_at": "2026-07-19T21:32:51.753159+00:00",
-      "last_mark": 0.505,
+      "last_mark": 0.135,
       "mark_stale": false
     }
   },
@@ -246,9 +207,10 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784496471.0,
+      "ts": 1784497456.0,
       "tx": [
-        "0x264f5de2da7260e53bf0be69a57f18dd3c63bae7efcd5ca1da896cdcad534946"
+        "0x7900e0840517e84b1d93df2814b71d7725f38ba0766002ca2338227beff76796",
+        "0x280bc2ec637b7550dddcfc7404d6ec43efd909aa99dee6bbe8c438f97b8cfb1f"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -325,9 +287,9 @@
       ]
     },
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": {
-      "ts": 1784494165.0,
+      "ts": 1784499669.0,
       "tx": [
-        "0x9e21cbe9e7e252bd9263941aa0b77f7841f58d4f492518fc83789ae49341954f"
+        "0x6cad03ec3f7f3c11b0c4e930b8ad69c02f33631ac6a6ea5ff96397f651ce1525"
       ]
     },
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": {
@@ -346,7 +308,8 @@
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 36.565149403741444,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
-    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 2.3919188045721356
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -9.003105769117663,
+    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -357,7 +320,8 @@
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 36.565149403741444,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.0,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": 0.0,
-    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 21.055000932942956
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 21.055000932942956,
+    "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344
   },
   "evicted": [],
   "fills": [
@@ -1270,7 +1234,105 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784497164.0,
+      "side": "SELL",
+      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
+      "outcome": "Spain",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 23.5274,
+      "price": 0.57,
+      "notional": 13.41,
+      "slippage": 0.05,
+      "pnl": -1.2881,
+      "reason": "copy_sell"
+    },
+    {
+      "ts": 1784497312.0,
+      "side": "BUY",
+      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
+      "outcome": "Argentina",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 62.0878,
+      "price": 0.4217,
+      "notional": 26.18,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784497435.0,
+      "side": "BUY",
+      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
+      "outcome": "Argentina",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 75.2767,
+      "price": 0.0841,
+      "notional": 6.33,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784497519.0,
+      "side": "BUY",
+      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
+      "outcome": "Argentina",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 24.0806,
+      "price": 0.1074,
+      "notional": 2.59,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784497569.0,
+      "side": "BUY",
+      "market": "fifwc-esp-arg-2026-07-19-team-to-advance",
+      "outcome": "Argentina",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 12.3658,
+      "price": 0.1052,
+      "notional": 1.3,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784500200.775555,
+      "side": "SETTLE",
+      "market": "fifwc-esp-arg-2026-07-19-total-2pt5",
+      "outcome": "Under",
+      "domain": "fifwc",
+      "source": "0xb61b2079b95f6b7476fd3203e0274ffb93308a06",
+      "size": 17.5816,
+      "price": 1.0,
+      "notional": 17.58,
+      "slippage": 0.0,
+      "pnl": 6.8744,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784500200.775584,
+      "side": "SETTLE",
+      "market": "fifwc-esp-arg-2026-07-19-esp",
+      "outcome": "Yes",
+      "domain": "fifwc",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 24.2364,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -10.1069,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-19T21:32:55.139960+00:00"
+  "updated_at": "2026-07-19T22:30:02.920212+00:00"
 }
