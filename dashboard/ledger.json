@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 640.0712243434914,
-  "realized_pnl_cum": -244.02346201674743,
+  "cash": 704.0045019213829,
+  "realized_pnl_cum": -195.10011207955512,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.239",
+  "would_halt_reason": "portfolio_dd:0.178",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.105,
+      "last_mark": 0.09,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.507,
+      "last_mark": 0.5555,
       "mark_stale": false
     },
     "62079784984413523345650422563713547632559798516317866687864953356087521248390": {
@@ -47,19 +47,6 @@
       "last_mark": 0.58625,
       "mark_stale": false
     },
-    "93061503731477479408464282252697138019214257012956354455241229622100106043596": {
-      "token_id": "93061503731477479408464282252697138019214257012956354455241229622100106043596",
-      "size": 72.06868206866886,
-      "avg_price": 0.3211565893410275,
-      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "market": "mlb-tb-bos-2026-07-18",
-      "outcome": "Boston Red Sox",
-      "condition_id": "0x12f28bf750a67a2da5bc52328e7e77f9d36a528eea6b0cfc52cd7bd697488f56",
-      "domain": "mlb",
-      "opened_at": "2026-07-18T22:24:12.231060+00:00",
-      "last_mark": 0.235,
-      "mark_stale": false
-    },
     "2061373972818833657972361370973580504379397837599150701169988825685587681888": {
       "token_id": "2061373972818833657972361370973580504379397837599150701169988825685587681888",
       "size": 34.287920287272996,
@@ -70,7 +57,7 @@
       "condition_id": "0x029737e72b5b1661c0f96acb70528cf9a94bb3b2e211d7658f4449414665c03b",
       "domain": "ufc",
       "opened_at": "2026-07-18T23:25:51.769384+00:00",
-      "last_mark": 0.655,
+      "last_mark": 0.665,
       "mark_stale": false
     },
     "96159009021927722001664326655629690461061984039231569458352417299212417765301": {
@@ -83,7 +70,46 @@
       "condition_id": "0x1bfbd6414ee4c19fa81f2f1f948a4816b87f6bc9980e7fa20029402eb7275b81",
       "domain": "ufc",
       "opened_at": "2026-07-18T23:25:53.814760+00:00",
-      "last_mark": 0.245,
+      "last_mark": 0.265,
+      "mark_stale": false
+    },
+    "964212147606744710017042589213126903906478010620416584548067535091676350143": {
+      "token_id": "964212147606744710017042589213126903906478010620416584548067535091676350143",
+      "size": 4.304446820318958,
+      "avg_price": 0.47250000000000003,
+      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "market": "mlb-sf-sea-2026-07-18",
+      "outcome": "San Francisco Giants",
+      "condition_id": "0x4185ec8428765ab57bc80e9523f0fbbf8835e1ac580b82f1e0f6a0db8d5fce3f",
+      "domain": "mlb",
+      "opened_at": "2026-07-19T01:02:28.677750+00:00",
+      "last_mark": 0.585,
+      "mark_stale": false
+    },
+    "42176986171258899175066582967689667674675297176059084827747288568446712456939": {
+      "token_id": "42176986171258899175066582967689667674675297176059084827747288568446712456939",
+      "size": 9.319067287793464,
+      "avg_price": 0.54561552675,
+      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "market": "mlb-lad-nyy-2026-07-18",
+      "outcome": "Los Angeles Dodgers",
+      "condition_id": "0x7f1a83420fad6f4b7269bdc440546b05492a6457534a6a511d20babd02da3a7c",
+      "domain": "mlb",
+      "opened_at": "2026-07-19T01:02:28.677805+00:00",
+      "last_mark": 0.485,
+      "mark_stale": false
+    },
+    "29616756786674000506797333093189686680563627239448639284948920916903411133262": {
+      "token_id": "29616756786674000506797333093189686680563627239448639284948920916903411133262",
+      "size": 2.9374170712095005,
+      "avg_price": 0.34619719858500003,
+      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "market": "wnba-nyl-ind-2026-07-18",
+      "outcome": "Indiana Fever",
+      "condition_id": "0x0c590cd0256869879577a8ec38c7bbf502f749ff460ab5cad0c38c2a14edcb5d",
+      "domain": "nba",
+      "opened_at": "2026-07-19T01:02:28.677838+00:00",
+      "last_mark": 0.275,
       "mark_stale": false
     }
   },
@@ -273,9 +299,9 @@
       ]
     },
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": {
-      "ts": 1784417133.0,
+      "ts": 1784422059.0,
       "tx": [
-        "0x6b546db47a64ba659e463b3ed9b862555d5ee4e6b88321ad97616e31d5289161"
+        "0x943d904f683dc0cfddd489baf281e03a7eb1a1695b6e3cc6b83a52bac69ae7c0"
       ]
     },
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": {
@@ -289,7 +315,7 @@
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": -23.972308217894977,
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": -93.42626987651207,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -12.358200533450859,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 36.565149403741444,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 10.888632567766518
@@ -300,7 +326,7 @@
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": 18.23744969367513,
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": 0.0,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.0,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 36.565149403741444,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": 0.0,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": 0.0,
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 10.888632567766518
@@ -950,7 +976,63 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784421399.0,
+      "side": "BUY",
+      "market": "mlb-sf-sea-2026-07-18",
+      "outcome": "San Francisco Giants",
+      "domain": "mlb",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 4.3044,
+      "price": 0.4725,
+      "notional": 2.03,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784421444.0,
+      "side": "BUY",
+      "market": "mlb-lad-nyy-2026-07-18",
+      "outcome": "Los Angeles Dodgers",
+      "domain": "mlb",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 9.3191,
+      "price": 0.5456,
+      "notional": 5.08,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784422059.0,
+      "side": "BUY",
+      "market": "wnba-nyl-ind-2026-07-18",
+      "outcome": "Indiana Fever",
+      "domain": "nba",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 2.9374,
+      "price": 0.3462,
+      "notional": 1.02,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784422948.677918,
+      "side": "SETTLE",
+      "market": "mlb-tb-bos-2026-07-18",
+      "outcome": "Boston Red Sox",
+      "domain": "mlb",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 72.0687,
+      "price": 1.0,
+      "notional": 72.07,
+      "slippage": 0.0,
+      "pnl": 48.9233,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-18T23:25:54.724408+00:00"
+  "updated_at": "2026-07-19T01:02:31.536085+00:00"
 }
