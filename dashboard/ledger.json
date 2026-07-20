@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 655.176650716225,
-  "realized_pnl_cum": -255.65589407944827,
+  "cash": 672.5554177854153,
+  "realized_pnl_cum": -251.51851883199066,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.243",
+  "would_halt_reason": "portfolio_dd:0.245",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,20 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4765,
-      "mark_stale": false
-    },
-    "36134855319954907732404195833091632830022107006746626473158627621776070068391": {
-      "token_id": "36134855319954907732404195833091632830022107006746626473158627621776070068391",
-      "size": 3.6917228250878202,
-      "avg_price": 0.6615000000000001,
-      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
-      "market": "atp-kopriva-buse-2026-07-20",
-      "outcome": "Ignacio Buse",
-      "condition_id": "0xb1b7e274700ba49508121b63bda92a8a2838cea68caddcb1636750769e82523d",
-      "domain": "atp",
-      "opened_at": "2026-07-20T07:54:58.853192+00:00",
-      "last_mark": 0.795,
+      "last_mark": 0.4545,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -57,33 +44,7 @@
       "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
       "domain": "will",
       "opened_at": "2026-07-20T07:54:58.853246+00:00",
-      "last_mark": 0.745,
-      "mark_stale": false
-    },
-    "105146826336151557150223703653539107560439117161885585335039088198383215170939": {
-      "token_id": "105146826336151557150223703653539107560439117161885585335039088198383215170939",
-      "size": 2.7906182265779593,
-      "avg_price": 0.7138007696399999,
-      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
-      "market": "lol-drx-kt-2026-07-20",
-      "outcome": "KT Rolster",
-      "condition_id": "0x1e337f58e313a33e9928be46afa1cc51f81957139176f6611560050988ec3dcc",
-      "domain": "lol",
-      "opened_at": "2026-07-20T15:20:00.890250+00:00",
-      "last_mark": 0.0005,
-      "mark_stale": false
-    },
-    "111757872918154699344390237849436024698409942278347553989319266157615691964939": {
-      "token_id": "111757872918154699344390237849436024698409942278347553989319266157615691964939",
-      "size": 15.613116552784767,
-      "avg_price": 0.6874632625350001,
-      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "market": "wta-ruzic-salkova-2026-07-20",
-      "outcome": "Dominika Salkova",
-      "condition_id": "0x10c546e31528e4902bdc564101f18870fbff80ccab3975e38172e2fe24978ec6",
-      "domain": "wta",
-      "opened_at": "2026-07-20T16:50:11.244688+00:00",
-      "last_mark": 0.9995,
+      "last_mark": 0.735,
       "mark_stale": false
     },
     "7879725478536356917422362732460515493463084598262424681347350457402251864086": {
@@ -96,7 +57,20 @@
       "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
       "domain": "what",
       "opened_at": "2026-07-20T16:50:11.244776+00:00",
-      "last_mark": 0.916,
+      "last_mark": 0.9045,
+      "mark_stale": false
+    },
+    "25928620188221693618999597472869281931056541375965574921600115299066712761243": {
+      "token_id": "25928620188221693618999597472869281931056541375965574921600115299066712761243",
+      "size": 2.9586364188667424,
+      "avg_price": 0.651,
+      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "market": "atp-vallejo-feldbau-2026-07-21",
+      "outcome": "Adolfo Vallejo",
+      "condition_id": "0x329dffe45a6b68ee04b0c291632752c635bdde4dbcc6801c5852e004f1be5454",
+      "domain": "atp",
+      "opened_at": "2026-07-20T18:47:18.641660+00:00",
+      "last_mark": 0.635,
       "mark_stale": false
     }
   },
@@ -201,15 +175,15 @@
       ]
     },
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": {
-      "ts": 1784513322.0,
+      "ts": 1784569330.0,
       "tx": [
-        "0x5fb32c97c984a4df2fad01294f7b638c3c61b53b20234a786255470397f5fbe5"
+        "0xaee2a1c9e2669292ce3cb1541ac7ae04b832a8cdcb10d461f45e5e3997c56922"
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784562442.0,
+      "ts": 1784572779.0,
       "tx": [
-        "0x79e97f9a8afed05b783ea40e0bc8a9b843d5df0098abd78017a78d4337234409"
+        "0xdcefedf50c6e82300bcc3c2e6088caf9e13ce83c11c4915f1ba173bb6997a43f"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -304,9 +278,9 @@
       ]
     },
     "0x2974bd0059e48f215c391882976e0f1b4c8c9c23": {
-      "ts": 1784565838.0,
+      "ts": 1784568043.0,
       "tx": [
-        "0x7b447db7ef0a22e2dbfd7448c5d7f5e92ea6cd3bc8bccf1d18cad7bf0ebc7a8e"
+        "0x1dcb6b716a3b4325b197541eb227de8bf93b4d2baba5bf29fba241715969c620"
       ]
     },
     "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e": {
@@ -340,14 +314,15 @@
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": -23.972308217894977,
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": -93.42626987651207,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -4.145745903753095,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.7339266053150411,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -19.518090396786242,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
-    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": -4.598815358413193,
-    "0xe1e105257812992f0b9aba92a17e33f36e89d250": -0.0014802864022131217
+    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": -6.590760796315952,
+    "0xe1e105257812992f0b9aba92a17e33f36e89d250": -0.0014802864022131217,
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 1.249648176292227
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -362,7 +337,8 @@
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
     "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 6.345899064246888,
-    "0xe1e105257812992f0b9aba92a17e33f36e89d250": 0.0
+    "0xe1e105257812992f0b9aba92a17e33f36e89d250": 0.0,
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 1.249648176292227
   },
   "evicted": [],
   "fills": [
@@ -2073,7 +2049,63 @@
       "slippage": 0.0,
       "pnl": 22.0027,
       "reason": "settle"
+    },
+    {
+      "ts": 1784568331.0,
+      "side": "BUY",
+      "market": "atp-vallejo-feldbau-2026-07-21",
+      "outcome": "Adolfo Vallejo",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 2.9586,
+      "price": 0.651,
+      "notional": 1.93,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784573238.641798,
+      "side": "SETTLE",
+      "market": "atp-kopriva-buse-2026-07-20",
+      "outcome": "Ignacio Buse",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 3.6917,
+      "price": 1.0,
+      "notional": 3.69,
+      "slippage": 0.0,
+      "pnl": 1.2496,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784573238.641822,
+      "side": "SETTLE",
+      "market": "lol-drx-kt-2026-07-20",
+      "outcome": "KT Rolster",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 2.7906,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -1.9919,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784573238.641838,
+      "side": "SETTLE",
+      "market": "wta-ruzic-salkova-2026-07-20",
+      "outcome": "Dominika Salkova",
+      "domain": "wta",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 15.6131,
+      "price": 1.0,
+      "notional": 15.61,
+      "slippage": 0.0,
+      "pnl": 4.8797,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-20T16:50:14.567304+00:00"
+  "updated_at": "2026-07-20T18:47:22.680676+00:00"
 }
