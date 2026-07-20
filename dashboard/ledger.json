@@ -1,6 +1,6 @@
 {
   "initial_capital": 1000.0,
-  "cash": 684.2284772933208,
+  "cash": 674.8449813423983,
   "realized_pnl_cum": -263.67479102857124,
   "halted": false,
   "halt_reason": "",
@@ -31,7 +31,20 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4405,
+      "last_mark": 0.5105,
+      "mark_stale": false
+    },
+    "32550021978079579385906743073206184350879774978190521461180810268134075897970": {
+      "token_id": "32550021978079579385906743073206184350879774978190521461180810268134075897970",
+      "size": 35.940489601721296,
+      "avg_price": 0.26108425497,
+      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "market": "wnba-conn-phx-2026-07-19",
+      "outcome": "Connecticut Sun",
+      "condition_id": "0xe1d8c9f6eac493fb6007c955985d77b7cc2e5cccba2d0e9d2ba82b5fe238516f",
+      "domain": "nba",
+      "opened_at": "2026-07-20T01:10:18.022751+00:00",
+      "last_mark": 0.0005,
       "mark_stale": false
     }
   },
@@ -222,9 +235,9 @@
       ]
     },
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": {
-      "ts": 1784500999.0,
+      "ts": 1784508321.0,
       "tx": [
-        "0xb65b5b72f09dd7f4a704126fb0f4b4d637864ed6853ebe111ac4641eebae61aa"
+        "0x5308b9ced27f1e73bdee17f81f0925a8dd40bca6f07bf4c9b5821fda9d802248"
       ]
     },
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": {
@@ -1339,7 +1352,21 @@
       "slippage": 0.0,
       "pnl": -22.2876,
       "reason": "settle"
+    },
+    {
+      "ts": 1784508321.0,
+      "side": "BUY",
+      "market": "wnba-conn-phx-2026-07-19",
+      "outcome": "Connecticut Sun",
+      "domain": "nba",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 35.9405,
+      "price": 0.2611,
+      "notional": 9.38,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-19T23:33:37.736692+00:00"
+  "updated_at": "2026-07-20T01:10:20.399564+00:00"
 }
