@@ -1,7 +1,7 @@
 {
   "initial_capital": 1000.0,
-  "cash": 592.9486045242759,
-  "realized_pnl_cum": -273.05782111663774,
+  "cash": 654.9325934639995,
+  "realized_pnl_cum": -266.7123879152468,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
@@ -18,20 +18,20 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.17,
+      "last_mark": 0.19,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
       "token_id": "62429084067171308316390058541012087925567325563248051217584518806867987132248",
-      "size": 126.42438446132437,
-      "avg_price": 0.39443794326588355,
+      "size": 129.64835419671658,
+      "avg_price": 0.3967142300985983,
       "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
       "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
       "outcome": "Yes",
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4505,
+      "last_mark": 0.458,
       "mark_stale": false
     },
     "36134855319954907732404195833091632830022107006746626473158627621776070068391": {
@@ -57,33 +57,7 @@
       "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
       "domain": "will",
       "opened_at": "2026-07-20T07:54:58.853246+00:00",
-      "last_mark": 0.765,
-      "mark_stale": false
-    },
-    "58459813764183831411807516824919000297251443806149784847735093609387420102783": {
-      "token_id": "58459813764183831411807516824919000297251443806149784847735093609387420102783",
-      "size": 34.63682706321398,
-      "avg_price": 0.4762807018593006,
-      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
-      "market": "lol-ns-bro2-2026-07-20",
-      "outcome": "HANJIN BRION",
-      "condition_id": "0xf0fb24adc3eea2d6f4e003305a1f218835184f49a94c7f711eb2f85a776a5445",
-      "domain": "lol",
-      "opened_at": "2026-07-20T07:54:58.853286+00:00",
-      "last_mark": 0.0005,
-      "mark_stale": false
-    },
-    "87046928479686449931524551650341060981822099004976292899114396354891022140914": {
-      "token_id": "87046928479686449931524551650341060981822099004976292899114396354891022140914",
-      "size": 7.440245327036819,
-      "avg_price": 0.6722519059133126,
-      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
-      "market": "lol-dnf-fox1-2026-07-20",
-      "outcome": "DN SOOPers",
-      "condition_id": "0x723f72604b12f003338ef13474c4624de087b0179aca770a062fa5e752fb5223",
-      "domain": "lol",
-      "opened_at": "2026-07-20T07:54:58.853476+00:00",
-      "last_mark": 0.9995,
+      "last_mark": 0.775,
       "mark_stale": false
     },
     "110894917851110420509197755855872163483044287132651887624294709771150975039085": {
@@ -96,7 +70,7 @@
       "condition_id": "0x78ef4f7934792597b4303f96a62baf1c6a54c57cf9a15b96fd4ef492f8b9e045",
       "domain": "lol",
       "opened_at": "2026-07-20T07:54:58.853509+00:00",
-      "last_mark": 0.745,
+      "last_mark": 0.5455,
       "mark_stale": false
     },
     "74206475132266839930871051340460272835105182833325618614058796005516141782254": {
@@ -110,19 +84,6 @@
       "domain": "lol",
       "opened_at": "2026-07-20T07:54:58.853633+00:00",
       "last_mark": 0.0005,
-      "mark_stale": false
-    },
-    "65683096658298859606615147960578045793549098941946558347974505694034380006348": {
-      "token_id": "65683096658298859606615147960578045793549098941946558347974505694034380006348",
-      "size": 56.110516445807576,
-      "avg_price": 0.636364792694961,
-      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
-      "market": "lol-ns-kt-2026-07-20",
-      "outcome": "Nongshim Red Force",
-      "condition_id": "0x92ff8c48c3a90b96197f8a8ab985408a3511c00b4b827f6c94f2d54bbc423163",
-      "domain": "lol",
-      "opened_at": "2026-07-20T07:54:58.853654+00:00",
-      "last_mark": 0.9995,
       "mark_stale": false
     },
     "66730885095687586533607954865733866866787931093691172397149501628254926316867": {
@@ -246,10 +207,9 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784501973.0,
+      "ts": 1784552284.0,
       "tx": [
-        "0xabeda357730ec6c7b3b1ebfad9a3efd934e96aab7f07c6ce64cb85c64d2b5161",
-        "0x4b94095475a0aed3c323d9955d45f42de104c4d98d024360c8e8b5b1f98d00a2"
+        "0x0afdf8563d9b4e8eb9c57942a1eec5452a009d0c1eb331908081e22c67014693"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -338,15 +298,15 @@
       ]
     },
     "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": {
-      "ts": 1784544471.0,
+      "ts": 1784551204.0,
       "tx": [
-        "0x6ed19ef4b24163e1a6bceb8a07e81d1e1fa3db83f8e284ef37682fc5bdd7a1f6"
+        "0x62a5d1b03b1af0d0df21974cf02b43532cbd4130359ff69f0385c2f7ece9f34f"
       ]
     },
     "0x2974bd0059e48f215c391882976e0f1b4c8c9c23": {
-      "ts": 1784539455.0,
+      "ts": 1784549472.0,
       "tx": [
-        "0x7792735c0c3643b6b9e249d83e05a7dd53575e38289ab37559c89beb3ca5cbeb"
+        "0xe76aa8c8363c0c7a6c9fd40f76c7a32af91aaf7bd821db7dcab63eda31cec7ea"
       ]
     },
     "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e": {
@@ -356,12 +316,16 @@
       ]
     },
     "0x7f9e2d1df78614564a70becc7fa14aa9a6623a0e": {
-      "ts": 1784523124.7489748,
-      "tx": []
+      "ts": 1784549035.0,
+      "tx": [
+        "0xb1d93e33343823ee6a0ddb0428971dd2a371e3ef79b3c3287bee1a382b2eb644"
+      ]
     },
     "0xc6e956068048c1cf98d8f0b3a495edc9da130741": {
-      "ts": 1784523124.7489748,
-      "tx": []
+      "ts": 1784547588.0,
+      "tx": [
+        "0x8412d95c1ef2dbc0a1e9bebab6a10c18cd6d862092c6ceadefc2e4f4ae02f8fc"
+      ]
     }
   },
   "wallet_realized": {
@@ -376,7 +340,7 @@
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -19.518090396786242,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
-    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 0.00046586285592716686
+    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 6.345899064246888
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -390,7 +354,7 @@
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 21.055000932942956,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
-    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 0.00046586285592716686
+    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 6.345899064246888
   },
   "evicted": [],
   "fills": [
@@ -1891,7 +1855,63 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784552122.0,
+      "side": "BUY",
+      "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
+      "outcome": "Yes",
+      "domain": "nba",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 3.224,
+      "price": 0.486,
+      "notional": 1.57,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784552457.760195,
+      "side": "SETTLE",
+      "market": "lol-ns-bro2-2026-07-20",
+      "outcome": "HANJIN BRION",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 34.6368,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -16.4969,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784552457.760218,
+      "side": "SETTLE",
+      "market": "lol-dnf-fox1-2026-07-20",
+      "outcome": "DN SOOPers",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 7.4402,
+      "price": 1.0,
+      "notional": 7.44,
+      "slippage": 0.0,
+      "pnl": 2.4385,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784552457.76024,
+      "side": "SETTLE",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 56.1105,
+      "price": 1.0,
+      "notional": 56.11,
+      "slippage": 0.0,
+      "pnl": 20.4038,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-20T10:52:09.198883+00:00"
+  "updated_at": "2026-07-20T13:00:59.981313+00:00"
 }
