@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 661.9354526982976,
+  "cash": 631.7624580149762,
   "realized_pnl_cum": -251.51851883199066,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.240",
+  "would_halt_reason": "portfolio_dd:0.245",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.125,
+      "last_mark": 0.135,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.5005,
+      "last_mark": 0.485,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -57,7 +57,7 @@
       "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
       "domain": "what",
       "opened_at": "2026-07-20T16:50:11.244776+00:00",
-      "last_mark": 0.888,
+      "last_mark": 0.904,
       "mark_stale": false
     },
     "25928620188221693618999597472869281931056541375965574921600115299066712761243": {
@@ -83,7 +83,7 @@
       "condition_id": "0xbc0079f0872035a9eccf8920c3ceb807750685c25a5f5dcd8a8a235a34cd7bb0",
       "domain": "will",
       "opened_at": "2026-07-20T20:15:34.060197+00:00",
-      "last_mark": 0.075,
+      "last_mark": 0.065,
       "mark_stale": false
     },
     "28493481717021477620717474474198269906373203664008364081573716741341112831197": {
@@ -110,6 +110,32 @@
       "domain": "mlb",
       "opened_at": "2026-07-20T21:36:31.944516+00:00",
       "last_mark": 0.465,
+      "mark_stale": false
+    },
+    "69330918966733942691012382117214809936166370798159504529089472338935639688253": {
+      "token_id": "69330918966733942691012382117214809936166370798159504529089472338935639688253",
+      "size": 14.56859246580083,
+      "avg_price": 0.6258802284825754,
+      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "market": "mlb-bal-bos-2026-07-20-total-9pt5",
+      "outcome": "Under",
+      "condition_id": "0x0d6e7e621e5ea2969632095002e10f744987bfc94c6a988fabc23f328ae693f3",
+      "domain": "mlb",
+      "opened_at": "2026-07-20T22:40:04.995711+00:00",
+      "last_mark": 0.575,
+      "mark_stale": false
+    },
+    "44548601526623713731893179460479051651978722860235519651839811259913416666464": {
+      "token_id": "44548601526623713731893179460479051651978722860235519651839811259913416666464",
+      "size": 37.83432291492616,
+      "avg_price": 0.5565000000000001,
+      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "market": "mlb-pit-nyy-2026-07-20",
+      "outcome": "New York Yankees",
+      "condition_id": "0xf1963b7540d4e8aef7cdd68ec7a45d3737886f533fe8594df7ba6ea4c38a8d03",
+      "domain": "mlb",
+      "opened_at": "2026-07-20T22:40:23.078487+00:00",
+      "last_mark": 0.525,
       "mark_stale": false
     }
   },
@@ -214,16 +240,15 @@
       ]
     },
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": {
-      "ts": 1784569330.0,
+      "ts": 1784584323.0,
       "tx": [
-        "0xaee2a1c9e2669292ce3cb1541ac7ae04b832a8cdcb10d461f45e5e3997c56922"
+        "0xca198c356bea6aabad186acfdca48d9f617cc18d76f942111601b5a4fa952194"
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784574925.0,
+      "ts": 1784586897.0,
       "tx": [
-        "0x43d58c244c4b9e0523f13807125978bab208c274a587114b259b00683a96a9a9",
-        "0x80dbc974a3b6e96b31d1ec8bf311a9b90d40397fe97e2c1be7ce730b46cb2d96"
+        "0x97df674d366692515ad1d5c96c47ab8e95e908717745ac42b481c5d862e248fb"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -233,9 +258,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784564136.0,
+      "ts": 1784585613.0,
       "tx": [
-        "0x79cf817c267ed94acd72dd3d332e8a7a8232ed9031ee89a886cb9574ef783d46"
+        "0xcec993a622c9bd8050659f63b0064944d829b4820f6e6d903ef72ea1cd299cbf"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -2201,7 +2226,49 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784584291.0,
+      "side": "BUY",
+      "market": "mlb-bal-bos-2026-07-20-total-9pt5",
+      "outcome": "Under",
+      "domain": "mlb",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 4.5435,
+      "price": 0.6182,
+      "notional": 2.81,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784584323.0,
+      "side": "BUY",
+      "market": "mlb-bal-bos-2026-07-20-total-9pt5",
+      "outcome": "Under",
+      "domain": "mlb",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 10.0251,
+      "price": 0.6293,
+      "notional": 6.31,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784586897.0,
+      "side": "BUY",
+      "market": "mlb-pit-nyy-2026-07-20",
+      "outcome": "New York Yankees",
+      "domain": "mlb",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 37.8343,
+      "price": 0.5565,
+      "notional": 21.05,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-20T21:36:34.899176+00:00"
+  "updated_at": "2026-07-20T22:40:29.046854+00:00"
 }
