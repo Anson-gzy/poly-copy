@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 674.8449813423983,
+  "cash": 608.3531971634712,
   "realized_pnl_cum": -273.0582869794937,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.263",
+  "would_halt_reason": "portfolio_dd:0.278",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.075,
+      "last_mark": 0.14,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,98 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4805,
+      "last_mark": 0.4535,
+      "mark_stale": false
+    },
+    "36134855319954907732404195833091632830022107006746626473158627621776070068391": {
+      "token_id": "36134855319954907732404195833091632830022107006746626473158627621776070068391",
+      "size": 3.6917228250878202,
+      "avg_price": 0.6615000000000001,
+      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "market": "atp-kopriva-buse-2026-07-20",
+      "outcome": "Ignacio Buse",
+      "condition_id": "0xb1b7e274700ba49508121b63bda92a8a2838cea68caddcb1636750769e82523d",
+      "domain": "atp",
+      "opened_at": "2026-07-20T07:54:58.853192+00:00",
+      "last_mark": 0.625,
+      "mark_stale": false
+    },
+    "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
+      "token_id": "1910830010387565971650098373488592514702818137344973088263643820608151819241",
+      "size": 6.8268519706841815,
+      "avg_price": 0.735,
+      "source_wallet": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
+      "market": "will-the-us-invade-iran-before-2027",
+      "outcome": "No",
+      "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+      "domain": "will",
+      "opened_at": "2026-07-20T07:54:58.853246+00:00",
+      "last_mark": 0.745,
+      "mark_stale": false
+    },
+    "58459813764183831411807516824919000297251443806149784847735093609387420102783": {
+      "token_id": "58459813764183831411807516824919000297251443806149784847735093609387420102783",
+      "size": 34.63682706321398,
+      "avg_price": 0.4762807018593006,
+      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "market": "lol-ns-bro2-2026-07-20",
+      "outcome": "HANJIN BRION",
+      "condition_id": "0xf0fb24adc3eea2d6f4e003305a1f218835184f49a94c7f711eb2f85a776a5445",
+      "domain": "lol",
+      "opened_at": "2026-07-20T07:54:58.853286+00:00",
+      "last_mark": 0.0005,
+      "mark_stale": false
+    },
+    "87046928479686449931524551650341060981822099004976292899114396354891022140914": {
+      "token_id": "87046928479686449931524551650341060981822099004976292899114396354891022140914",
+      "size": 7.440245327036819,
+      "avg_price": 0.6722519059133126,
+      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "market": "lol-dnf-fox1-2026-07-20",
+      "outcome": "DN SOOPers",
+      "condition_id": "0x723f72604b12f003338ef13474c4624de087b0179aca770a062fa5e752fb5223",
+      "domain": "lol",
+      "opened_at": "2026-07-20T07:54:58.853476+00:00",
+      "last_mark": 0.9995,
+      "mark_stale": false
+    },
+    "110894917851110420509197755855872163483044287132651887624294709771150975039085": {
+      "token_id": "110894917851110420509197755855872163483044287132651887624294709771150975039085",
+      "size": 4.067384999157424,
+      "avg_price": 0.626428118348198,
+      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "market": "lol-ns-fox1-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "condition_id": "0x78ef4f7934792597b4303f96a62baf1c6a54c57cf9a15b96fd4ef492f8b9e045",
+      "domain": "lol",
+      "opened_at": "2026-07-20T07:54:58.853509+00:00",
+      "last_mark": 0.775,
+      "mark_stale": false
+    },
+    "74206475132266839930871051340460272835105182833325618614058796005516141782254": {
+      "token_id": "74206475132266839930871051340460272835105182833325618614058796005516141782254",
+      "size": 13.836263923320441,
+      "avg_price": 0.40950000000000003,
+      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "market": "lol-dnf-bro2-2026-07-20",
+      "outcome": "DN SOOPers",
+      "condition_id": "0xcf6e15aa1871157bb42efcb6b06078f41b4b70516906dc202e5d814cf7b7ea31",
+      "domain": "lol",
+      "opened_at": "2026-07-20T07:54:58.853633+00:00",
+      "last_mark": 0.445,
+      "mark_stale": false
+    },
+    "65683096658298859606615147960578045793549098941946558347974505694034380006348": {
+      "token_id": "65683096658298859606615147960578045793549098941946558347974505694034380006348",
+      "size": 46.09766886534294,
+      "avg_price": 0.6360305898264613,
+      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "condition_id": "0x92ff8c48c3a90b96197f8a8ab985408a3511c00b4b827f6c94f2d54bbc423163",
+      "domain": "lol",
+      "opened_at": "2026-07-20T07:54:58.853654+00:00",
+      "last_mark": 0.655,
       "mark_stale": false
     }
   },
@@ -136,9 +227,9 @@
       ]
     },
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": {
-      "ts": 1783933409.0,
+      "ts": 1784513322.0,
       "tx": [
-        "0x4461e902a3c4dfab3eefe0381685eadbc8dd2324115350065eb72538bbb39ce5"
+        "0x5fb32c97c984a4df2fad01294f7b638c3c61b53b20234a786255470397f5fbe5"
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
@@ -155,9 +246,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784511054.0,
+      "ts": 1784523150.0,
       "tx": [
-        "0x992b916252b6ce8756750f1225a5707366b166b342ab20ff7176649e1d1992f9"
+        "0x5c74c369fbfed20ed23497b284c676016b4afe3f8fb8c672632fba57b7a39770"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -231,6 +322,12 @@
       "ts": 1784482143.0,
       "tx": [
         "0xb4d37ae29d58ec0045066cbc494c79a8c495340030efb3efb29c5815280342a6"
+      ]
+    },
+    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": {
+      "ts": 1784533800.0,
+      "tx": [
+        "0x3abafc5616c66634f99825cb198118cd4994aafd2d103e2c3f9274a92d3a1df6"
       ]
     }
   },
@@ -1367,7 +1464,287 @@
       "slippage": 0.0,
       "pnl": -9.3835,
       "reason": "settle"
+    },
+    {
+      "ts": 1784513322.0,
+      "side": "BUY",
+      "market": "atp-kopriva-buse-2026-07-20",
+      "outcome": "Ignacio Buse",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 3.6917,
+      "price": 0.6615,
+      "notional": 2.44,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784523124.0,
+      "side": "BUY",
+      "market": "will-the-us-invade-iran-before-2027",
+      "outcome": "No",
+      "domain": "will",
+      "source": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
+      "size": 6.8269,
+      "price": 0.735,
+      "notional": 5.02,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784528269.0,
+      "side": "BUY",
+      "market": "lol-ns-bro2-2026-07-20",
+      "outcome": "HANJIN BRION",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 20.0957,
+      "price": 0.4596,
+      "notional": 9.24,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784528296.0,
+      "side": "BUY",
+      "market": "lol-ns-bro2-2026-07-20",
+      "outcome": "HANJIN BRION",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 3.6042,
+      "price": 0.4725,
+      "notional": 1.7,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784528320.0,
+      "side": "BUY",
+      "market": "lol-ns-bro2-2026-07-20",
+      "outcome": "HANJIN BRION",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 6.5204,
+      "price": 0.483,
+      "notional": 3.15,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784528545.0,
+      "side": "BUY",
+      "market": "lol-ns-bro2-2026-07-20",
+      "outcome": "HANJIN BRION",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 2.2181,
+      "price": 0.462,
+      "notional": 1.02,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784529475.0,
+      "side": "BUY",
+      "market": "lol-ns-bro2-2026-07-20",
+      "outcome": "HANJIN BRION",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 2.1985,
+      "price": 0.6293,
+      "notional": 1.38,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784531170.0,
+      "side": "BUY",
+      "market": "lol-dnf-fox1-2026-07-20",
+      "outcome": "DN SOOPers",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 2.1438,
+      "price": 0.5564,
+      "notional": 1.19,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784531313.0,
+      "side": "BUY",
+      "market": "lol-ns-fox1-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 2.069,
+      "price": 0.5775,
+      "notional": 1.19,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784531508.0,
+      "side": "BUY",
+      "market": "lol-dnf-fox1-2026-07-20",
+      "outcome": "DN SOOPers",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 5.2965,
+      "price": 0.7192,
+      "notional": 3.81,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784532144.0,
+      "side": "BUY",
+      "market": "lol-ns-fox1-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 1.9984,
+      "price": 0.6771,
+      "notional": 1.35,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784532471.0,
+      "side": "BUY",
+      "market": "lol-dnf-bro2-2026-07-20",
+      "outcome": "DN SOOPers",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 13.8363,
+      "price": 0.4095,
+      "notional": 5.67,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533227.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 14.0793,
+      "price": 0.5565,
+      "notional": 7.84,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533236.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 4.7436,
+      "price": 0.567,
+      "notional": 2.69,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533456.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 1.9626,
+      "price": 0.6405,
+      "notional": 1.26,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533516.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 5.9919,
+      "price": 0.6882,
+      "notional": 4.12,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533519.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 1.9951,
+      "price": 0.6867,
+      "notional": 1.37,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533522.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 1.9944,
+      "price": 0.69,
+      "notional": 1.38,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533524.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 1.9937,
+      "price": 0.693,
+      "notional": 1.38,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784533800.0,
+      "side": "BUY",
+      "market": "lol-ns-kt-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 13.3371,
+      "price": 0.6963,
+      "notional": 9.29,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-20T04:53:07.025976+00:00"
+  "updated_at": "2026-07-20T07:55:01.504028+00:00"
 }
