@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 654.9325934639995,
-  "realized_pnl_cum": -266.7123879152468,
+  "cash": 637.0708307462065,
+  "realized_pnl_cum": -279.1780432918466,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.271",
+  "would_halt_reason": "portfolio_dd:0.250",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.19,
+      "last_mark": 0.175,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.458,
+      "last_mark": 0.4645,
       "mark_stale": false
     },
     "36134855319954907732404195833091632830022107006746626473158627621776070068391": {
@@ -44,20 +44,20 @@
       "condition_id": "0xb1b7e274700ba49508121b63bda92a8a2838cea68caddcb1636750769e82523d",
       "domain": "atp",
       "opened_at": "2026-07-20T07:54:58.853192+00:00",
-      "last_mark": 0.625,
+      "last_mark": 0.475,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
       "token_id": "1910830010387565971650098373488592514702818137344973088263643820608151819241",
-      "size": 9.72246478584841,
-      "avg_price": 0.7443935461145657,
+      "size": 13.704328568033244,
+      "avg_price": 0.7515203355375268,
       "source_wallet": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
       "market": "will-the-us-invade-iran-before-2027",
       "outcome": "No",
       "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
       "domain": "will",
       "opened_at": "2026-07-20T07:54:58.853246+00:00",
-      "last_mark": 0.775,
+      "last_mark": 0.725,
       "mark_stale": false
     },
     "110894917851110420509197755855872163483044287132651887624294709771150975039085": {
@@ -70,33 +70,33 @@
       "condition_id": "0x78ef4f7934792597b4303f96a62baf1c6a54c57cf9a15b96fd4ef492f8b9e045",
       "domain": "lol",
       "opened_at": "2026-07-20T07:54:58.853509+00:00",
-      "last_mark": 0.5455,
+      "last_mark": 0.9995,
       "mark_stale": false
     },
-    "74206475132266839930871051340460272835105182833325618614058796005516141782254": {
-      "token_id": "74206475132266839930871051340460272835105182833325618614058796005516141782254",
-      "size": 21.072261779498245,
-      "avg_price": 0.41953232786931,
+    "105146826336151557150223703653539107560439117161885585335039088198383215170939": {
+      "token_id": "105146826336151557150223703653539107560439117161885585335039088198383215170939",
+      "size": 2.7906182265779593,
+      "avg_price": 0.7138007696399999,
       "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
-      "market": "lol-dnf-bro2-2026-07-20",
-      "outcome": "DN SOOPers",
-      "condition_id": "0xcf6e15aa1871157bb42efcb6b06078f41b4b70516906dc202e5d814cf7b7ea31",
+      "market": "lol-drx-kt-2026-07-20",
+      "outcome": "KT Rolster",
+      "condition_id": "0x1e337f58e313a33e9928be46afa1cc51f81957139176f6611560050988ec3dcc",
       "domain": "lol",
-      "opened_at": "2026-07-20T07:54:58.853633+00:00",
+      "opened_at": "2026-07-20T15:20:00.890250+00:00",
       "last_mark": 0.0005,
       "mark_stale": false
     },
-    "66730885095687586533607954865733866866787931093691172397149501628254926316867": {
-      "token_id": "66730885095687586533607954865733866866787931093691172397149501628254926316867",
-      "size": 4.601498479204121,
-      "avg_price": 0.7875000000000001,
-      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
-      "market": "lol-drx-fox1-2026-07-20",
-      "outcome": "Kiwoom DRX",
-      "condition_id": "0xf369b843628f0aac14e629956a5ca5bc4e9dafec504af4ee57e821e1e60866e7",
-      "domain": "lol",
-      "opened_at": "2026-07-20T10:52:06.264646+00:00",
-      "last_mark": 0.0005,
+    "113042402691469858499258789704182042080698409611837892979458896109792459390825": {
+      "token_id": "113042402691469858499258789704182042080698409611837892979458896109792459390825",
+      "size": 34.80928397349567,
+      "avg_price": 0.3679074651,
+      "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "market": "atp-acosta-cina-2026-07-20",
+      "outcome": "Facundo Acosta",
+      "condition_id": "0xffec4fde7cddc4f443dfdb7f1d2b5a9f5c740c20d4e74ea4c47efdeaf2124600",
+      "domain": "atp",
+      "opened_at": "2026-07-20T15:20:00.890290+00:00",
+      "last_mark": 0.9995,
       "mark_stale": false
     }
   },
@@ -207,9 +207,9 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784552284.0,
+      "ts": 1784558161.0,
       "tx": [
-        "0x0afdf8563d9b4e8eb9c57942a1eec5452a009d0c1eb331908081e22c67014693"
+        "0xa3f86b54029a7df941f7a8548941a3f7847e19bc2c0c9d391c66af740e237783"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -219,9 +219,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784523150.0,
+      "ts": 1784560666.0,
       "tx": [
-        "0x5c74c369fbfed20ed23497b284c676016b4afe3f8fb8c672632fba57b7a39770"
+        "0x3a7030907367fbaca8eafb73abcb13f10c181595a05aa85f1fc4812465cd38eb"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -298,9 +298,9 @@
       ]
     },
     "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": {
-      "ts": 1784551204.0,
+      "ts": 1784554219.0,
       "tx": [
-        "0x62a5d1b03b1af0d0df21974cf02b43532cbd4130359ff69f0385c2f7ece9f34f"
+        "0x874993003e01cd51119af3229372269fd2f577f2a122e480ab45f48a77a71772"
       ]
     },
     "0x2974bd0059e48f215c391882976e0f1b4c8c9c23": {
@@ -326,6 +326,12 @@
       "tx": [
         "0x8412d95c1ef2dbc0a1e9bebab6a10c18cd6d862092c6ceadefc2e4f4ae02f8fc"
       ]
+    },
+    "0xe1e105257812992f0b9aba92a17e33f36e89d250": {
+      "ts": 1784550873.0,
+      "tx": [
+        "0x0f1dddbf413b805c41a144d14b8d8da861eeecafa8dfb070c239582003d5017d"
+      ]
     }
   },
   "wallet_realized": {
@@ -340,7 +346,8 @@
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -19.518090396786242,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
-    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 6.345899064246888
+    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": -6.118276025950745,
+    "0xe1e105257812992f0b9aba92a17e33f36e89d250": -0.0014802864022131217
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -354,7 +361,8 @@
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": 21.055000932942956,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
-    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 6.345899064246888
+    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": 6.345899064246888,
+    "0xe1e105257812992f0b9aba92a17e33f36e89d250": 0.0
   },
   "evicted": [],
   "fills": [
@@ -1911,7 +1919,91 @@
       "slippage": 0.0,
       "pnl": 20.4038,
       "reason": "settle"
+    },
+    {
+      "ts": 1784550873.0,
+      "side": "SELL",
+      "market": "will-the-us-invade-iran-before-2027",
+      "outcome": "No",
+      "domain": "will",
+      "source": "0xe1e105257812992f0b9aba92a17e33f36e89d250",
+      "size": 0.4362,
+      "price": 0.741,
+      "notional": 0.32,
+      "slippage": 0.05,
+      "pnl": -0.0015,
+      "reason": "copy_sell"
+    },
+    {
+      "ts": 1784554219.0,
+      "side": "BUY",
+      "market": "lol-drx-kt-2026-07-20",
+      "outcome": "KT Rolster",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 2.7906,
+      "price": 0.7138,
+      "notional": 1.99,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784558161.0,
+      "side": "BUY",
+      "market": "atp-acosta-cina-2026-07-20",
+      "outcome": "Facundo Acosta",
+      "domain": "atp",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 34.8093,
+      "price": 0.3679,
+      "notional": 12.81,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784560602.0,
+      "side": "BUY",
+      "market": "will-the-us-invade-iran-before-2027",
+      "outcome": "No",
+      "domain": "will",
+      "source": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
+      "size": 4.4181,
+      "price": 0.7665,
+      "notional": 3.39,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784560800.890389,
+      "side": "SETTLE",
+      "market": "lol-dnf-bro2-2026-07-20",
+      "outcome": "DN SOOPers",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 21.0723,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -8.8405,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784560800.890407,
+      "side": "SETTLE",
+      "market": "lol-drx-fox1-2026-07-20",
+      "outcome": "Kiwoom DRX",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 4.6015,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -3.6237,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-20T13:00:59.981313+00:00"
+  "updated_at": "2026-07-20T15:20:03.381787+00:00"
 }
