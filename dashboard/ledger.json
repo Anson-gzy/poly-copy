@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 637.0708307462065,
-  "realized_pnl_cum": -279.1780432918466,
+  "cash": 655.176650716225,
+  "realized_pnl_cum": -255.65589407944827,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.250",
+  "would_halt_reason": "portfolio_dd:0.243",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.175,
+      "last_mark": 0.13,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4645,
+      "last_mark": 0.4765,
       "mark_stale": false
     },
     "36134855319954907732404195833091632830022107006746626473158627621776070068391": {
@@ -44,33 +44,20 @@
       "condition_id": "0xb1b7e274700ba49508121b63bda92a8a2838cea68caddcb1636750769e82523d",
       "domain": "atp",
       "opened_at": "2026-07-20T07:54:58.853192+00:00",
-      "last_mark": 0.475,
+      "last_mark": 0.795,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
       "token_id": "1910830010387565971650098373488592514702818137344973088263643820608151819241",
-      "size": 13.704328568033244,
-      "avg_price": 0.7515203355375268,
+      "size": 24.943013771007074,
+      "avg_price": 0.7630008218412304,
       "source_wallet": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
       "market": "will-the-us-invade-iran-before-2027",
       "outcome": "No",
       "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
       "domain": "will",
       "opened_at": "2026-07-20T07:54:58.853246+00:00",
-      "last_mark": 0.725,
-      "mark_stale": false
-    },
-    "110894917851110420509197755855872163483044287132651887624294709771150975039085": {
-      "token_id": "110894917851110420509197755855872163483044287132651887624294709771150975039085",
-      "size": 4.067384999157424,
-      "avg_price": 0.626428118348198,
-      "source_wallet": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
-      "market": "lol-ns-fox1-2026-07-20",
-      "outcome": "Nongshim Red Force",
-      "condition_id": "0x78ef4f7934792597b4303f96a62baf1c6a54c57cf9a15b96fd4ef492f8b9e045",
-      "domain": "lol",
-      "opened_at": "2026-07-20T07:54:58.853509+00:00",
-      "last_mark": 0.9995,
+      "last_mark": 0.745,
       "mark_stale": false
     },
     "105146826336151557150223703653539107560439117161885585335039088198383215170939": {
@@ -86,17 +73,30 @@
       "last_mark": 0.0005,
       "mark_stale": false
     },
-    "113042402691469858499258789704182042080698409611837892979458896109792459390825": {
-      "token_id": "113042402691469858499258789704182042080698409611837892979458896109792459390825",
-      "size": 34.80928397349567,
-      "avg_price": 0.3679074651,
+    "111757872918154699344390237849436024698409942278347553989319266157615691964939": {
+      "token_id": "111757872918154699344390237849436024698409942278347553989319266157615691964939",
+      "size": 15.613116552784767,
+      "avg_price": 0.6874632625350001,
       "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "market": "atp-acosta-cina-2026-07-20",
-      "outcome": "Facundo Acosta",
-      "condition_id": "0xffec4fde7cddc4f443dfdb7f1d2b5a9f5c740c20d4e74ea4c47efdeaf2124600",
-      "domain": "atp",
-      "opened_at": "2026-07-20T15:20:00.890290+00:00",
+      "market": "wta-ruzic-salkova-2026-07-20",
+      "outcome": "Dominika Salkova",
+      "condition_id": "0x10c546e31528e4902bdc564101f18870fbff80ccab3975e38172e2fe24978ec6",
+      "domain": "wta",
+      "opened_at": "2026-07-20T16:50:11.244688+00:00",
       "last_mark": 0.9995,
+      "mark_stale": false
+    },
+    "7879725478536356917422362732460515493463084598262424681347350457402251864086": {
+      "token_id": "7879725478536356917422362732460515493463084598262424681347350457402251864086",
+      "size": 1.3351187590204718,
+      "avg_price": 0.97740110937,
+      "source_wallet": "0x2974bd0059e48f215c391882976e0f1b4c8c9c23",
+      "market": "will-wti-reach-100-in-july-2026-928",
+      "outcome": "No",
+      "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
+      "domain": "what",
+      "opened_at": "2026-07-20T16:50:11.244776+00:00",
+      "last_mark": 0.916,
       "mark_stale": false
     }
   },
@@ -207,9 +207,9 @@
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784558161.0,
+      "ts": 1784562442.0,
       "tx": [
-        "0xa3f86b54029a7df941f7a8548941a3f7847e19bc2c0c9d391c66af740e237783"
+        "0x79e97f9a8afed05b783ea40e0bc8a9b843d5df0098abd78017a78d4337234409"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -219,9 +219,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784560666.0,
+      "ts": 1784564136.0,
       "tx": [
-        "0x3a7030907367fbaca8eafb73abcb13f10c181595a05aa85f1fc4812465cd38eb"
+        "0x79cf817c267ed94acd72dd3d332e8a7a8232ed9031ee89a886cb9574ef783d46"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -304,9 +304,9 @@
       ]
     },
     "0x2974bd0059e48f215c391882976e0f1b4c8c9c23": {
-      "ts": 1784549472.0,
+      "ts": 1784565838.0,
       "tx": [
-        "0xe76aa8c8363c0c7a6c9fd40f76c7a32af91aaf7bd821db7dcab63eda31cec7ea"
+        "0x7b447db7ef0a22e2dbfd7448c5d7f5e92ea6cd3bc8bccf1d18cad7bf0ebc7a8e"
       ]
     },
     "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e": {
@@ -340,13 +340,13 @@
     "0xbc1b1e935cf5a06f9378fe2b249338649dc29d59": 6.6203126348474415,
     "0x2cff41636fe21fad120fed603d54d4fdd96259db": -23.972308217894977,
     "0x6d20c35f65d9899b6d6b74f8466e824580f9a165": -93.42626987651207,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -26.148434448613912,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -4.145745903753095,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
     "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -19.518090396786242,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
-    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": -6.118276025950745,
+    "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": -4.598815358413193,
     "0xe1e105257812992f0b9aba92a17e33f36e89d250": -0.0014802864022131217
   },
   "wallet_peak": {
@@ -2003,7 +2003,77 @@
       "slippage": 0.0,
       "pnl": -3.6237,
       "reason": "settle"
+    },
+    {
+      "ts": 1784561476.0,
+      "side": "BUY",
+      "market": "will-the-us-invade-iran-before-2027",
+      "outcome": "No",
+      "domain": "will",
+      "source": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
+      "size": 11.2387,
+      "price": 0.777,
+      "notional": 8.73,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784562442.0,
+      "side": "BUY",
+      "market": "wta-ruzic-salkova-2026-07-20",
+      "outcome": "Dominika Salkova",
+      "domain": "wta",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 15.6131,
+      "price": 0.6875,
+      "notional": 10.73,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784564050.0,
+      "side": "BUY",
+      "market": "will-wti-reach-100-in-july-2026-928",
+      "outcome": "No",
+      "domain": "what",
+      "source": "0x2974bd0059e48f215c391882976e0f1b4c8c9c23",
+      "size": 1.3351,
+      "price": 0.9774,
+      "notional": 1.3,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784566211.244887,
+      "side": "SETTLE",
+      "market": "lol-ns-fox1-2026-07-20",
+      "outcome": "Nongshim Red Force",
+      "domain": "lol",
+      "source": "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316",
+      "size": 4.0674,
+      "price": 1.0,
+      "notional": 4.07,
+      "slippage": 0.0,
+      "pnl": 1.5195,
+      "reason": "settle"
+    },
+    {
+      "ts": 1784566211.244909,
+      "side": "SETTLE",
+      "market": "atp-acosta-cina-2026-07-20",
+      "outcome": "Facundo Acosta",
+      "domain": "atp",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 34.8093,
+      "price": 1.0,
+      "notional": 34.81,
+      "slippage": 0.0,
+      "pnl": 22.0027,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-20T15:20:03.381787+00:00"
+  "updated_at": "2026-07-20T16:50:14.567304+00:00"
 }
