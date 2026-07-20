@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
   "cash": 674.8449813423983,
-  "realized_pnl_cum": -263.67479102857124,
+  "realized_pnl_cum": -273.0582869794937,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.259",
+  "would_halt_reason": "portfolio_dd:0.263",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.085,
+      "last_mark": 0.075,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,20 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.5105,
-      "mark_stale": false
-    },
-    "32550021978079579385906743073206184350879774978190521461180810268134075897970": {
-      "token_id": "32550021978079579385906743073206184350879774978190521461180810268134075897970",
-      "size": 35.940489601721296,
-      "avg_price": 0.26108425497,
-      "source_wallet": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
-      "market": "wnba-conn-phx-2026-07-19",
-      "outcome": "Connecticut Sun",
-      "condition_id": "0xe1d8c9f6eac493fb6007c955985d77b7cc2e5cccba2d0e9d2ba82b5fe238516f",
-      "domain": "nba",
-      "opened_at": "2026-07-20T01:10:18.022751+00:00",
-      "last_mark": 0.0005,
+      "last_mark": 0.4805,
       "mark_stale": false
     }
   },
@@ -168,9 +155,9 @@
       ]
     },
     "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": {
-      "ts": 1784501274.0,
+      "ts": 1784511054.0,
       "tx": [
-        "0x701166b2fa994b5899f71da13a905622290004f2cd9bb9a463307f562f322e98"
+        "0x992b916252b6ce8756750f1225a5707366b166b342ab20ff7176649e1d1992f9"
       ]
     },
     "0x9592adb70397e9de67ba9abe6971e3f50fb7a7b8": {
@@ -256,7 +243,7 @@
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": -26.148434448613912,
     "0x85f031d069de300055900c4055c1baeb6bde3f67": -7.039173791767217,
     "0xe015b5a2a299167be835a2fd1e86f09c49e06ffd": -7.889359911577739,
-    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -10.134594445863808,
+    "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada": -19.518090396786242,
     "0xb61b2079b95f6b7476fd3203e0274ffb93308a06": 6.874402857382344,
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244
   },
@@ -1366,7 +1353,21 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784523185.216278,
+      "side": "SETTLE",
+      "market": "wnba-conn-phx-2026-07-19",
+      "outcome": "Connecticut Sun",
+      "domain": "nba",
+      "source": "0x85bbb00a84f100a74ec6a479ce6f8f45b04c9ada",
+      "size": 35.9405,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -9.3835,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-20T01:10:20.399564+00:00"
+  "updated_at": "2026-07-20T04:53:07.025976+00:00"
 }
