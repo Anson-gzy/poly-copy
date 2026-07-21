@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 666.3069840199136,
-  "realized_pnl_cum": -249.87948234295897,
+  "cash": 667.3609820547609,
+  "realized_pnl_cum": -255.4655849839191,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.249",
+  "would_halt_reason": "portfolio_dd:0.263",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.095,
+      "last_mark": 0.075,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4545,
+      "last_mark": 0.3675,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -57,20 +57,7 @@
       "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
       "domain": "what",
       "opened_at": "2026-07-20T16:50:11.244776+00:00",
-      "last_mark": 0.9035,
-      "mark_stale": false
-    },
-    "25928620188221693618999597472869281931056541375965574921600115299066712761243": {
-      "token_id": "25928620188221693618999597472869281931056541375965574921600115299066712761243",
-      "size": 2.9586364188667424,
-      "avg_price": 0.651,
-      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
-      "market": "atp-vallejo-feldbau-2026-07-21",
-      "outcome": "Adolfo Vallejo",
-      "condition_id": "0x329dffe45a6b68ee04b0c291632752c635bdde4dbcc6801c5852e004f1be5454",
-      "domain": "atp",
-      "opened_at": "2026-07-20T18:47:18.641660+00:00",
-      "last_mark": 0.635,
+      "last_mark": 0.899,
       "mark_stale": false
     },
     "102963946476301464155846348149714317918722387635971948099097519511899201326439": {
@@ -84,19 +71,6 @@
       "domain": "will",
       "opened_at": "2026-07-20T20:15:34.060197+00:00",
       "last_mark": 0.055,
-      "mark_stale": false
-    },
-    "93370144968193328417210788719834532153326702382429974989609461645985553552506": {
-      "token_id": "93370144968193328417210788719834532153326702382429974989609461645985553552506",
-      "size": 7.6094081793788355,
-      "avg_price": 0.6194999999999999,
-      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
-      "market": "atp-djere-halys-2026-07-21",
-      "outcome": "Laslo Djere",
-      "condition_id": "0x7210e69067b1b6ae8275c454a2b0489a0e7bd6cff6203a69e4460635e1877590",
-      "domain": "atp",
-      "opened_at": "2026-07-21T13:01:37.318705+00:00",
-      "last_mark": 0.145,
       "mark_stale": false
     }
   },
@@ -201,9 +175,9 @@
       ]
     },
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": {
-      "ts": 1784635111.0,
+      "ts": 1784641516.0,
       "tx": [
-        "0xba235e624fcae13e0234e0b5097f2d869cb467a2d124c0c15c8f966439afc1df"
+        "0x7bea3b27daf44d050c285cdc6ecc4662b7bd64452c568fcfbba4ec4fdc179fde"
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
@@ -334,8 +308,10 @@
       ]
     },
     "0x1465b79bff7992bc703e1aafb3683b1089647072": {
-      "ts": 1784596603.417953,
-      "tx": []
+      "ts": 1784645679.0,
+      "tx": [
+        "0x9ae14ba1aa617e83f464c4083ca9c4807631d13e666b90fa129389e4d90ed07e"
+      ]
     }
   },
   "wallet_realized": {
@@ -352,7 +328,7 @@
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
     "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": -11.795710846451039,
     "0xe1e105257812992f0b9aba92a17e33f36e89d250": -0.0014802864022131217,
-    "0x547f2917d51f2e63ab382dcf641d4e0240162937": -10.140470022276407
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": -15.726572663236505
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -2345,7 +2321,49 @@
       "slippage": 0.0,
       "pnl": -2.2719,
       "reason": "settle"
+    },
+    {
+      "ts": 1784640859.0,
+      "side": "SELL",
+      "market": "atp-djere-halys-2026-07-21",
+      "outcome": "Laslo Djere",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 6.0282,
+      "price": 0.1549,
+      "notional": 0.93,
+      "slippage": 0.05,
+      "pnl": -2.8009,
+      "reason": "copy_sell"
+    },
+    {
+      "ts": 1784640985.0,
+      "side": "SELL",
+      "market": "atp-djere-halys-2026-07-21",
+      "outcome": "Laslo Djere",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 1.5813,
+      "price": 0.0761,
+      "notional": 0.12,
+      "slippage": 0.05,
+      "pnl": -0.8592,
+      "reason": "copy_sell"
+    },
+    {
+      "ts": 1784646823.017804,
+      "side": "SETTLE",
+      "market": "atp-vallejo-feldbau-2026-07-21",
+      "outcome": "Adolfo Vallejo",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 2.9586,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -1.9261,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-21T13:01:40.999621+00:00"
+  "updated_at": "2026-07-21T15:13:45.350936+00:00"
 }
