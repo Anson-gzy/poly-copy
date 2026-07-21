@@ -5,7 +5,7 @@
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.241",
+  "would_halt_reason": "portfolio_dd:0.246",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.4565,
+      "last_mark": 0.452,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -44,7 +44,7 @@
       "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
       "domain": "will",
       "opened_at": "2026-07-20T07:54:58.853246+00:00",
-      "last_mark": 0.745,
+      "last_mark": 0.735,
       "mark_stale": false
     },
     "7879725478536356917422362732460515493463084598262424681347350457402251864086": {
@@ -57,7 +57,7 @@
       "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
       "domain": "what",
       "opened_at": "2026-07-20T16:50:11.244776+00:00",
-      "last_mark": 0.907,
+      "last_mark": 0.9095,
       "mark_stale": false
     },
     "25928620188221693618999597472869281931056541375965574921600115299066712761243": {
@@ -70,7 +70,7 @@
       "condition_id": "0x329dffe45a6b68ee04b0c291632752c635bdde4dbcc6801c5852e004f1be5454",
       "domain": "atp",
       "opened_at": "2026-07-20T18:47:18.641660+00:00",
-      "last_mark": 0.625,
+      "last_mark": 0.615,
       "mark_stale": false
     },
     "102963946476301464155846348149714317918722387635971948099097519511899201326439": {
@@ -96,7 +96,7 @@
       "condition_id": "0x82d9d2bd41b548eebe1b4c8c66563101048efb81b0711c5b9b29e4556ac26368",
       "domain": "atp",
       "opened_at": "2026-07-21T09:44:48.059826+00:00",
-      "last_mark": 0.715,
+      "last_mark": 0.0005,
       "mark_stale": false
     }
   },
@@ -2319,5 +2319,5 @@
       "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-21T09:44:50.897371+00:00"
+  "updated_at": "2026-07-21T11:31:38.766365+00:00"
 }
