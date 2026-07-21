@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 629.7004607586053,
-  "realized_pnl_cum": -246.44202571740837,
+  "cash": 607.6693681593972,
+  "realized_pnl_cum": -252.91386867085095,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.303",
+  "would_halt_reason": "portfolio_dd:0.296",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,7 +18,7 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.085,
+      "last_mark": 0.075,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.357,
+      "last_mark": 0.367,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -57,7 +57,7 @@
       "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
       "domain": "what",
       "opened_at": "2026-07-20T16:50:11.244776+00:00",
-      "last_mark": 0.901,
+      "last_mark": 0.912,
       "mark_stale": false
     },
     "102963946476301464155846348149714317918722387635971948099097519511899201326439": {
@@ -70,20 +70,7 @@
       "condition_id": "0xbc0079f0872035a9eccf8920c3ceb807750685c25a5f5dcd8a8a235a34cd7bb0",
       "domain": "will",
       "opened_at": "2026-07-20T20:15:34.060197+00:00",
-      "last_mark": 0.055,
-      "mark_stale": false
-    },
-    "24286072784780425360690132456421077130689699358347706646394521921338934838287": {
-      "token_id": "24286072784780425360690132456421077130689699358347706646394521921338934838287",
-      "size": 33.35790285140392,
-      "avg_price": 0.19401228495304496,
-      "source_wallet": "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3",
-      "market": "cs2-ntr-mouz-2026-07-21",
-      "outcome": "Nuclear TigeRES",
-      "condition_id": "0x70ef13af1497dea576963a76d8324cd63d22951b0d148d561327ab6b51e8c71d",
-      "domain": "cs2",
-      "opened_at": "2026-07-21T18:04:25.444378+00:00",
-      "last_mark": 0.0005,
+      "last_mark": 0.06,
       "mark_stale": false
     },
     "83440541494219048219330177510151848502575071351430764052614064136465753241612": {
@@ -97,6 +84,19 @@
       "domain": "cs2",
       "opened_at": "2026-07-21T19:47:10.311287+00:00",
       "last_mark": 0.0005,
+      "mark_stale": false
+    },
+    "110942114015879455375942172615406023531417557754642314627721087131725943469264": {
+      "token_id": "110942114015879455375942172615406023531417557754642314627721087131725943469264",
+      "size": 101.32072660156231,
+      "avg_price": 0.217439149305,
+      "source_wallet": "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3",
+      "market": "wta-zidanse-ibragim-2026-07-20",
+      "outcome": "Alevtina Ibragimova",
+      "condition_id": "0x155c695dc2b5f4d64abc0326f93b36f57ef73be2e474e4cc8bb68f514dc903e2",
+      "domain": "wta",
+      "opened_at": "2026-07-21T20:53:45.818546+00:00",
+      "last_mark": 0.275,
       "mark_stale": false
     }
   },
@@ -340,9 +340,9 @@
       ]
     },
     "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3": {
-      "ts": 1784659221.0,
+      "ts": 1784664061.0,
       "tx": [
-        "0xc3d8c3b8ac8f0aa2963cd642a2fe4662ec94c91aff7f272a7cffc17d481ce869"
+        "0x894f5fdc8c199a244433cd5eab5b59a6b2828e0ac215300856d6401fb94c81fb"
       ]
     }
   },
@@ -362,7 +362,7 @@
     "0xe1e105257812992f0b9aba92a17e33f36e89d250": -0.0014802864022131217,
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": -15.726572663236505,
     "0x2974bd0059e48f215c391882976e0f1b4c8c9c23": -0.09372422293717661,
-    "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3": 9.117283489447875
+    "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3": 2.6454405360053066
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -2539,7 +2539,35 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784664018.0,
+      "side": "BUY",
+      "market": "wta-zidanse-ibragim-2026-07-20",
+      "outcome": "Alevtina Ibragimova",
+      "domain": "wta",
+      "source": "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3",
+      "size": 101.3207,
+      "price": 0.2174,
+      "notional": 22.03,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784667225.818642,
+      "side": "SETTLE",
+      "market": "cs2-ntr-mouz-2026-07-21",
+      "outcome": "Nuclear TigeRES",
+      "domain": "cs2",
+      "source": "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3",
+      "size": 33.3579,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -6.4718,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-21T19:47:12.851699+00:00"
+  "updated_at": "2026-07-21T20:53:48.523363+00:00"
 }
