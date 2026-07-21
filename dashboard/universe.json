@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-21T15:12:54.889000+00:00",
+  "updated_at": "2026-07-21T16:45:23.500349+00:00",
   "target_n": 10,
   "active_n": 10,
   "shortfall": 0,
@@ -11,11 +11,11 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.21535658317567194,
+      "weight": 0.21513516292628657,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -36,11 +36,11 @@
       "reject_reason": null,
       "user_name": "Themsnw",
       "pnl": 338631.90096047294,
-      "weight": 0.20136824686370003,
+      "weight": 0.20116120881182636,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T21:28:48.353328+00:00",
       "baseline": {
@@ -56,17 +56,17 @@
     },
     {
       "address": "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3",
-      "score": 0.6349581600394472,
+      "score": 0.6356398644394471,
       "suitable": true,
       "reject_reason": null,
       "user_name": "GoldenAlpha168",
       "pnl": 196707.60964339192,
-      "weight": 0.07133701349067413,
+      "weight": 0.0713401780523826,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-14T23:15:48.970505+00:00",
       "baseline": {
@@ -87,12 +87,12 @@
       "reject_reason": null,
       "user_name": "JnStTrdrBnusFnd",
       "pnl": 28016.417366085952,
-      "weight": 0.07032503899526685,
+      "weight": 0.0702527338563073,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-21T07:15:05.743411+00:00",
       "baseline": {
@@ -107,18 +107,19 @@
     },
     {
       "address": "0x2974bd0059e48f215c391882976e0f1b4c8c9c23",
-      "score": 0.6127183885186889,
+      "score": 0.6129910015840155,
       "suitable": true,
-      "reject_reason": null,
+      "reject_reason": "drift_freq:2.71x",
       "user_name": "65765757",
       "pnl": 33965.10174241709,
-      "weight": 0.06883839392665865,
+      "weight": 0.06879821364897724,
       "tags": [
-        "active",
+        "exit_warn",
+        "strikes:1/2",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
-      "exit_strikes": 0,
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
+      "exit_strikes": 1,
       "added_at": "2026-07-20T10:51:00.625998+00:00",
       "baseline": {
         "top_domains": [
@@ -138,12 +139,12 @@
       "reject_reason": null,
       "user_name": "78979879879879",
       "pnl": 22028.202450341727,
-      "weight": 0.06841725666466184,
+      "weight": 0.0683469130243163,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-20T10:51:00.625998+00:00",
       "baseline": {
@@ -164,12 +165,12 @@
       "reject_reason": null,
       "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
       "pnl": 62703.683667300094,
-      "weight": 0.06745967234365184,
+      "weight": 0.06739031324975497,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-20T07:54:16.569243+00:00",
       "baseline": {
@@ -185,17 +186,17 @@
     },
     {
       "address": "0xe1e105257812992f0b9aba92a17e33f36e89d250",
-      "score": 0.5868847563206742,
+      "score": 0.5893776338135517,
       "suitable": true,
       "reject_reason": null,
       "user_name": "loliti",
       "pnl": 19611.69349120314,
-      "weight": 0.06593600714812128,
+      "weight": 0.06614799934461345,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-20T15:19:00.678940+00:00",
       "baseline": {
@@ -211,16 +212,16 @@
     },
     {
       "address": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
-      "score": 0.5280803917029515,
+      "score": 0.5246411191029515,
       "suitable": true,
       "reject_reason": null,
       "user_name": "yuhyuhyuhy352352",
       "pnl": 42287.696043799544,
-      "weight": 0.11865877280712026,
+      "weight": 0.11776476883938838,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-13T16:09:15.106687+00:00",
       "baseline": {
@@ -236,17 +237,17 @@
     },
     {
       "address": "0xc6e956068048c1cf98d8f0b3a495edc9da130741",
-      "score": 0.4655398968925847,
+      "score": 0.4781321044925847,
       "suitable": true,
       "reject_reason": null,
       "user_name": "luck00004",
       "pnl": 48706.2645618432,
-      "weight": 0.05230301458447302,
+      "weight": 0.05366250824614669,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T15:12:54.889000+00:00",
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-20T10:51:00.625998+00:00",
       "baseline": {
@@ -260,19 +261,46 @@
     }
   ],
   "allocation": {
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.21535658317567194,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.20136824686370003,
-    "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3": 0.07133701349067413,
-    "0x1465b79bff7992bc703e1aafb3683b1089647072": 0.07032503899526685,
-    "0x2974bd0059e48f215c391882976e0f1b4c8c9c23": 0.06883839392665865,
-    "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e": 0.06841725666466184,
-    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 0.06745967234365184,
-    "0xe1e105257812992f0b9aba92a17e33f36e89d250": 0.06593600714812128,
-    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.11865877280712026,
-    "0xc6e956068048c1cf98d8f0b3a495edc9da130741": 0.05230301458447302
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.21513516292628657,
+    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.20116120881182636,
+    "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3": 0.0713401780523826,
+    "0x1465b79bff7992bc703e1aafb3683b1089647072": 0.0702527338563073,
+    "0x2974bd0059e48f215c391882976e0f1b4c8c9c23": 0.06879821364897724,
+    "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e": 0.0683469130243163,
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 0.06739031324975497,
+    "0xe1e105257812992f0b9aba92a17e33f36e89d250": 0.06614799934461345,
+    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.11776476883938838,
+    "0xc6e956068048c1cf98d8f0b3a495edc9da130741": 0.05366250824614669
   },
   "dropped": [],
-  "warned": [],
+  "warned": [
+    {
+      "address": "0x2974bd0059e48f215c391882976e0f1b4c8c9c23",
+      "score": 0.6129910015840155,
+      "suitable": true,
+      "reject_reason": "drift_freq:2.71x",
+      "user_name": "65765757",
+      "pnl": 33965.10174241709,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-21T16:45:23.500349+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-20T10:51:00.625998+00:00",
+      "baseline": {
+        "top_domains": [
+          "what",
+          "israel",
+          "fifwc"
+        ],
+        "monthly_freq": 397.6,
+        "median_trade_notional": 820.5,
+        "n_trades": 100
+      }
+    }
+  ],
   "added": [],
   "exit_policy": {
     "strikes_required": 2,
