@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 671.0210123870387,
-  "realized_pnl_cum": -247.60755812555527,
+  "cash": 666.3069840199136,
+  "realized_pnl_cum": -249.87948234295897,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.246",
+  "would_halt_reason": "portfolio_dd:0.249",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.452,
+      "last_mark": 0.4545,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -57,7 +57,7 @@
       "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
       "domain": "what",
       "opened_at": "2026-07-20T16:50:11.244776+00:00",
-      "last_mark": 0.9095,
+      "last_mark": 0.9035,
       "mark_stale": false
     },
     "25928620188221693618999597472869281931056541375965574921600115299066712761243": {
@@ -70,7 +70,7 @@
       "condition_id": "0x329dffe45a6b68ee04b0c291632752c635bdde4dbcc6801c5852e004f1be5454",
       "domain": "atp",
       "opened_at": "2026-07-20T18:47:18.641660+00:00",
-      "last_mark": 0.615,
+      "last_mark": 0.635,
       "mark_stale": false
     },
     "102963946476301464155846348149714317918722387635971948099097519511899201326439": {
@@ -86,17 +86,17 @@
       "last_mark": 0.055,
       "mark_stale": false
     },
-    "30364115225363610712546179947830181059795546930392349186906642625496990563223": {
-      "token_id": "30364115225363610712546179947830181059795546930392349186906642625496990563223",
-      "size": 5.031947325368071,
-      "avg_price": 0.4515,
+    "93370144968193328417210788719834532153326702382429974989609461645985553552506": {
+      "token_id": "93370144968193328417210788719834532153326702382429974989609461645985553552506",
+      "size": 7.6094081793788355,
+      "avg_price": 0.6194999999999999,
       "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
-      "market": "atp-struff-shevche-2026-07-20",
-      "outcome": "Alexander Shevchenko",
-      "condition_id": "0x82d9d2bd41b548eebe1b4c8c66563101048efb81b0711c5b9b29e4556ac26368",
+      "market": "atp-djere-halys-2026-07-21",
+      "outcome": "Laslo Djere",
+      "condition_id": "0x7210e69067b1b6ae8275c454a2b0489a0e7bd6cff6203a69e4460635e1877590",
       "domain": "atp",
-      "opened_at": "2026-07-21T09:44:48.059826+00:00",
-      "last_mark": 0.0005,
+      "opened_at": "2026-07-21T13:01:37.318705+00:00",
+      "last_mark": 0.145,
       "mark_stale": false
     }
   },
@@ -201,9 +201,9 @@
       ]
     },
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": {
-      "ts": 1784620939.0,
+      "ts": 1784635111.0,
       "tx": [
-        "0xb0a3e8895aedabebda0230917ad0bcc973ee4a55ec8483f967e7a907bb89b17d"
+        "0xba235e624fcae13e0234e0b5097f2d869cb467a2d124c0c15c8f966439afc1df"
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
@@ -352,7 +352,7 @@
     "0xe549581668a5751c1972d3ad2d1991d900bd2d54": 8.287729059587244,
     "0xcd30f4698c6f5f3829893e68e183a8e5ea18f316": -11.795710846451039,
     "0xe1e105257812992f0b9aba92a17e33f36e89d250": -0.0014802864022131217,
-    "0x547f2917d51f2e63ab382dcf641d4e0240162937": -7.868545804872723
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": -10.140470022276407
   },
   "wallet_peak": {
     "0x9cb990f1862568a63d8601efeebe0304225c32f2": 0.0,
@@ -2317,7 +2317,35 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784635111.0,
+      "side": "BUY",
+      "market": "atp-djere-halys-2026-07-21",
+      "outcome": "Laslo Djere",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 7.6094,
+      "price": 0.6195,
+      "notional": 4.71,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784638897.318789,
+      "side": "SETTLE",
+      "market": "atp-struff-shevche-2026-07-20",
+      "outcome": "Alexander Shevchenko",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 5.0319,
+      "price": 0.0,
+      "notional": 0.0,
+      "slippage": 0.0,
+      "pnl": -2.2719,
+      "reason": "settle"
     }
   ],
-  "updated_at": "2026-07-21T11:31:38.766365+00:00"
+  "updated_at": "2026-07-21T13:01:40.999621+00:00"
 }
