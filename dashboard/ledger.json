@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 737.3584924251834,
+  "cash": 690.9574459997939,
   "realized_pnl_cum": -185.12889309136187,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.174",
+  "would_halt_reason": "portfolio_dd:0.176",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -31,7 +31,7 @@
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.5105,
+      "last_mark": 0.493,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -44,7 +44,7 @@
       "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
       "domain": "will",
       "opened_at": "2026-07-20T07:54:58.853246+00:00",
-      "last_mark": 0.705,
+      "last_mark": 0.725,
       "mark_stale": false
     },
     "7879725478536356917422362732460515493463084598262424681347350457402251864086": {
@@ -71,6 +71,32 @@
       "domain": "will",
       "opened_at": "2026-07-20T20:15:34.060197+00:00",
       "last_mark": 0.065,
+      "mark_stale": false
+    },
+    "79225257439054827724023990814163556130438638245461036331657064116062291919609": {
+      "token_id": "79225257439054827724023990814163556130438638245461036331657064116062291919609",
+      "size": 5.6771369000733385,
+      "avg_price": 0.9655338719250001,
+      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "market": "atp-etcheve-rodiono-2026-07-22",
+      "outcome": "Tomas Etcheverry",
+      "condition_id": "0x5260d3c17a13b470f0c3ceb77886c331fc556ce00ccd82d00c0affb24c583615",
+      "domain": "atp",
+      "opened_at": "2026-07-22T14:35:53.028042+00:00",
+      "last_mark": 0.9995,
+      "mark_stale": false
+    },
+    "54931292045499625415645290834943099399885244935891400197645595651925736268977": {
+      "token_id": "54931292045499625415645290834943099399885244935891400197645595651925736268977",
+      "size": 60.66765985767333,
+      "avg_price": 0.6744875037014919,
+      "source_wallet": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "market": "atp-borges-burruch-2026-07-22",
+      "outcome": "Roman Andres Burruchaga",
+      "condition_id": "0xc79334f3c99fba6006327d86850730be413dcb272e41206991597aba8492cb69",
+      "domain": "atp",
+      "opened_at": "2026-07-22T14:35:53.028088+00:00",
+      "last_mark": 0.665,
       "mark_stale": false
     }
   },
@@ -175,9 +201,9 @@
       ]
     },
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": {
-      "ts": 1784721628.0,
+      "ts": 1784729373.0,
       "tx": [
-        "0x7a63d94463859d4c96038c867b04d8ef7af5e5837c08c290b33e6116212bf201"
+        "0xd3d1652d7139742cf9f0e7fc1bbcd3a82d6846a4c6dd4dad13c1668edf0e151d"
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
@@ -308,9 +334,9 @@
       ]
     },
     "0x1465b79bff7992bc703e1aafb3683b1089647072": {
-      "ts": 1784682412.0,
+      "ts": 1784729434.0,
       "tx": [
-        "0x7ceb71a068e6ff57c01fc8a529b1f419066770161387202761c7050e70b65a47"
+        "0x24011ae871db1202d94cb1480f603b7eb2a381d7999587afad13d6f1cd4aded8"
       ]
     },
     "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3": {
@@ -2629,7 +2655,105 @@
       "slippage": 0.05,
       "pnl": 0.0,
       "reason": "copy_buy"
+    },
+    {
+      "ts": 1784728534.0,
+      "side": "BUY",
+      "market": "atp-etcheve-rodiono-2026-07-22",
+      "outcome": "Tomas Etcheverry",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 5.6771,
+      "price": 0.9655,
+      "notional": 5.48,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784729182.0,
+      "side": "BUY",
+      "market": "atp-borges-burruch-2026-07-22",
+      "outcome": "Roman Andres Burruchaga",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 13.1558,
+      "price": 0.6489,
+      "notional": 8.54,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784729197.0,
+      "side": "BUY",
+      "market": "atp-borges-burruch-2026-07-22",
+      "outcome": "Roman Andres Burruchaga",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 3.6795,
+      "price": 0.6504,
+      "notional": 2.39,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784729248.0,
+      "side": "BUY",
+      "market": "atp-borges-burruch-2026-07-22",
+      "outcome": "Roman Andres Burruchaga",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 6.8383,
+      "price": 0.6896,
+      "notional": 4.72,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784729266.0,
+      "side": "BUY",
+      "market": "atp-borges-burruch-2026-07-22",
+      "outcome": "Roman Andres Burruchaga",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 15.0949,
+      "price": 0.6802,
+      "notional": 10.27,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784729299.0,
+      "side": "BUY",
+      "market": "atp-borges-burruch-2026-07-22",
+      "outcome": "Roman Andres Burruchaga",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 11.6626,
+      "price": 0.6694,
+      "notional": 7.81,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
+    },
+    {
+      "ts": 1784729373.0,
+      "side": "BUY",
+      "market": "atp-borges-burruch-2026-07-22",
+      "outcome": "Roman Andres Burruchaga",
+      "domain": "atp",
+      "source": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "size": 10.2365,
+      "price": 0.7034,
+      "notional": 7.2,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-22T12:28:09.352025+00:00"
+  "updated_at": "2026-07-22T14:35:55.553078+00:00"
 }
