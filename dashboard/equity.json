@@ -2406,5 +2406,21 @@
     "positions_value": 164.1425,
     "n_open": 6,
     "realized_pnl_cum": -257.987
+  },
+  {
+    "ts": "2026-07-22T08:50:18.506772+00:00",
+    "equity": 825.3425,
+    "cash": 738.7138,
+    "positions_value": 86.6287,
+    "n_open": 5,
+    "realized_pnl_cum": -185.1289
+  },
+  {
+    "ts": "2026-07-22T08:50:20.732348+00:00",
+    "equity": 825.3425,
+    "cash": 738.7138,
+    "positions_value": 86.6287,
+    "n_open": 5,
+    "realized_pnl_cum": -185.1289
   }
 ]

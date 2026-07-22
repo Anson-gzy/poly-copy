@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-21T22:01:29.182714+00:00",
+  "updated_at": "2026-07-22T08:48:48.097057+00:00",
   "target_n": 10,
   "active_n": 10,
   "shortfall": 0,
@@ -11,11 +11,11 @@
       "reject_reason": null,
       "user_name": "ThisAgain",
       "pnl": 354268.00496653427,
-      "weight": 0.2134856690963427,
+      "weight": 0.22983202018076382,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-12T00:13:36.307614+00:00",
       "baseline": {
@@ -30,54 +30,29 @@
       }
     },
     {
-      "address": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "score": 0.89138063037573,
-      "suitable": true,
-      "reject_reason": "drift_domains:jaccard=0.20",
-      "user_name": "Themsnw",
-      "pnl": 338631.90096047294,
-      "weight": 0.1985516854715281,
-      "tags": [
-        "exit_warn",
-        "strikes:1/2"
-      ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
-      "exit_strikes": 1,
-      "added_at": "2026-07-12T21:28:48.353328+00:00",
-      "baseline": {
-        "top_domains": [
-          "fifwc",
-          "will",
-          "mlb"
-        ],
-        "monthly_freq": 509.01,
-        "median_trade_notional": 3276.54,
-        "n_trades": 100
-      }
-    },
-    {
-      "address": "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3",
-      "score": 0.6971378296166842,
+      "address": "0x4bff30af91642dc7d2b19a8664378fe55c45fc26",
+      "score": 0.743536325435807,
       "suitable": true,
       "reject_reason": null,
-      "user_name": "0x4d4F13a12D943faaBc0d154fb2D546f649A9E5f3-1782312742976",
-      "pnl": 124051.61257835271,
-      "weight": 0.07764241579829395,
+      "user_name": "Sassy-Bucket",
+      "pnl": 244945.28945938777,
+      "weight": 0.0891506241498478,
       "tags": [
-        "active",
+        "guide_pass",
+        "refilled",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
       "exit_strikes": 0,
-      "added_at": "2026-07-21T18:02:34.662638+00:00",
+      "added_at": "2026-07-22T08:48:48.097057+00:00",
       "baseline": {
         "top_domains": [
           "mlb",
-          "fifwc",
-          "atp"
+          "ufc",
+          "nba"
         ],
-        "monthly_freq": 125.29,
-        "median_trade_notional": 4055.25,
+        "monthly_freq": 929.23,
+        "median_trade_notional": 6768.72,
         "n_trades": 100
       }
     },
@@ -88,12 +63,11 @@
       "reject_reason": null,
       "user_name": "GoldenAlpha168",
       "pnl": 196707.60964339192,
-      "weight": 0.07079319548605605,
+      "weight": 0.1524274973817503,
       "tags": [
-        "active",
-        "quarantine"
+        "active"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-14T23:15:48.970505+00:00",
       "baseline": {
@@ -114,12 +88,12 @@
       "reject_reason": null,
       "user_name": "JnStTrdrBnusFnd",
       "pnl": 28016.417366085952,
-      "weight": 0.06971408899018482,
+      "weight": 0.07505201625709597,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-21T07:15:05.743411+00:00",
       "baseline": {
@@ -133,18 +107,42 @@
       }
     },
     {
+      "address": "0xc6e956068048c1cf98d8f0b3a495edc9da130741",
+      "score": 0.6231420586925847,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "luck00004",
+      "pnl": 48706.2645618432,
+      "weight": 0.07471525138183878,
+      "tags": [
+        "active",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-20T10:51:00.625998+00:00",
+      "baseline": {
+        "top_domains": [
+          "world"
+        ],
+        "monthly_freq": 647.08,
+        "median_trade_notional": 396.77,
+        "n_trades": 100
+      }
+    },
+    {
       "address": "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e",
       "score": 0.6089699201161464,
       "suitable": true,
       "reject_reason": null,
       "user_name": "78979879879879",
       "pnl": 22028.202450341727,
-      "weight": 0.0678228805519122,
+      "weight": 0.07301600017324844,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-20T10:51:00.625998+00:00",
       "baseline": {
@@ -159,44 +157,18 @@
       }
     },
     {
-      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
-      "score": 0.6004466311697901,
-      "suitable": true,
-      "reject_reason": null,
-      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
-      "pnl": 62703.683667300094,
-      "weight": 0.06687361526142314,
-      "tags": [
-        "active",
-        "quarantine"
-      ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-20T07:54:16.569243+00:00",
-      "baseline": {
-        "top_domains": [
-          "mlb",
-          "nba",
-          "atp"
-        ],
-        "monthly_freq": 715.08,
-        "median_trade_notional": 7662.46,
-        "n_trades": 100
-      }
-    },
-    {
       "address": "0xe1e105257812992f0b9aba92a17e33f36e89d250",
-      "score": 0.5893776338135517,
+      "score": 0.5817786555249183,
       "suitable": true,
       "reject_reason": null,
       "user_name": "loliti",
       "pnl": 19611.69349120314,
-      "weight": 0.06564082648036412,
+      "weight": 0.06975574492168315,
       "tags": [
         "active",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-20T15:19:00.678940+00:00",
       "baseline": {
@@ -212,16 +184,16 @@
     },
     {
       "address": "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0",
-      "score": 0.5254443397029516,
+      "score": 0.5368511945029516,
       "suitable": true,
       "reject_reason": null,
       "user_name": "yuhyuhyuhy352352",
       "pnl": 42287.696043799544,
-      "weight": 0.11704075196868423,
+      "weight": 0.1287378099179675,
       "tags": [
         "active"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
       "exit_strikes": 0,
       "added_at": "2026-07-13T16:09:15.106687+00:00",
       "baseline": {
@@ -236,58 +208,86 @@
       }
     },
     {
-      "address": "0xc6e956068048c1cf98d8f0b3a495edc9da130741",
-      "score": 0.4708036414925847,
+      "address": "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3",
+      "score": 0.49375321423206886,
       "suitable": true,
-      "reject_reason": null,
-      "user_name": "luck00004",
-      "pnl": 48706.2645618432,
-      "weight": 0.05243487089521063,
+      "reject_reason": "position_value_low:0",
+      "user_name": "0x4d4F13a12D943faaBc0d154fb2D546f649A9E5f3-1782312742976",
+      "pnl": 124051.61257835271,
+      "weight": 0.05920142126073268,
       "tags": [
-        "active",
+        "exit_warn",
+        "strikes:1/2",
         "quarantine"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
-      "exit_strikes": 0,
-      "added_at": "2026-07-20T10:51:00.625998+00:00",
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-21T18:02:34.662638+00:00",
       "baseline": {
         "top_domains": [
-          "world"
+          "mlb",
+          "fifwc",
+          "atp"
         ],
-        "monthly_freq": 647.08,
-        "median_trade_notional": 396.77,
+        "monthly_freq": 125.29,
+        "median_trade_notional": 4055.25,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "score": 0.4012617219941962,
+      "suitable": true,
+      "reject_reason": "position_value_low:0",
+      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
+      "pnl": 62703.683667300094,
+      "weight": 0.04811161437507162,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-20T07:54:16.569243+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "nba",
+          "atp"
+        ],
+        "monthly_freq": 715.08,
+        "median_trade_notional": 7662.46,
         "n_trades": 100
       }
     }
   ],
   "allocation": {
-    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.2134856690963427,
-    "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": 0.1985516854715281,
-    "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3": 0.07079319548605605,
-    "0x1465b79bff7992bc703e1aafb3683b1089647072": 0.06971408899018482,
-    "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e": 0.0678228805519122,
-    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 0.06687361526142314,
-    "0xe1e105257812992f0b9aba92a17e33f36e89d250": 0.06564082648036412,
-    "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3": 0.07764241579829395,
-    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.11704075196868423,
-    "0xc6e956068048c1cf98d8f0b3a495edc9da130741": 0.05243487089521063
+    "0x2cff41636fe21fad120fed603d54d4fdd96259db": 0.22983202018076382,
+    "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3": 0.05920142126073268,
+    "0x9ba8d25a054044bb66d0ca4e250a16dbfb64cdb3": 0.1524274973817503,
+    "0x1465b79bff7992bc703e1aafb3683b1089647072": 0.07505201625709597,
+    "0xeb490d0534bb68b4c2ce139b219a728cd2c3693e": 0.07301600017324844,
+    "0x547f2917d51f2e63ab382dcf641d4e0240162937": 0.04811161437507162,
+    "0xe1e105257812992f0b9aba92a17e33f36e89d250": 0.06975574492168315,
+    "0xbd0477e08d82d35a855ff19644a88a9213d8fbb0": 0.1287378099179675,
+    "0xc6e956068048c1cf98d8f0b3a495edc9da130741": 0.07471525138183878,
+    "0x4bff30af91642dc7d2b19a8664378fe55c45fc26": 0.0891506241498478
   },
-  "dropped": [],
-  "warned": [
+  "dropped": [
     {
       "address": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
-      "score": 0.89138063037573,
-      "suitable": true,
+      "score": 0.8858774857216419,
+      "suitable": false,
       "reject_reason": "drift_domains:jaccard=0.20",
       "user_name": "Themsnw",
       "pnl": 338631.90096047294,
       "weight": 0.0,
       "tags": [
-        "exit_warn",
-        "strikes:1/2"
+        "exited"
       ],
-      "checked_at": "2026-07-21T22:01:29.182714+00:00",
-      "exit_strikes": 1,
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
+      "exit_strikes": 2,
       "added_at": "2026-07-12T21:28:48.353328+00:00",
       "baseline": {
         "top_domains": [
@@ -301,7 +301,89 @@
       }
     }
   ],
-  "added": [],
+  "warned": [
+    {
+      "address": "0x4d4f13a12d943faabc0d154fb2d546f649a9e5f3",
+      "score": 0.49375321423206886,
+      "suitable": true,
+      "reject_reason": "position_value_low:0",
+      "user_name": "0x4d4F13a12D943faaBc0d154fb2D546f649A9E5f3-1782312742976",
+      "pnl": 124051.61257835271,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-21T18:02:34.662638+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "fifwc",
+          "atp"
+        ],
+        "monthly_freq": 125.29,
+        "median_trade_notional": 4055.25,
+        "n_trades": 100
+      }
+    },
+    {
+      "address": "0x547f2917d51f2e63ab382dcf641d4e0240162937",
+      "score": 0.4012617219941962,
+      "suitable": true,
+      "reject_reason": "position_value_low:0",
+      "user_name": "0x547f2917D51F2e63ab382DCF641d4E0240162937-1782667852436",
+      "pnl": 62703.683667300094,
+      "weight": 0.0,
+      "tags": [
+        "exit_warn",
+        "strikes:1/2"
+      ],
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
+      "exit_strikes": 1,
+      "added_at": "2026-07-20T07:54:16.569243+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "nba",
+          "atp"
+        ],
+        "monthly_freq": 715.08,
+        "median_trade_notional": 7662.46,
+        "n_trades": 100
+      }
+    }
+  ],
+  "added": [
+    {
+      "address": "0x4bff30af91642dc7d2b19a8664378fe55c45fc26",
+      "score": 0.743536325435807,
+      "suitable": true,
+      "reject_reason": null,
+      "user_name": "Sassy-Bucket",
+      "pnl": 244945.28945938777,
+      "weight": 0.0891506241498478,
+      "tags": [
+        "guide_pass",
+        "refilled",
+        "quarantine"
+      ],
+      "checked_at": "2026-07-22T08:48:48.097057+00:00",
+      "exit_strikes": 0,
+      "added_at": "2026-07-22T08:48:48.097057+00:00",
+      "baseline": {
+        "top_domains": [
+          "mlb",
+          "ufc",
+          "nba"
+        ],
+        "monthly_freq": 929.23,
+        "median_trade_notional": 6768.72,
+        "n_trades": 100
+      }
+    }
+  ],
   "exit_policy": {
     "strikes_required": 2,
     "screen": "exit_screen",
