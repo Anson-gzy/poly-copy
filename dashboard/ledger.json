@@ -1,11 +1,11 @@
 {
   "initial_capital": 1000.0,
-  "cash": 738.7137639262829,
+  "cash": 737.3584924251834,
   "realized_pnl_cum": -185.12889309136187,
   "halted": false,
   "halt_reason": "",
   "would_halt": true,
-  "would_halt_reason": "portfolio_dd:0.175",
+  "would_halt_reason": "portfolio_dd:0.174",
   "high_water": 1000.0,
   "positions": {
     "113410960838036610177054042201506207817797370827970598802492258356512540837137": {
@@ -18,20 +18,20 @@
       "condition_id": "0x58180f4a69651f67c23ac92845721b2320cc0c76effeb5e79db5288d8d8e6b28",
       "domain": "us",
       "opened_at": "2026-07-18T06:18:10.120048+00:00",
-      "last_mark": 0.075,
+      "last_mark": 0.085,
       "mark_stale": false
     },
     "62429084067171308316390058541012087925567325563248051217584518806867987132248": {
       "token_id": "62429084067171308316390058541012087925567325563248051217584518806867987132248",
-      "size": 129.64835419671658,
-      "avg_price": 0.3967142300985983,
+      "size": 132.64438119646502,
+      "avg_price": 0.3979710112380333,
       "source_wallet": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
       "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
       "outcome": "Yes",
       "condition_id": "0x0ff22cf1f7f86a8f6a1f46ebff9afc02d2f2f8be82ed1655a079fd2f8b8d450e",
       "domain": "nba",
       "opened_at": "2026-07-18T06:18:10.120111+00:00",
-      "last_mark": 0.507,
+      "last_mark": 0.5105,
       "mark_stale": false
     },
     "1910830010387565971650098373488592514702818137344973088263643820608151819241": {
@@ -57,7 +57,7 @@
       "condition_id": "0x21c77725363b6717538157cf5ce5cf9c69571120870d6def4233257566e07db4",
       "domain": "what",
       "opened_at": "2026-07-20T16:50:11.244776+00:00",
-      "last_mark": 0.857,
+      "last_mark": 0.8235,
       "mark_stale": false
     },
     "102963946476301464155846348149714317918722387635971948099097519511899201326439": {
@@ -175,15 +175,15 @@
       ]
     },
     "0x547f2917d51f2e63ab382dcf641d4e0240162937": {
-      "ts": 1784641516.0,
+      "ts": 1784721628.0,
       "tx": [
-        "0x7bea3b27daf44d050c285cdc6ecc4662b7bd64452c568fcfbba4ec4fdc179fde"
+        "0x7a63d94463859d4c96038c867b04d8ef7af5e5837c08c290b33e6116212bf201"
       ]
     },
     "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01": {
-      "ts": 1784670927.0,
+      "ts": 1784691129.0,
       "tx": [
-        "0xe1c00c1e4bff48c07a4d5966ad8f9746be3b9bb519a67701c76b40ea4d7ab5e6"
+        "0x24d6c1b7780c9971e8f7bd2b5d065bef47d4c08410e7d943675d030853fbce4f"
       ]
     },
     "0x70dc005e4abe3a4f66d80686372535219fe11dfd": {
@@ -2615,7 +2615,21 @@
       "slippage": 0.0,
       "pnl": 72.8581,
       "reason": "settle"
+    },
+    {
+      "ts": 1784685640.0,
+      "side": "BUY",
+      "market": "will-lebron-james-play-for-the-miami-heat-in-2026-27",
+      "outcome": "Yes",
+      "domain": "nba",
+      "source": "0x69c5c6f6a4dda665991c203bc8d5df3e006b1e01",
+      "size": 2.996,
+      "price": 0.4524,
+      "notional": 1.36,
+      "slippage": 0.05,
+      "pnl": 0.0,
+      "reason": "copy_buy"
     }
   ],
-  "updated_at": "2026-07-22T08:50:20.734620+00:00"
+  "updated_at": "2026-07-22T12:28:09.352025+00:00"
 }
